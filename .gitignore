@@ -1,0 +1,6 @@
+/target/
+/models/
+/bin/
+/research-cache/
+.env
+openjev-response*.json

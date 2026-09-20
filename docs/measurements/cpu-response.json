@@ -1,0 +1,38 @@
+{
+  "model": "local-laya/laya",
+  "answers": {
+    "department": {
+      "type": "choice",
+      "choice": "billing",
+      "probabilities": {
+        "billing": 0.9778477054840266,
+        "other": 0.012309213479219882,
+        "technical": 0.009843081036753644
+      },
+      "confidence": 0.8893891224460125
+    },
+    "refund": {
+      "type": "noul",
+      "noul": 0.8635932900261374
+    },
+    "urgency": {
+      "type": "score",
+      "score": 1.9171594197006308,
+      "legend": {
+        "0": "Can wait",
+        "1": "This week",
+        "2": "Today"
+      },
+      "probabilities": {
+        "0": 0.014570829773178418,
+        "1": 0.05369892075301216,
+        "2": 0.9317302494738093
+      },
+      "confidence": 0.7410044315589164
+    }
+  },
+  "usage": {
+    "input_tokens": 150,
+    "output_tokens": 0
+  }
+}

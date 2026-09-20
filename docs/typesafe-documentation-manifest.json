@@ -1,0 +1,656 @@
+[
+  {
+    "bytes": 4317,
+    "file": "introduction.md",
+    "sha256": "73eb533b5397d508e1cf606c88d5111f0e70bb8dd1d4841c45502c50d520e072",
+    "url": "https://docs.typesafe.ai/introduction.md"
+  },
+  {
+    "bytes": 43992,
+    "file": "primitives__score.md",
+    "sha256": "5afe0db1d2d108c3bf35f73f5fddbfcd2b9ade2d3c6f553af8a02b2bfd005ae9",
+    "url": "https://docs.typesafe.ai/primitives/score.md"
+  },
+  {
+    "bytes": 26794,
+    "file": "primitives__choice.md",
+    "sha256": "4c55085131f8f2d7ae1faefdec52b1c7b379d40657d701cd2c786021cfe9dac9",
+    "url": "https://docs.typesafe.ai/primitives/choice.md"
+  },
+  {
+    "bytes": 27363,
+    "file": "primitives__noul.md",
+    "sha256": "aa7bff0d04bd42614e0e851a9ad4917ccc6287c882bc5dece7689b085ef789e6",
+    "url": "https://docs.typesafe.ai/primitives/noul.md"
+  },
+  {
+    "bytes": 7053,
+    "file": "introduction__quickstart.md",
+    "sha256": "c30183944985b269c49939140272f9eec885895df346f19d76cf9b04e18073d2",
+    "url": "https://docs.typesafe.ai/introduction/quickstart.md"
+  },
+  {
+    "bytes": 3874,
+    "file": "concepts__state.md",
+    "sha256": "6871d59470c6af330b10be302a7382ab4c175ee8994886ad48df2fe6bb315462",
+    "url": "https://docs.typesafe.ai/concepts/state.md"
+  },
+  {
+    "bytes": 4061,
+    "file": "concepts__system-one.md",
+    "sha256": "e072211498bc1b6ed22d14aae2c2716903f4a8112e908cc45c35af65d3b84895",
+    "url": "https://docs.typesafe.ai/concepts/system-one.md"
+  },
+  {
+    "bytes": 24810,
+    "file": "primitives.md",
+    "sha256": "130d9136a2f01497e72920a6e8d96073056d86d838ca13b8a505e4adb87651f6",
+    "url": "https://docs.typesafe.ai/primitives.md"
+  },
+  {
+    "bytes": 19060,
+    "file": "primitives__advanced.md",
+    "sha256": "73eeedee0c3ff68e5964c914ba006e4f59522fa8222e43bd960418febd13ea7f",
+    "url": "https://docs.typesafe.ai/primitives/advanced.md"
+  },
+  {
+    "bytes": 6580,
+    "file": "introduction__machine-learning-primer.md",
+    "sha256": "45e6a22bc175f2ce1c404271dd26559179a6f6a83bde2dfcdbd963dbc1649551",
+    "url": "https://docs.typesafe.ai/introduction/machine-learning-primer.md"
+  },
+  {
+    "bytes": 11707,
+    "file": "concepts__use-case-map.md",
+    "sha256": "9d193b6379d17a3ac2f236eda9f15136e32b360e78a66bef03ce59605edfac2d",
+    "url": "https://docs.typesafe.ai/concepts/use-case-map.md"
+  },
+  {
+    "bytes": 11396,
+    "file": "confidence.md",
+    "sha256": "97dafe98b77979906a2ad456013dd85a70dcecd109d0644b096817d910997ea5",
+    "url": "https://docs.typesafe.ai/confidence.md"
+  },
+  {
+    "bytes": 40921,
+    "file": "concepts__how-to-build-with-system-one.md",
+    "sha256": "d9f4d34c1349bf5acb55c99d6a1651eacfc481ad8d1f78ccb8776769da729a49",
+    "url": "https://docs.typesafe.ai/concepts/how-to-build-with-system-one.md"
+  },
+  {
+    "bytes": 2020,
+    "file": "patterns.md",
+    "sha256": "3c810e35f9587e0432c0fae4448961e54233ecbe51a4ba091721d55a0e5bc107",
+    "url": "https://docs.typesafe.ai/patterns.md"
+  },
+  {
+    "bytes": 13967,
+    "file": "patterns__fan-out.md",
+    "sha256": "8d7a251ea6b735cb4994c1e0a95166cc0b3febce7d18189c3aa5e1673f182c91",
+    "url": "https://docs.typesafe.ai/patterns/fan-out.md"
+  },
+  {
+    "bytes": 12168,
+    "file": "patterns__confidence-routing.md",
+    "sha256": "7a4de8d39a24c5d6b7e74b1b170fbbe101ca69419af39bac6da4e0c1f678b7bf",
+    "url": "https://docs.typesafe.ai/patterns/confidence-routing.md"
+  },
+  {
+    "bytes": 13444,
+    "file": "patterns__intent-routing.md",
+    "sha256": "84b670d502b3f41165a901495688dc7bd586ff3082854f5432a7a4962d697cfb",
+    "url": "https://docs.typesafe.ai/patterns/intent-routing.md"
+  },
+  {
+    "bytes": 13545,
+    "file": "patterns__composite-scoring.md",
+    "sha256": "538f42d614fbf29cbfa0aa9fee1859651083a0b67c4b31a21d2710f3fe84d9f5",
+    "url": "https://docs.typesafe.ai/patterns/composite-scoring.md"
+  },
+  {
+    "bytes": 588,
+    "file": "demos.md",
+    "sha256": "df111cec8c2653209cb7c44f20bc7359619a3807bb16b60870ab2190fb47359b",
+    "url": "https://docs.typesafe.ai/demos.md"
+  },
+  {
+    "bytes": 823,
+    "file": "sdk.md",
+    "sha256": "bbd9d2eaad4c605150fcead2dcb1fdb8415a10f6e5481186e185e7e8d4826a97",
+    "url": "https://docs.typesafe.ai/sdk.md"
+  },
+  {
+    "bytes": 7999,
+    "file": "sdk__python__usage.md",
+    "sha256": "91d607682c2053106c80cff469e595b3db95d0ed4840fb1dd6e00c5b21fca223",
+    "url": "https://docs.typesafe.ai/sdk/python/usage.md"
+  },
+  {
+    "bytes": 3324,
+    "file": "sdk__python.md",
+    "sha256": "40d5c6a5fb9b6a8f68ec9f14343837bc0ea5a7fe09a3bfb9a07f52418e41f1a3",
+    "url": "https://docs.typesafe.ai/sdk/python.md"
+  },
+  {
+    "bytes": 3825,
+    "file": "demos__smart-home.md",
+    "sha256": "155c0af9a4ae31d2e283ee77147bc3a0bbaba45e15568a2382c29cc75f0adde4",
+    "url": "https://docs.typesafe.ai/demos/smart-home.md"
+  },
+  {
+    "bytes": 1565,
+    "file": "sdk__python__changelog.md",
+    "sha256": "c49eb12a55807efbbde7dc1779efd555a34d91cd70bde070242ce9f2371094e1",
+    "url": "https://docs.typesafe.ai/sdk/python/changelog.md"
+  },
+  {
+    "bytes": 31811,
+    "file": "sdk__python__api__clients__sync.md",
+    "sha256": "0500d03ae0cce485f053849c71b5eee06c403a454b6bff2562365fa14422a395",
+    "url": "https://docs.typesafe.ai/sdk/python/api/clients/sync.md"
+  },
+  {
+    "bytes": 32419,
+    "file": "sdk__python__api__clients__async.md",
+    "sha256": "da93c4bec87fd1a04513a4ecd0a92b4120267d633f3b1430b61cd3d07b0ee596",
+    "url": "https://docs.typesafe.ai/sdk/python/api/clients/async.md"
+  },
+  {
+    "bytes": 30016,
+    "file": "sdk__python__api__types__questions.md",
+    "sha256": "cbad949affff140bc00a090b37748c52f1239ec0e98f308012eceb562fdaaa0a",
+    "url": "https://docs.typesafe.ai/sdk/python/api/types/questions.md"
+  },
+  {
+    "bytes": 38625,
+    "file": "sdk__python__api__types__responses.md",
+    "sha256": "7b0167d010dc165b6584939a550c8ec35d31c003f0e8095638a46a037b6f6f8a",
+    "url": "https://docs.typesafe.ai/sdk/python/api/types/responses.md"
+  },
+  {
+    "bytes": 623,
+    "file": "sdk__python__api.md",
+    "sha256": "fd58d0024e6269c295ed83e0397c0e19477d0f7a8b2b666dde496a1c6524bcaa",
+    "url": "https://docs.typesafe.ai/sdk/python/api.md"
+  },
+  {
+    "bytes": 15732,
+    "file": "sdk__python__api__retries.md",
+    "sha256": "bdf94b25ae1d23a0784c9e1affcf0363e80deb56089a0e48d3e3860bb5181cc9",
+    "url": "https://docs.typesafe.ai/sdk/python/api/retries.md"
+  },
+  {
+    "bytes": 2942,
+    "file": "sdk__python__api__types__common.md",
+    "sha256": "bda3f01322aa1a0fdff3d5603278330dc3396fc377eabd21eb4336cce365c241",
+    "url": "https://docs.typesafe.ai/sdk/python/api/types/common.md"
+  },
+  {
+    "bytes": 1782,
+    "file": "sdk__python__api__constants.md",
+    "sha256": "dfcd6bfd691412058b2ea06c9a44414f5126e4aea06d7bf7071600f42a9b5003",
+    "url": "https://docs.typesafe.ai/sdk/python/api/constants.md"
+  },
+  {
+    "bytes": 1302,
+    "file": "sdk__javascript.md",
+    "sha256": "25ba04f5b55819bee85e21d9184b7b8c807a81e95754baef4b05157240a2e1bb",
+    "url": "https://docs.typesafe.ai/sdk/javascript.md"
+  },
+  {
+    "bytes": 3327,
+    "file": "sdk__javascript__api.md",
+    "sha256": "e8abd954c9eb20d338d07cb3397bd933f3fe5633237b9ff7bd73c6dd290e51c8",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api.md"
+  },
+  {
+    "bytes": 888,
+    "file": "sdk__javascript__api__classes__APIConnectionError.md",
+    "sha256": "a20405bd5c86d947fd7cfea9d04afc79c03a7634382911ba82038b88c43c7ecd",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/classes/APIConnectionError.md"
+  },
+  {
+    "bytes": 3573,
+    "file": "sdk__javascript__api__classes__APIPromise.md",
+    "sha256": "0d00c57977f2777183bc2dcf7019f4293a89dd2e76fe3706b3b3db80a069ceb3",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/classes/APIPromise.md"
+  },
+  {
+    "bytes": 2190,
+    "file": "sdk__javascript__api__classes__APIError.md",
+    "sha256": "99fdf20f20bd67faf0b1fecb915079b2e87dbf9e12fb19c22e4dc0ff8a887b7a",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/classes/APIError.md"
+  },
+  {
+    "bytes": 508,
+    "file": "sdk__javascript__changelog.md",
+    "sha256": "73389d4c01993603a0c943aa04d491ef92670a358e413e74a5aac4891661250d",
+    "url": "https://docs.typesafe.ai/sdk/javascript/changelog.md"
+  },
+  {
+    "bytes": 7059,
+    "file": "sdk__python__api__exceptions.md",
+    "sha256": "c1cec8b4f1e4c8d258f18a40acf8736e34be3c6b0bd0915189d2542624447fad",
+    "url": "https://docs.typesafe.ai/sdk/python/api/exceptions.md"
+  },
+  {
+    "bytes": 943,
+    "file": "sdk__javascript__api__classes__APITimeoutError.md",
+    "sha256": "c0bdf6e807b322d559704b16e4fd1d0379c3decc63c98471dbd8374cc5f5468c",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/classes/APITimeoutError.md"
+  },
+  {
+    "bytes": 780,
+    "file": "sdk__javascript__api__classes__APIUserAbortError.md",
+    "sha256": "f7db36a7ca8eab94e01e8a452ef23f183245770f0915ea64dd7ea17484fe5d88",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/classes/APIUserAbortError.md"
+  },
+  {
+    "bytes": 2383,
+    "file": "sdk__javascript__api__classes__BadRequestError.md",
+    "sha256": "ac95c8e0d1ca8ad1a9e61947374439047fd6fc5595369b8c8b9aa02a9323f979",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/classes/BadRequestError.md"
+  },
+  {
+    "bytes": 2398,
+    "file": "sdk__javascript__api__classes__AuthenticationError.md",
+    "sha256": "8420db7d6a927cc0ed598d80b509a04d7e2fcdc78ebb8fe23e4c3113de81fc7d",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/classes/AuthenticationError.md"
+  },
+  {
+    "bytes": 2416,
+    "file": "sdk__javascript__api__classes__InternalServerError.md",
+    "sha256": "e878d63c8d1970545d9376dd9ce0ab92110af0009dc3a802d235c153d381b986",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/classes/InternalServerError.md"
+  },
+  {
+    "bytes": 2379,
+    "file": "sdk__javascript__api__classes__NotFoundError.md",
+    "sha256": "29ee86c3e039c786e07484580663a963a4a5c87418079ee1743899f647174a00",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/classes/NotFoundError.md"
+  },
+  {
+    "bytes": 2401,
+    "file": "sdk__javascript__api__classes__PermissionDeniedError.md",
+    "sha256": "1d5c7a29683e93133df42ce6b937d19e8344c5b45a9133a966039a164b5bc3cf",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/classes/PermissionDeniedError.md"
+  },
+  {
+    "bytes": 769,
+    "file": "sdk__javascript__api__classes__TypeSafeError.md",
+    "sha256": "a1eb2d99ba005a680324f062842dfeef9a6bf7267508521eee2b87c3cfe12556",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/classes/TypeSafeError.md"
+  },
+  {
+    "bytes": 2579,
+    "file": "sdk__javascript__api__classes__RateLimitError.md",
+    "sha256": "4e552a0610a26794cb68ac08e17ab6402534004e825b73e177408ecd854efdf0",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/classes/RateLimitError.md"
+  },
+  {
+    "bytes": 3375,
+    "file": "sdk__javascript__api__classes__TypeSafeClient.md",
+    "sha256": "3831ede08860c95daa182c33a5c3dc698f92d30990df88f7d6af764d989d2347",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/classes/TypeSafeClient.md"
+  },
+  {
+    "bytes": 2422,
+    "file": "sdk__javascript__api__classes__UnprocessableEntityError.md",
+    "sha256": "4620ac84c0bef57460dacf4b85b42ac3b3597a9b059bd13ff5cf644db27af366",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/classes/UnprocessableEntityError.md"
+  },
+  {
+    "bytes": 982,
+    "file": "sdk__javascript__api__interfaces__ChoiceResponse.md",
+    "sha256": "4325f9f44b85549c68ea4fff2e79d8c24dbd6a44103589a8752ab40003885d06",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/interfaces/ChoiceResponse.md"
+  },
+  {
+    "bytes": 834,
+    "file": "sdk__javascript__api__interfaces__ChoiceQuestion.md",
+    "sha256": "3eeef7d78386649011c5d4f1c792976a546f77e4904ff824d488b2634af567da",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/interfaces/ChoiceQuestion.md"
+  },
+  {
+    "bytes": 1035,
+    "file": "sdk__javascript__api__interfaces__Logger.md",
+    "sha256": "9ebf6cdbafffbece6faf32e249747c48eec372785fc14ccf74a1c7ab6ebe32b7",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/interfaces/Logger.md"
+  },
+  {
+    "bytes": 541,
+    "file": "sdk__javascript__api__interfaces__ModelCard.md",
+    "sha256": "4427f8c944169d2bb3ed64ea08894b6a138d9b5bb7fa0e20db56e142320461bb",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/interfaces/ModelCard.md"
+  },
+  {
+    "bytes": 1055,
+    "file": "sdk__javascript__api__interfaces__NoulQuestion.md",
+    "sha256": "0968d15de4642b9f18f6a2902081067f2404127c5f2ccacb14ef14d99d46ea96",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/interfaces/NoulQuestion.md"
+  },
+  {
+    "bytes": 447,
+    "file": "sdk__javascript__api__interfaces__NoulResponse.md",
+    "sha256": "6227fefaed88bd826c07d8183f752990c9af6b5b52468dda49335fc6a99eb1bf",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/interfaces/NoulResponse.md"
+  },
+  {
+    "bytes": 327,
+    "file": "sdk__javascript__api__interfaces__Questions.md",
+    "sha256": "35a610a7c3f857d320fdc7db8f53415434b60948ff3013d8d69a331611c4c48a",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/interfaces/Questions.md"
+  },
+  {
+    "bytes": 626,
+    "file": "sdk__javascript__api__interfaces__Models.md",
+    "sha256": "335e3d5c1d3fb2c048d81dfc6c4aeaf93365bfa78f8ee281c74224729e9d63e1",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/interfaces/Models.md"
+  },
+  {
+    "bytes": 919,
+    "file": "sdk__javascript__api__interfaces__RequestOptions.md",
+    "sha256": "81fae66c86b0b25f88536144d656f3f8ecf20588658a24b488514d22091d67ee",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/interfaces/RequestOptions.md"
+  },
+  {
+    "bytes": 1139,
+    "file": "sdk__javascript__api__interfaces__ScoreResponse.md",
+    "sha256": "f9f1d1f6da5db8d8a32512e07839973d05a19e5742fa0d943754ec9e1897d3ff",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/interfaces/ScoreResponse.md"
+  },
+  {
+    "bytes": 833,
+    "file": "sdk__javascript__api__interfaces__ScoreQuestion.md",
+    "sha256": "cf3a67c335854ba7aea0564f1fc6dcfaa91ea70831bf7c42444c1986eda934db",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/interfaces/ScoreQuestion.md"
+  },
+  {
+    "bytes": 1043,
+    "file": "sdk__javascript__api__interfaces__SystemOneRequest.md",
+    "sha256": "a9cc654ab780c1b63390cec607ba42fc91625545e70410ae348bfecd2ed447e5",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/interfaces/SystemOneRequest.md"
+  },
+  {
+    "bytes": 2201,
+    "file": "sdk__javascript__api__interfaces__TypeSafeClientConfig.md",
+    "sha256": "5780a70b4f0bc12433b1cebc8810e22ad6c5298fcec7fb77163770af483a1f69",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/interfaces/TypeSafeClientConfig.md"
+  },
+  {
+    "bytes": 1292,
+    "file": "sdk__javascript__api__interfaces__SystemOneRequestPayload.md",
+    "sha256": "97088e861eac6197f5c9d0f242191070d65e0d45a0c6e05d70e5df6b982fb74e",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/interfaces/SystemOneRequestPayload.md"
+  },
+  {
+    "bytes": 828,
+    "file": "sdk__javascript__api__interfaces__SystemOneResult.md",
+    "sha256": "7cb2e4e7a724cd7841310f2e119e55a8ca9b55b9c94191ad36c76713cee08ced",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/interfaces/SystemOneResult.md"
+  },
+  {
+    "bytes": 516,
+    "file": "sdk__javascript__api__interfaces__Usage.md",
+    "sha256": "89166ea2f5f82c1265440869fb7ed753ff5980122ecf6ff847588fb64ec3cb0a",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/interfaces/Usage.md"
+  },
+  {
+    "bytes": 712,
+    "file": "sdk__javascript__api__interfaces__WithResponse.md",
+    "sha256": "ad47903342ef004b6b29e2f8112e0217ba26439bcb40cfbbc09bb6f65f3bb782",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/interfaces/WithResponse.md"
+  },
+  {
+    "bytes": 2033,
+    "file": "sdk__javascript__api__interfaces__RetryPolicy.md",
+    "sha256": "ecaf1ae900811fdb14829e188bb398347d1d8b549d01d24953eab1eabef5eddb",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/interfaces/RetryPolicy.md"
+  },
+  {
+    "bytes": 399,
+    "file": "sdk__javascript__api__type-aliases__ChoiceCriteria.md",
+    "sha256": "095bfad4b4840048f5fe7e8e9b65059a7f98c2472f331bd2bc8f2d8f27653d50",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/type-aliases/ChoiceCriteria.md"
+  },
+  {
+    "bytes": 322,
+    "file": "sdk__javascript__api__type-aliases__Description.md",
+    "sha256": "4891a677386abdb276a91f0be7a9d96c5168798f13daf56eeb4cd256c88dc318",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/type-aliases/Description.md"
+  },
+  {
+    "bytes": 268,
+    "file": "sdk__javascript__api__type-aliases__EnvVar.md",
+    "sha256": "d10173bb6e14432a2b4c8563c534768aafe3bed9f987433ff0f4804b0aff3916",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/type-aliases/EnvVar.md"
+  },
+  {
+    "bytes": 396,
+    "file": "sdk__javascript__api__type-aliases__EntryType.md",
+    "sha256": "25eddb598adc30e458b2a88df4b28d6ac7833c523e07b9e51fe485a99aa20f0b",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/type-aliases/EntryType.md"
+  },
+  {
+    "bytes": 365,
+    "file": "sdk__javascript__api__type-aliases__JsonValue.md",
+    "sha256": "10f9f35278cc9c8059f45e13c9e16581ecdc848db015eaae46e4593975c6e030",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/type-aliases/JsonValue.md"
+  },
+  {
+    "bytes": 434,
+    "file": "sdk__javascript__api__type-aliases__Fetch.md",
+    "sha256": "17e01b94c2f9794a9a4c6b732b0172a9ab9bc7188b9ed306528ddc742c2c8f5d",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/type-aliases/Fetch.md"
+  },
+  {
+    "bytes": 327,
+    "file": "sdk__javascript__api__type-aliases__LogLevel.md",
+    "sha256": "dba7f4b1a63b6f7f2da62013ffefc152660867c508d2cb580de8c6983b5efe11",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/type-aliases/LogLevel.md"
+  },
+  {
+    "bytes": 342,
+    "file": "sdk__javascript__api__type-aliases__Question.md",
+    "sha256": "f58601370daa9df78ea740d7bdd970c79e73d929b0c6c20cf6de0ae2f9ca5f20",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/type-aliases/Question.md"
+  },
+  {
+    "bytes": 568,
+    "file": "sdk__javascript__api__type-aliases__ResultFor.md",
+    "sha256": "e5575bb40e49aadc08996e758ba55c1d4399a4c99a0332eee82a6a2a03121573",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/type-aliases/ResultFor.md"
+  },
+  {
+    "bytes": 445,
+    "file": "sdk__javascript__api__type-aliases__ScoreLegend.md",
+    "sha256": "4ee7b3f292648e093a9eb3946e3a6924ff44e8fba8161faab040c02adfaadaf5",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/type-aliases/ScoreLegend.md"
+  },
+  {
+    "bytes": 522,
+    "file": "sdk__javascript__api__type-aliases__ScoreOf.md",
+    "sha256": "257c8140349b19766082e0bb91550090660265ea932d9ee2887156af8ef61434",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/type-aliases/ScoreOf.md"
+  },
+  {
+    "bytes": 391,
+    "file": "sdk__javascript__api__type-aliases__ScoreCriteria.md",
+    "sha256": "6f01554f2569f2c9d71acbf548dfa7d6e2c439886d13921cdee5584e09eff21e",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/type-aliases/ScoreCriteria.md"
+  },
+  {
+    "bytes": 1039,
+    "file": "sdk__javascript__api__variables__ENV.md",
+    "sha256": "52a78017fdd446b976eb37589e3ece060228055cbd78f9a5f0568ed69146781f",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/variables/ENV.md"
+  },
+  {
+    "bytes": 316,
+    "file": "sdk__javascript__api__variables__LOG_LEVELS.md",
+    "sha256": "0d5646a6c2fd3ef63b0037f2d43a159ff588841298ff15808adc51d10e5a8fa7",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/variables/LOG_LEVELS.md"
+  },
+  {
+    "bytes": 777,
+    "file": "sdk__javascript__api__functions__choice.md",
+    "sha256": "971e2ac7f5ef762fac9afb4aa481350296938872cb886cf198162018b36f30a8",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/functions/choice.md"
+  },
+  {
+    "bytes": 257,
+    "file": "sdk__javascript__api__variables__VERSION.md",
+    "sha256": "de1e098300ddc35807ac8152b31ca2674a9f9f52a17e3595670a2758cd5c2e1b",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/variables/VERSION.md"
+  },
+  {
+    "bytes": 772,
+    "file": "sdk__javascript__api__functions__score.md",
+    "sha256": "2f7bd6acff7da9a8fa6e88a8f9cc0b9b7040df039f6d5072a3187729ff155783",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/functions/score.md"
+  },
+  {
+    "bytes": 5798,
+    "file": "agent-skill.md",
+    "sha256": "5ed8f74a133760523a67674f0feaac6ac88d9f1d242574ce3c9c4965f6e037c4",
+    "url": "https://docs.typesafe.ai/agent-skill.md"
+  },
+  {
+    "bytes": 7245,
+    "file": "models.md",
+    "sha256": "9d20bb3c90a0147532d0b20ddc4c64579391be7842e965543b27bad684eeb4d6",
+    "url": "https://docs.typesafe.ai/models.md"
+  },
+  {
+    "bytes": 11772,
+    "file": "api.md",
+    "sha256": "7ea1c82d9d16bd06e3d38885a5292548293f91e6d1ade4682c27398ced51a9e5",
+    "url": "https://docs.typesafe.ai/api.md"
+  },
+  {
+    "bytes": 1252,
+    "file": "sdk__javascript__api__functions__noul.md",
+    "sha256": "496c8ffa64162d5fdf4aca671f7f363672ffb25de8f666b28753810b7820e1bd",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/functions/noul.md"
+  },
+  {
+    "bytes": 1059,
+    "file": "legal.md",
+    "sha256": "4141ec2e7efad5a2965e56273216300ee3ece1e8d85024f0d0692efa08afcf5c",
+    "url": "https://docs.typesafe.ai/legal.md"
+  },
+  {
+    "bytes": 11588,
+    "file": "model-jaggedness__jev-1.13.md",
+    "sha256": "e69329bd32e91ac08f0bd2681ceb4aacc34923b9190e29c15c8f75d8e22950e2",
+    "url": "https://docs.typesafe.ai/model-jaggedness/jev-1.13.md"
+  },
+  {
+    "bytes": 32442,
+    "file": "cookbooks__consistency_noul_cookbook.md",
+    "sha256": "fb141c4937d9c65a6a35aa5650b5137b4f7ef4a562ee814591da41730a751047",
+    "url": "https://docs.typesafe.ai/cookbooks/consistency_noul_cookbook.md"
+  },
+  {
+    "bytes": 26143,
+    "file": "cookbooks__rerank_typesafe.md",
+    "sha256": "85b8158a7cc00bef100bf07aa00a506e117e2979d38c3650b50e122c8e69f1df",
+    "url": "https://docs.typesafe.ai/cookbooks/rerank_typesafe.md"
+  },
+  {
+    "bytes": 49954,
+    "file": "cookbooks__consistency_choice_cookbook.md",
+    "sha256": "381b3840c94e9e232cefef2dbe941254a90b6a1cf56c8b8c7e333b9f12e9b583",
+    "url": "https://docs.typesafe.ai/cookbooks/consistency_choice_cookbook.md"
+  },
+  {
+    "bytes": 37898,
+    "file": "cookbooks__semantic_find.md",
+    "sha256": "1fad271a5cf1be3671a153c1ea5e9777974a71e1187f6466d56617ac30a99cd8",
+    "url": "https://docs.typesafe.ai/cookbooks/semantic_find.md"
+  },
+  {
+    "bytes": 41005,
+    "file": "cookbooks__autoformat.md",
+    "sha256": "e0be526400d0afc5d865c8db5ab46b89bc9d8e1a9f7f3df22f7e0d0a15919297",
+    "url": "https://docs.typesafe.ai/cookbooks/autoformat.md"
+  },
+  {
+    "bytes": 48529,
+    "file": "cookbooks__parallel_questions.md",
+    "sha256": "e142ddb58aeb69796358851910e856dc089335db10f6bcecc801e95ff5e28808",
+    "url": "https://docs.typesafe.ai/cookbooks/parallel_questions.md"
+  },
+  {
+    "bytes": 18910,
+    "file": "cookbooks__function_calling.md",
+    "sha256": "5447823489575a93adc3943627461fa8b904e5692bfed3395caa21a50458fe40",
+    "url": "https://docs.typesafe.ai/cookbooks/function_calling.md"
+  },
+  {
+    "bytes": 40087,
+    "file": "cookbooks__skill_suggestion.md",
+    "sha256": "62728bba4a38dd0e61ae4118524941904a2a687a53e2dd0e08ad3bf63e5198f8",
+    "url": "https://docs.typesafe.ai/cookbooks/skill_suggestion.md"
+  },
+  {
+    "bytes": 16856,
+    "file": "cookbooks__entity_alignment.md",
+    "sha256": "c8808786d3e4205c05ad2a65e7b880cee229537d0df16004c71523848950206c",
+    "url": "https://docs.typesafe.ai/cookbooks/entity_alignment.md"
+  },
+  {
+    "bytes": 32569,
+    "file": "cookbooks__classifying_rag_passages.md",
+    "sha256": "02c271ada2472d0a62e7e889d72c40fc254118a5c0ae6c24d92dfb92c38f3def",
+    "url": "https://docs.typesafe.ai/cookbooks/classifying_rag_passages.md"
+  },
+  {
+    "bytes": 15370,
+    "file": "cookbooks__citation_check.md",
+    "sha256": "c8b3defc1632aaee0f4993476eda3d11f3d140a89adb3aacb564efe89879c5a0",
+    "url": "https://docs.typesafe.ai/cookbooks/citation_check.md"
+  },
+  {
+    "bytes": 32717,
+    "file": "cookbooks__sde_cascade.md",
+    "sha256": "5d513d682f45ccaa85004d2e5437ae37b862b33e97e80013b458bc73ba6b5ddb",
+    "url": "https://docs.typesafe.ai/cookbooks/sde_cascade.md"
+  },
+  {
+    "bytes": 22708,
+    "file": "cookbooks__llm_guardrails.md",
+    "sha256": "44fc99ba07befd772147144438507ef0c80299fcf34b4bc414a53c383a6393a2",
+    "url": "https://docs.typesafe.ai/cookbooks/llm_guardrails.md"
+  },
+  {
+    "bytes": 19899,
+    "file": "cookbooks__date_extraction_cookbook.md",
+    "sha256": "3fdf1a1cef1970feb4d2c1629c73f2ca00a487f47c7eff0b1dc303868d6ee630",
+    "url": "https://docs.typesafe.ai/cookbooks/date_extraction_cookbook.md"
+  },
+  {
+    "bytes": 12589,
+    "file": "cookbooks__pre_parsed_value_extraction_cookbook.md",
+    "sha256": "5a2026433afc618ab1ed16994d8c07281399e527482006a92e7e343ddcd96a2d",
+    "url": "https://docs.typesafe.ai/cookbooks/pre_parsed_value_extraction_cookbook.md"
+  },
+  {
+    "bytes": 36445,
+    "file": "cookbooks__hierarchical_classification.md",
+    "sha256": "5525161d2b5597a29bd315a58aa817fe00e6bc2470cb31ece0530dbb8221dbfe",
+    "url": "https://docs.typesafe.ai/cookbooks/hierarchical_classification.md"
+  },
+  {
+    "bytes": 71547,
+    "file": "cookbooks__autoresearch_feature_discovery.md",
+    "sha256": "0aab7e2e6f30687ad774a6a2f44230a4f5f1be14482c88055452753305178418",
+    "url": "https://docs.typesafe.ai/cookbooks/autoresearch_feature_discovery.md"
+  },
+  {
+    "bytes": 30746,
+    "file": "cookbooks__classification_using_confidence.md",
+    "sha256": "1edca064653cab890f1a8995e884e345e26d43066a675a105df9fb764e70080c",
+    "url": "https://docs.typesafe.ai/cookbooks/classification_using_confidence.md"
+  }
+]

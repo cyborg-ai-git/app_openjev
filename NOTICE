@@ -1,0 +1,20 @@
+OpenJev is an independent Rust application. It is not affiliated with TypeSafe AI,
+Convai Innovations, or any of the upstream projects listed below.
+
+The local runtime implements the published Laya decision architecture and prompt
+format. The original architecture, checkpoint parameters, and reference code are
+by Convai Innovations and Laya contributors, licensed under Apache-2.0:
+https://github.com/NandhaKishorM/laya
+https://huggingface.co/convaiinnovations/laya
+
+The ModernBERT implementation follows Answer.AI's published architecture and
+Hugging Face Candle's tensor conventions (Apache-2.0 / MIT):
+https://github.com/AnswerDotAI/ModernBERT
+https://github.com/huggingface/candle
+
+The independent MLX port was consulted to cross-check inference details,
+including the decision head's ReLU activation and pre-normalization:
+https://github.com/mizorewww/laya-mlx (Apache-2.0)
+
+No upstream Python implementation is bundled or executed. Model weights are
+separate artifacts and retain their original license. Jev weights are not included.
