@@ -1,0 +1,939 @@
+{
+  "device": "metal",
+  "first_remote_call_excluded": {
+    "first_byte_ms": 806,
+    "response": {
+      "answers": {
+        "department": {
+          "choice": "billing",
+          "confidence": 1.0,
+          "probabilities": {
+            "billing": 1.0,
+            "other": 0.0,
+            "technical": 0.0
+          },
+          "type": "choice"
+        },
+        "refund": {
+          "noul": 0.99,
+          "type": "noul"
+        },
+        "urgency": {
+          "confidence": 1.0,
+          "legend": {
+            "0": "Can wait",
+            "1": "This week",
+            "2": "Today"
+          },
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 1.0
+          },
+          "score": 2.0,
+          "type": "score"
+        }
+      },
+      "model": "jev-1.13.0",
+      "usage": {
+        "input_tokens": 398,
+        "output_tokens": 69
+      }
+    },
+    "total_ms": 806.3495
+  },
+  "local": {
+    "max_ms": 84.70049999999999,
+    "mean_ms": 79.7599957,
+    "median_ms": 83.767729,
+    "min_ms": 72.310875,
+    "samples": 10
+  },
+  "local_warmup_ms_excluded": [
+    113.824542,
+    71.835042,
+    71.68237500000001
+  ],
+  "method": "Ten serial paired evaluations of the identical request; alternating backend order; resident local model; reused HTTP client; remote time includes network, HTTP retries if any, parsing and validation. Local time includes tokenization, inference, GPU readback and validation. No response cache. TTFT unavailable: neither backend streams generated tokens. No p95/p99 claim from ten observations.",
+  "model_load_ms_excluded": 251.18208400000003,
+  "pairs": [
+    {
+      "exact_answers_match": false,
+      "index": 0,
+      "local_ms": 84.657375,
+      "local_response": {
+        "answers": {
+          "department": {
+            "choice": "billing",
+            "confidence": 0.889490006823419,
+            "probabilities": {
+              "billing": 0.9778726209821252,
+              "other": 0.012292403502951646,
+              "technical": 0.009834975514923051
+            },
+            "type": "choice"
+          },
+          "refund": {
+            "noul": 0.863875317177892,
+            "type": "noul"
+          },
+          "urgency": {
+            "confidence": 0.740709103921112,
+            "legend": {
+              "0": "Can wait",
+              "1": "This week",
+              "2": "Today"
+            },
+            "probabilities": {
+              "0": 0.014642011257902729,
+              "1": 0.05370896209278259,
+              "2": 0.9316490266493146
+            },
+            "score": 1.9170070153914118,
+            "type": "score"
+          }
+        },
+        "model": "local-laya/laya",
+        "usage": {
+          "input_tokens": 150,
+          "output_tokens": 0
+        }
+      },
+      "order": "local_then_remote",
+      "remote_first_byte_ms": 339,
+      "remote_ms": 339.64475,
+      "remote_response": {
+        "answers": {
+          "department": {
+            "choice": "billing",
+            "confidence": 1.0,
+            "probabilities": {
+              "billing": 1.0,
+              "other": 0.0,
+              "technical": 0.0
+            },
+            "type": "choice"
+          },
+          "refund": {
+            "noul": 0.99,
+            "type": "noul"
+          },
+          "urgency": {
+            "confidence": 1.0,
+            "legend": {
+              "0": "Can wait",
+              "1": "This week",
+              "2": "Today"
+            },
+            "probabilities": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 1.0
+            },
+            "score": 2.0,
+            "type": "score"
+          }
+        },
+        "model": "jev-1.13.0",
+        "usage": {
+          "input_tokens": 398,
+          "output_tokens": 69
+        }
+      }
+    },
+    {
+      "exact_answers_match": false,
+      "index": 1,
+      "local_ms": 83.634208,
+      "local_response": {
+        "answers": {
+          "department": {
+            "choice": "billing",
+            "confidence": 0.889490006823419,
+            "probabilities": {
+              "billing": 0.9778726209821252,
+              "other": 0.012292403502951646,
+              "technical": 0.009834975514923051
+            },
+            "type": "choice"
+          },
+          "refund": {
+            "noul": 0.863875317177892,
+            "type": "noul"
+          },
+          "urgency": {
+            "confidence": 0.740709103921112,
+            "legend": {
+              "0": "Can wait",
+              "1": "This week",
+              "2": "Today"
+            },
+            "probabilities": {
+              "0": 0.014642011257902729,
+              "1": 0.05370896209278259,
+              "2": 0.9316490266493146
+            },
+            "score": 1.9170070153914118,
+            "type": "score"
+          }
+        },
+        "model": "local-laya/laya",
+        "usage": {
+          "input_tokens": 150,
+          "output_tokens": 0
+        }
+      },
+      "order": "remote_then_local",
+      "remote_first_byte_ms": 358,
+      "remote_ms": 358.556166,
+      "remote_response": {
+        "answers": {
+          "department": {
+            "choice": "billing",
+            "confidence": 1.0,
+            "probabilities": {
+              "billing": 1.0,
+              "other": 0.0,
+              "technical": 0.0
+            },
+            "type": "choice"
+          },
+          "refund": {
+            "noul": 0.99,
+            "type": "noul"
+          },
+          "urgency": {
+            "confidence": 1.0,
+            "legend": {
+              "0": "Can wait",
+              "1": "This week",
+              "2": "Today"
+            },
+            "probabilities": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 1.0
+            },
+            "score": 2.0,
+            "type": "score"
+          }
+        },
+        "model": "jev-1.13.0",
+        "usage": {
+          "input_tokens": 398,
+          "output_tokens": 69
+        }
+      }
+    },
+    {
+      "exact_answers_match": false,
+      "index": 2,
+      "local_ms": 72.310875,
+      "local_response": {
+        "answers": {
+          "department": {
+            "choice": "billing",
+            "confidence": 0.889490006823419,
+            "probabilities": {
+              "billing": 0.9778726209821252,
+              "other": 0.012292403502951646,
+              "technical": 0.009834975514923051
+            },
+            "type": "choice"
+          },
+          "refund": {
+            "noul": 0.863875317177892,
+            "type": "noul"
+          },
+          "urgency": {
+            "confidence": 0.740709103921112,
+            "legend": {
+              "0": "Can wait",
+              "1": "This week",
+              "2": "Today"
+            },
+            "probabilities": {
+              "0": 0.014642011257902729,
+              "1": 0.05370896209278259,
+              "2": 0.9316490266493146
+            },
+            "score": 1.9170070153914118,
+            "type": "score"
+          }
+        },
+        "model": "local-laya/laya",
+        "usage": {
+          "input_tokens": 150,
+          "output_tokens": 0
+        }
+      },
+      "order": "local_then_remote",
+      "remote_first_byte_ms": 307,
+      "remote_ms": 307.87750000000005,
+      "remote_response": {
+        "answers": {
+          "department": {
+            "choice": "billing",
+            "confidence": 1.0,
+            "probabilities": {
+              "billing": 1.0,
+              "other": 0.0,
+              "technical": 0.0
+            },
+            "type": "choice"
+          },
+          "refund": {
+            "noul": 0.99,
+            "type": "noul"
+          },
+          "urgency": {
+            "confidence": 1.0,
+            "legend": {
+              "0": "Can wait",
+              "1": "This week",
+              "2": "Today"
+            },
+            "probabilities": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 1.0
+            },
+            "score": 2.0,
+            "type": "score"
+          }
+        },
+        "model": "jev-1.13.0",
+        "usage": {
+          "input_tokens": 398,
+          "output_tokens": 69
+        }
+      }
+    },
+    {
+      "exact_answers_match": false,
+      "index": 3,
+      "local_ms": 84.448208,
+      "local_response": {
+        "answers": {
+          "department": {
+            "choice": "billing",
+            "confidence": 0.889490006823419,
+            "probabilities": {
+              "billing": 0.9778726209821252,
+              "other": 0.012292403502951646,
+              "technical": 0.009834975514923051
+            },
+            "type": "choice"
+          },
+          "refund": {
+            "noul": 0.863875317177892,
+            "type": "noul"
+          },
+          "urgency": {
+            "confidence": 0.740709103921112,
+            "legend": {
+              "0": "Can wait",
+              "1": "This week",
+              "2": "Today"
+            },
+            "probabilities": {
+              "0": 0.014642011257902729,
+              "1": 0.05370896209278259,
+              "2": 0.9316490266493146
+            },
+            "score": 1.9170070153914118,
+            "type": "score"
+          }
+        },
+        "model": "local-laya/laya",
+        "usage": {
+          "input_tokens": 150,
+          "output_tokens": 0
+        }
+      },
+      "order": "remote_then_local",
+      "remote_first_byte_ms": 330,
+      "remote_ms": 330.522041,
+      "remote_response": {
+        "answers": {
+          "department": {
+            "choice": "billing",
+            "confidence": 1.0,
+            "probabilities": {
+              "billing": 1.0,
+              "other": 0.0,
+              "technical": 0.0
+            },
+            "type": "choice"
+          },
+          "refund": {
+            "noul": 0.99,
+            "type": "noul"
+          },
+          "urgency": {
+            "confidence": 1.0,
+            "legend": {
+              "0": "Can wait",
+              "1": "This week",
+              "2": "Today"
+            },
+            "probabilities": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 1.0
+            },
+            "score": 2.0,
+            "type": "score"
+          }
+        },
+        "model": "jev-1.13.0",
+        "usage": {
+          "input_tokens": 398,
+          "output_tokens": 69
+        }
+      }
+    },
+    {
+      "exact_answers_match": false,
+      "index": 4,
+      "local_ms": 73.66179100000001,
+      "local_response": {
+        "answers": {
+          "department": {
+            "choice": "billing",
+            "confidence": 0.889490006823419,
+            "probabilities": {
+              "billing": 0.9778726209821252,
+              "other": 0.012292403502951646,
+              "technical": 0.009834975514923051
+            },
+            "type": "choice"
+          },
+          "refund": {
+            "noul": 0.863875317177892,
+            "type": "noul"
+          },
+          "urgency": {
+            "confidence": 0.740709103921112,
+            "legend": {
+              "0": "Can wait",
+              "1": "This week",
+              "2": "Today"
+            },
+            "probabilities": {
+              "0": 0.014642011257902729,
+              "1": 0.05370896209278259,
+              "2": 0.9316490266493146
+            },
+            "score": 1.9170070153914118,
+            "type": "score"
+          }
+        },
+        "model": "local-laya/laya",
+        "usage": {
+          "input_tokens": 150,
+          "output_tokens": 0
+        }
+      },
+      "order": "local_then_remote",
+      "remote_first_byte_ms": 314,
+      "remote_ms": 314.99975,
+      "remote_response": {
+        "answers": {
+          "department": {
+            "choice": "billing",
+            "confidence": 1.0,
+            "probabilities": {
+              "billing": 1.0,
+              "other": 0.0,
+              "technical": 0.0
+            },
+            "type": "choice"
+          },
+          "refund": {
+            "noul": 0.99,
+            "type": "noul"
+          },
+          "urgency": {
+            "confidence": 1.0,
+            "legend": {
+              "0": "Can wait",
+              "1": "This week",
+              "2": "Today"
+            },
+            "probabilities": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 1.0
+            },
+            "score": 2.0,
+            "type": "score"
+          }
+        },
+        "model": "jev-1.13.0",
+        "usage": {
+          "input_tokens": 398,
+          "output_tokens": 69
+        }
+      }
+    },
+    {
+      "exact_answers_match": false,
+      "index": 5,
+      "local_ms": 84.668917,
+      "local_response": {
+        "answers": {
+          "department": {
+            "choice": "billing",
+            "confidence": 0.889490006823419,
+            "probabilities": {
+              "billing": 0.9778726209821252,
+              "other": 0.012292403502951646,
+              "technical": 0.009834975514923051
+            },
+            "type": "choice"
+          },
+          "refund": {
+            "noul": 0.863875317177892,
+            "type": "noul"
+          },
+          "urgency": {
+            "confidence": 0.740709103921112,
+            "legend": {
+              "0": "Can wait",
+              "1": "This week",
+              "2": "Today"
+            },
+            "probabilities": {
+              "0": 0.014642011257902729,
+              "1": 0.05370896209278259,
+              "2": 0.9316490266493146
+            },
+            "score": 1.9170070153914118,
+            "type": "score"
+          }
+        },
+        "model": "local-laya/laya",
+        "usage": {
+          "input_tokens": 150,
+          "output_tokens": 0
+        }
+      },
+      "order": "remote_then_local",
+      "remote_first_byte_ms": 382,
+      "remote_ms": 382.29225,
+      "remote_response": {
+        "answers": {
+          "department": {
+            "choice": "billing",
+            "confidence": 1.0,
+            "probabilities": {
+              "billing": 1.0,
+              "other": 0.0,
+              "technical": 0.0
+            },
+            "type": "choice"
+          },
+          "refund": {
+            "noul": 0.99,
+            "type": "noul"
+          },
+          "urgency": {
+            "confidence": 1.0,
+            "legend": {
+              "0": "Can wait",
+              "1": "This week",
+              "2": "Today"
+            },
+            "probabilities": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 1.0
+            },
+            "score": 2.0,
+            "type": "score"
+          }
+        },
+        "model": "jev-1.13.0",
+        "usage": {
+          "input_tokens": 398,
+          "output_tokens": 69
+        }
+      }
+    },
+    {
+      "exact_answers_match": false,
+      "index": 6,
+      "local_ms": 73.226958,
+      "local_response": {
+        "answers": {
+          "department": {
+            "choice": "billing",
+            "confidence": 0.889490006823419,
+            "probabilities": {
+              "billing": 0.9778726209821252,
+              "other": 0.012292403502951646,
+              "technical": 0.009834975514923051
+            },
+            "type": "choice"
+          },
+          "refund": {
+            "noul": 0.863875317177892,
+            "type": "noul"
+          },
+          "urgency": {
+            "confidence": 0.740709103921112,
+            "legend": {
+              "0": "Can wait",
+              "1": "This week",
+              "2": "Today"
+            },
+            "probabilities": {
+              "0": 0.014642011257902729,
+              "1": 0.05370896209278259,
+              "2": 0.9316490266493146
+            },
+            "score": 1.9170070153914118,
+            "type": "score"
+          }
+        },
+        "model": "local-laya/laya",
+        "usage": {
+          "input_tokens": 150,
+          "output_tokens": 0
+        }
+      },
+      "order": "local_then_remote",
+      "remote_first_byte_ms": 450,
+      "remote_ms": 450.721209,
+      "remote_response": {
+        "answers": {
+          "department": {
+            "choice": "billing",
+            "confidence": 1.0,
+            "probabilities": {
+              "billing": 1.0,
+              "other": 0.0,
+              "technical": 0.0
+            },
+            "type": "choice"
+          },
+          "refund": {
+            "noul": 0.99,
+            "type": "noul"
+          },
+          "urgency": {
+            "confidence": 1.0,
+            "legend": {
+              "0": "Can wait",
+              "1": "This week",
+              "2": "Today"
+            },
+            "probabilities": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 1.0
+            },
+            "score": 2.0,
+            "type": "score"
+          }
+        },
+        "model": "jev-1.13.0",
+        "usage": {
+          "input_tokens": 398,
+          "output_tokens": 69
+        }
+      }
+    },
+    {
+      "exact_answers_match": false,
+      "index": 7,
+      "local_ms": 84.70049999999999,
+      "local_response": {
+        "answers": {
+          "department": {
+            "choice": "billing",
+            "confidence": 0.889490006823419,
+            "probabilities": {
+              "billing": 0.9778726209821252,
+              "other": 0.012292403502951646,
+              "technical": 0.009834975514923051
+            },
+            "type": "choice"
+          },
+          "refund": {
+            "noul": 0.863875317177892,
+            "type": "noul"
+          },
+          "urgency": {
+            "confidence": 0.740709103921112,
+            "legend": {
+              "0": "Can wait",
+              "1": "This week",
+              "2": "Today"
+            },
+            "probabilities": {
+              "0": 0.014642011257902729,
+              "1": 0.05370896209278259,
+              "2": 0.9316490266493146
+            },
+            "score": 1.9170070153914118,
+            "type": "score"
+          }
+        },
+        "model": "local-laya/laya",
+        "usage": {
+          "input_tokens": 150,
+          "output_tokens": 0
+        }
+      },
+      "order": "remote_then_local",
+      "remote_first_byte_ms": 312,
+      "remote_ms": 312.70324999999997,
+      "remote_response": {
+        "answers": {
+          "department": {
+            "choice": "billing",
+            "confidence": 1.0,
+            "probabilities": {
+              "billing": 1.0,
+              "other": 0.0,
+              "technical": 0.0
+            },
+            "type": "choice"
+          },
+          "refund": {
+            "noul": 0.99,
+            "type": "noul"
+          },
+          "urgency": {
+            "confidence": 1.0,
+            "legend": {
+              "0": "Can wait",
+              "1": "This week",
+              "2": "Today"
+            },
+            "probabilities": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 1.0
+            },
+            "score": 2.0,
+            "type": "score"
+          }
+        },
+        "model": "jev-1.13.0",
+        "usage": {
+          "input_tokens": 398,
+          "output_tokens": 69
+        }
+      }
+    },
+    {
+      "exact_answers_match": false,
+      "index": 8,
+      "local_ms": 72.389875,
+      "local_response": {
+        "answers": {
+          "department": {
+            "choice": "billing",
+            "confidence": 0.889490006823419,
+            "probabilities": {
+              "billing": 0.9778726209821252,
+              "other": 0.012292403502951646,
+              "technical": 0.009834975514923051
+            },
+            "type": "choice"
+          },
+          "refund": {
+            "noul": 0.863875317177892,
+            "type": "noul"
+          },
+          "urgency": {
+            "confidence": 0.740709103921112,
+            "legend": {
+              "0": "Can wait",
+              "1": "This week",
+              "2": "Today"
+            },
+            "probabilities": {
+              "0": 0.014642011257902729,
+              "1": 0.05370896209278259,
+              "2": 0.9316490266493146
+            },
+            "score": 1.9170070153914118,
+            "type": "score"
+          }
+        },
+        "model": "local-laya/laya",
+        "usage": {
+          "input_tokens": 150,
+          "output_tokens": 0
+        }
+      },
+      "order": "local_then_remote",
+      "remote_first_byte_ms": 341,
+      "remote_ms": 341.728291,
+      "remote_response": {
+        "answers": {
+          "department": {
+            "choice": "billing",
+            "confidence": 1.0,
+            "probabilities": {
+              "billing": 1.0,
+              "other": 0.0,
+              "technical": 0.0
+            },
+            "type": "choice"
+          },
+          "refund": {
+            "noul": 0.99,
+            "type": "noul"
+          },
+          "urgency": {
+            "confidence": 1.0,
+            "legend": {
+              "0": "Can wait",
+              "1": "This week",
+              "2": "Today"
+            },
+            "probabilities": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 1.0
+            },
+            "score": 2.0,
+            "type": "score"
+          }
+        },
+        "model": "jev-1.13.0",
+        "usage": {
+          "input_tokens": 398,
+          "output_tokens": 69
+        }
+      }
+    },
+    {
+      "exact_answers_match": false,
+      "index": 9,
+      "local_ms": 83.90124999999999,
+      "local_response": {
+        "answers": {
+          "department": {
+            "choice": "billing",
+            "confidence": 0.889490006823419,
+            "probabilities": {
+              "billing": 0.9778726209821252,
+              "other": 0.012292403502951646,
+              "technical": 0.009834975514923051
+            },
+            "type": "choice"
+          },
+          "refund": {
+            "noul": 0.863875317177892,
+            "type": "noul"
+          },
+          "urgency": {
+            "confidence": 0.740709103921112,
+            "legend": {
+              "0": "Can wait",
+              "1": "This week",
+              "2": "Today"
+            },
+            "probabilities": {
+              "0": 0.014642011257902729,
+              "1": 0.05370896209278259,
+              "2": 0.9316490266493146
+            },
+            "score": 1.9170070153914118,
+            "type": "score"
+          }
+        },
+        "model": "local-laya/laya",
+        "usage": {
+          "input_tokens": 150,
+          "output_tokens": 0
+        }
+      },
+      "order": "remote_then_local",
+      "remote_first_byte_ms": 369,
+      "remote_ms": 369.23095900000004,
+      "remote_response": {
+        "answers": {
+          "department": {
+            "choice": "billing",
+            "confidence": 1.0,
+            "probabilities": {
+              "billing": 1.0,
+              "other": 0.0,
+              "technical": 0.0
+            },
+            "type": "choice"
+          },
+          "refund": {
+            "noul": 0.99,
+            "type": "noul"
+          },
+          "urgency": {
+            "confidence": 1.0,
+            "legend": {
+              "0": "Can wait",
+              "1": "This week",
+              "2": "Today"
+            },
+            "probabilities": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 1.0
+            },
+            "score": 2.0,
+            "type": "score"
+          }
+        },
+        "model": "jev-1.13.0",
+        "usage": {
+          "input_tokens": 398,
+          "output_tokens": 69
+        }
+      }
+    }
+  ],
+  "purpose": "Latency and output comparison only; no training or distillation",
+  "remote": {
+    "max_ms": 450.721209,
+    "mean_ms": 350.82761659999994,
+    "median_ms": 340.68652050000003,
+    "min_ms": 307.87750000000005,
+    "samples": 10
+  },
+  "remote_to_local_mean_ratio": 4.3985410671229515,
+  "request": {
+    "model": "jev-1.13.0",
+    "questions": {
+      "department": {
+        "criteria": {
+          "billing": "Payments, invoices and refunds",
+          "other": "Other requests",
+          "technical": "Bugs and integration problems"
+        },
+        "instructions": "Which team should handle this message?",
+        "type": "choice"
+      },
+      "refund": {
+        "instructions": "Is the customer explicitly requesting a refund?",
+        "type": "noul"
+      },
+      "urgency": {
+        "criteria": [
+          "Can wait",
+          "This week",
+          "Today"
+        ],
+        "instructions": "How urgent is this request?",
+        "type": "score"
+      }
+    },
+    "state": "I was charged twice for the same order. Please refund the extra payment today."
+  },
+  "unix_timestamp": 1790000136
+}

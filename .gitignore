@@ -3,4 +3,5 @@
 /bin/
 /research-cache/
 .env
+**/.secrets/
 openjev-response*.json

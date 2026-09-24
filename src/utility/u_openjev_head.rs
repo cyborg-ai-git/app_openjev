@@ -30,19 +30,27 @@ impl Layer {
     }
 
     pub fn forward(&self, input: &Tensor) -> Result<Tensor> {
+        self.forward_masked(input, None)
+    }
+
+    pub fn forward_masked(&self, input: &Tensor, padding: Option<&Tensor>) -> Result<Tensor> {
         let (batch, length, hidden) = input.dims3()?;
         let width = hidden / self.heads;
-        let projected = self.qkv.forward(&self.norm1.forward(input)?)?;
-        let split = projected.chunk(3, 2)?;
-        let reshape = |x: &Tensor| {
-            x.reshape((batch, length, self.heads, width))?
+        let projected = self
+            .qkv
+            .forward(&self.norm1.forward(input)?)?
+            .reshape((batch, length, 3, self.heads, width))?;
+        let projection = |index| {
+            projected
+                .narrow(2, index, 1)?
+                .squeeze(2)?
                 .transpose(1, 2)?
                 .contiguous()
         };
-        let q = reshape(&split[0])?;
-        let k = reshape(&split[1])?;
-        let v = reshape(&split[2])?;
-        let attention = super::encoder::attention(&q, &k, &v, None)?;
+        let q = projection(0)?;
+        let k = projection(1)?;
+        let v = projection(2)?;
+        let attention = super::encoder::attention(&q, &k, &v, padding)?;
         let attention = attention
             .transpose(1, 2)?
             .contiguous()?

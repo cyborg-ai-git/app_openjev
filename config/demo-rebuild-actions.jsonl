@@ -1,0 +1,9 @@
+{"event":"rebuild_intent","wallet":"demo"}
+{"event":"position_close_intent","instrumentId":6170,"positionId":304099765,"wallet":"demo"}
+{"event":"position_close_accepted","instrumentId":6170,"orderId":382310810,"positionId":304099765,"wallet":"demo"}
+{"errorCode":615,"event":"position_close_status","orderId":382310810,"statusId":4,"wallet":"demo"}
+{"event":"position_close_intent","instrumentId":6170,"positionId":312561342,"wallet":"demo"}
+{"event":"position_close_accepted","instrumentId":6170,"orderId":382291573,"positionId":312561342,"wallet":"demo"}
+{"errorCode":615,"event":"position_close_status","orderId":382291573,"statusId":4,"wallet":"demo"}
+{"allowClosePosition":false,"event":"close_unavailable","instrumentId":100091,"positionId":2569933992,"wallet":"demo"}
+{"amountUsd":500.0,"event":"copy_unavailable","wallet":"demo"}

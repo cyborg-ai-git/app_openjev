@@ -95,3 +95,81 @@ fn native_encoder_matches_candle_reference_with_local_and_global_attention() {
         assert!(error < 1e-4, "encoder error {error} for length {length}");
     }
 }
+
+#[test]
+fn padded_batches_preserve_positions_and_exclude_padding_from_all_attention_layers() {
+    let cfg = Config {
+        vocab_size: 40,
+        hidden_size: 64,
+        num_hidden_layers: 4,
+        num_attention_heads: 2,
+        intermediate_size: 80,
+        max_position_embeddings: 32,
+        layer_norm_eps: 1e-5,
+        pad_token_id: 0,
+        global_attn_every_n_layers: 2,
+        global_rope_theta: 160000.0,
+        local_attention: 8,
+        local_rope_theta: 10000.0,
+        classifier_config: None,
+    };
+    let device = Device::Cpu;
+    let vb = VarBuilder::from_tensors(weights(&cfg, &device), DType::F32, &device);
+    let encoder = Encoder::load(vb.clone(), &cfg, 32).unwrap();
+    let reference = ModernBert::load(vb, &cfg).unwrap();
+    for length in [9, 17, 32] {
+        let lengths = [length, length / 2, 1];
+        let mask: Vec<f32> = lengths
+            .iter()
+            .flat_map(|&n| {
+                (0..length).map(move |i| {
+                    if i < n {
+                        0.0
+                    } else {
+                        openjev::local::encoder::MASK_BIAS
+                    }
+                })
+            })
+            .collect();
+        let mask = Tensor::from_vec(mask, (3, 1, 1, length), &device).unwrap();
+        // Different valid IDs in padding must never change any real token's result.
+        for pad in [0, 39] {
+            let ids: Vec<u32> = lengths
+                .iter()
+                .enumerate()
+                .flat_map(|(row, &n)| {
+                    (0..length).map(move |i| {
+                        if i < n {
+                            ((i + row * 7) % 38 + 1) as u32
+                        } else {
+                            pad
+                        }
+                    })
+                })
+                .collect();
+            let batch = Tensor::from_vec(ids.clone(), (3, length), &device).unwrap();
+            let actual = encoder.forward_masked(&batch, Some(&mask)).unwrap();
+            for (row, &n) in lengths.iter().enumerate() {
+                let single = Tensor::new(&ids[row * length..row * length + n], &device)
+                    .unwrap()
+                    .unsqueeze(0)
+                    .unwrap();
+                let ones = Tensor::ones((1, n), DType::U32, &device).unwrap();
+                let expected = reference.forward(&single, &ones).unwrap();
+                let selected = actual.narrow(0, row, 1).unwrap().narrow(1, 0, n).unwrap();
+                let error = (selected - expected)
+                    .unwrap()
+                    .abs()
+                    .unwrap()
+                    .max_all()
+                    .unwrap()
+                    .to_scalar::<f32>()
+                    .unwrap();
+                assert!(
+                    error < 1e-4,
+                    "row {row}, length {length}, padding {pad}: {error}"
+                );
+            }
+        }
+    }
+}

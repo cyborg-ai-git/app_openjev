@@ -18,3 +18,19 @@ https://github.com/mizorewww/laya-mlx (Apache-2.0)
 
 No upstream Python implementation is bundled or executed. Model weights are
 separate artifacts and retain their original license. Jev weights are not included.
+
+Evo configuration integration uses the cyborg-ai-git Evo framework, entity, and
+environment crates and their transitive dependencies. Their own licenses apply
+separately (including CC-BY-NC-ND-4.0 for the directly integrated Evo crates):
+https://github.com/cyborg-ai-git/evo_framework
+https://github.com/cyborg-ai-git/evo_core_entity
+https://github.com/cyborg-ai-git/evo_core_env
+
+The official-example comparison fixtures include API payload examples adapted
+from the official TypeSafe JavaScript and Python SDK repositories (MIT).
+Pinned revisions and per-example source URLs are in
+`tests/fixtures/official_examples.json`. Original license notices are retained in
+`docs/licenses/typesafe-sdk-js-MIT.txt` and
+`docs/licenses/typesafe-sdk-python-MIT.txt`.
+Website examples are attributed individually to docs.typesafe.ai; published
+illustrative outputs are reference observations, not model weights or training data.

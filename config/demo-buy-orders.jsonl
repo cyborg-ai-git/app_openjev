@@ -1,0 +1,4 @@
+{"amountUsd":500.0,"event":"intent","instrumentId":100000,"symbol":"BTC","wallet":"demo"}
+{"event":"accepted","orderId":382256048,"symbol":"BTC","wallet":"demo"}
+{"amountUsd":573.67,"event":"intent","instrumentId":1001,"symbol":"AAPL","wallet":"demo"}
+{"event":"accepted","orderId":382256049,"symbol":"AAPL","wallet":"demo"}

@@ -1,7 +1,10 @@
 //! Native, offline inference for original Laya ModernBERT checkpoints.
 //! This is an independent runtime, not the proprietary Jev model.
+#[path = "u_openjev_encoder.rs"]
 pub mod encoder;
+#[path = "u_openjev_head.rs"]
 mod head;
+#[path = "u_openjev_prepare.rs"]
 pub mod prepare;
 
 use std::{
@@ -45,7 +48,7 @@ enum Backbone {
 }
 
 /// Native inference without Python or an external inference server.
-pub struct LocalModel {
+pub struct UOpenjevLocalModel {
     encoder: Backbone,
     head: Vec<head::Layer>,
     type_embedding: Embedding,
@@ -56,6 +59,7 @@ pub struct LocalModel {
     specials: [u32; 3],
     name: String,
 }
+pub type LocalModel = UOpenjevLocalModel;
 
 pub fn device(name: &str) -> Result<Device> {
     match name {
@@ -255,55 +259,128 @@ impl LocalModel {
         })
     }
 
-    /// Evaluate questions separately: no cross-question attention or shared-prefix cache.
+    /// Use bounded, independent-question batches on Metal; CPU/CUDA retain the serial path.
     pub fn evaluate(&self, request: &Request) -> Result<Evaluation> {
+        self.evaluate_inner(request, self.device.is_metal())
+    }
+
+    /// Unbatched inference for numerical comparisons and an explicit compatibility fallback.
+    pub fn evaluate_sequential(&self, request: &Request) -> Result<Evaluation> {
+        self.evaluate_inner(request, false)
+    }
+
+    fn evaluate_inner(&self, request: &Request, batch: bool) -> Result<Evaluation> {
         request.validate()?;
         let mut answers = BTreeMap::new();
-        let mut input_tokens = 0;
-        for (id, question) in &request.questions {
-            let prepared = prepare::prepare(
-                &self.tokenizer,
-                &request.state,
-                question,
-                self.config.max_len,
-                self.config.head_max_len,
-                self.specials,
-            )?;
-            input_tokens += prepared.ids.len() as u64;
-            let length = prepared.ids.len();
-            let ids = Tensor::from_vec(prepared.ids, (1, length), &self.device)?;
+        // Preflight every question before GPU work, and preserve the public ID ordering.
+        let mut inputs = request
+            .questions
+            .iter()
+            .map(|(id, question)| {
+                let input = prepare::prepare(
+                    &self.tokenizer,
+                    &request.state,
+                    question,
+                    self.config.max_len,
+                    self.config.head_max_len,
+                    self.specials,
+                )?;
+                Ok((id, question, input))
+            })
+            .collect::<Result<Vec<_>>>()?;
+        let input_tokens = inputs.iter().map(|(_, _, p)| p.ids.len() as u64).sum();
+        if batch {
+            inputs.sort_by_key(|(_, _, p)| p.ids.len());
+        }
+        let mut start = 0;
+        while start < inputs.len() {
+            let mut end = start + 1;
+            if batch {
+                // Bound activations and padding overhead even for large question sets.
+                while end < inputs.len()
+                    && end - start < 4
+                    && inputs[end].2.ids.len() <= 128
+                    && inputs[end].2.ids.len() * 2 <= inputs[start].2.ids.len() * 3
+                {
+                    end += 1;
+                }
+            }
+            let group = &inputs[start..end];
+            let count = group.len();
+            let length = group.iter().map(|(_, _, p)| p.ids.len()).max().unwrap();
+            let mut ids = vec![0_u32; count * length];
+            let mut mask = vec![encoder::MASK_BIAS; count * length];
+            let mut kinds = Vec::with_capacity(count);
+            let mut markers = Vec::new();
+            for (row, (_, _, prepared)) in group.iter().enumerate() {
+                let offset = row * length;
+                ids[offset..offset + prepared.ids.len()].copy_from_slice(&prepared.ids);
+                mask[offset..offset + prepared.ids.len()].fill(0.0);
+                kinds.push(prepared.kind as u32);
+                markers.extend(prepared.markers.iter().map(|m| offset as u32 + m));
+            }
+            let padding = if count > 1 && group.iter().any(|(_, _, p)| p.ids.len() < length) {
+                Some(
+                    Tensor::from_vec(mask, (count, 1, 1, length), &self.device)?
+                        .to_dtype(self.type_embedding.embeddings().dtype())?,
+                )
+            } else {
+                None
+            };
+            let ids = Tensor::from_vec(ids, (count, length), &self.device)?;
             let mut hidden = match &self.encoder {
-                Backbone::Native(encoder) => encoder.forward(&ids)?,
+                Backbone::Native(encoder) => encoder.forward_masked(&ids, padding.as_ref())?,
                 Backbone::Reference(encoder) => {
-                    let mask = Tensor::ones((1, length), DType::U32, &self.device)?;
+                    let mask: Vec<u32> = group
+                        .iter()
+                        .flat_map(|(_, _, p)| (0..length).map(|i| u32::from(i < p.ids.len())))
+                        .collect();
+                    let mask = Tensor::from_vec(mask, (count, length), &self.device)?;
                     encoder.forward(&ids, &mask)?
                 }
             };
-            let kind = Tensor::new(&[prepared.kind as u32], &self.device)?;
+            let kind = Tensor::new(kinds.as_slice(), &self.device)?;
             hidden = hidden.broadcast_add(&self.type_embedding.forward(&kind)?.unsqueeze(1)?)?;
             for layer in &self.head {
-                hidden = layer.forward(&hidden)?;
+                hidden = if let Some(padding) = &padding {
+                    layer.forward_masked(&hidden, Some(padding))?
+                } else {
+                    layer.forward(&hidden)?
+                };
             }
-            let markers = Tensor::new(prepared.markers.as_slice(), &self.device)?;
-            let selected = hidden.index_select(&markers, 1)?;
+            let markers = Tensor::new(markers.as_slice(), &self.device)?;
+            let selected = hidden
+                .flatten(0, 1)?
+                .index_select(&markers, 0)?
+                .unsqueeze(0)?;
             let logits = self
                 .scorer
                 .forward(&selected)?
                 .squeeze(0)?
                 .to_dtype(DType::F32)?
                 .to_vec1::<f32>()?;
-            let bucket = temp_bucket(prepared.kind, logits.len());
-            let temperature = self
-                .config
-                .temperature_by_options
-                .get(&bucket)
-                .copied()
-                .unwrap_or(self.config.temperature[prepared.kind]);
-            let probabilities = softmax(
-                &logits.iter().map(|v| f64::from(*v)).collect::<Vec<_>>(),
-                temperature,
-            )?;
-            answers.insert(id.clone(), answer(question, &probabilities)?);
+            let mut offset = 0;
+            for (id, question, prepared) in group {
+                let option_count = prepared.markers.len();
+                let question_logits = &logits[offset..offset + option_count];
+                offset += option_count;
+                let bucket = temp_bucket(prepared.kind, option_count);
+                let temperature = self
+                    .config
+                    .temperature_by_options
+                    .get(&bucket)
+                    .copied()
+                    .unwrap_or(self.config.temperature[prepared.kind]);
+                let probabilities = softmax(
+                    &question_logits
+                        .iter()
+                        .map(|v| f64::from(*v))
+                        .collect::<Vec<_>>(),
+                    temperature,
+                )?;
+                answers.insert((*id).clone(), answer(question, &probabilities)?);
+            }
+            start = end;
         }
         let evaluation = Evaluation {
             model: self.name.clone(),

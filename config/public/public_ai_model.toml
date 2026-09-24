@@ -1,0 +1,1405 @@
+#<NO_OVERWRITE> Remove this line for overwrite this file
+#=======================================================================================================================
+# CyborgAI# CC BY-NC-ND 4.0 Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+# Package: ai# Last Updated: January 2026
+#=======================================================================================================================
+# ANTHROPIC - https://www.anthropic.com
+#=======================================================================================================================
+[[ANTHROPIC]]
+is_enabled = true
+name = "claude-opus-4-5-20251101"
+url = "https://www.anthropic.com"
+url_token = "https://console.anthropic.com/settings/keys"
+url_api = "https://api.anthropic.com/v1/messages"
+description = "Anthropic's most advanced and intelligent model. Best for complex reasoning, coding, and creative tasks."
+is_free = false
+context = 200000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 5.00
+cost_1m_output = 25.00
+env_required = ["ANTHROPIC_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[ANTHROPIC]]
+is_enabled = true
+name = "claude-sonnet-4-5-20250929"
+url = "https://www.anthropic.com"
+url_token = "https://console.anthropic.com/settings/keys"
+url_api = "https://api.anthropic.com/v1/messages"
+description = "Best balance of intelligence, speed, and cost. Excellent for coding and agentic tasks."
+is_free = false
+context = 200000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 3.00
+cost_1m_output = 15.00
+env_required = ["ANTHROPIC_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[ANTHROPIC]]
+is_enabled = true
+name = "claude-haiku-4-5-20251001"
+url = "https://www.anthropic.com"
+url_token = "https://console.anthropic.com/settings/keys"
+url_api = "https://api.anthropic.com/v1/messages"
+description = "Fastest and most cost-effective Claude model. Best for high-volume tasks."
+is_free = false
+context = 200000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 1.00
+cost_1m_output = 5.00
+env_required = ["ANTHROPIC_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[ANTHROPIC]]
+is_enabled = true
+name = "claude-opus-4-20250522"
+url = "https://www.anthropic.com"
+url_token = "https://console.anthropic.com/settings/keys"
+url_api = "https://api.anthropic.com/v1/messages"
+description = "Previous flagship model. Advanced reasoning and coding. Level 3 safety model."
+is_free = false
+context = 200000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 15.00
+cost_1m_output = 75.00
+env_required = ["ANTHROPIC_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[ANTHROPIC]]
+is_enabled = true
+name = "claude-sonnet-4-20250514"
+url = "https://www.anthropic.com"
+url_token = "https://console.anthropic.com/settings/keys"
+url_api = "https://api.anthropic.com/v1/messages"
+description = "Balanced model for everyday tasks. Good performance at reasonable cost."
+is_free = false
+context = 200000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 3.00
+cost_1m_output = 15.00
+env_required = ["ANTHROPIC_TOKEN"]
+env_optional = [""]
+#=======================================================================================================================
+# OPENAI - https://openai.com
+#=======================================================================================================================
+[[OPENAI]]
+is_enabled = true
+name = "gpt-4.1"
+url = "https://openai.com"
+url_token = "https://platform.openai.com/api-keys"
+url_api = "https://api.openai.com/v1/chat/completions"
+description = "Latest GPT-4 series with 1M token context window."
+is_free = false
+context = 1000000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = true
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 2.00
+cost_1m_output = 8.00
+env_required = ["OPENAI_TOKEN"]
+env_optional = ["OPENAI_ORG_ID"]#-----------------------------------------------------------------------------------------------------------------------
+[[OPENAI]]
+is_enabled = true
+name = "gpt-4.1-mini"
+url = "https://openai.com"
+url_token = "https://platform.openai.com/api-keys"
+url_api = "https://api.openai.com/v1/chat/completions"
+description = "Cost-efficient version of GPT-4.1. Fast for simpler tasks."
+is_free = false
+context = 1000000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = true
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.40
+cost_1m_output = 1.60
+env_required = ["OPENAI_TOKEN"]
+env_optional = ["OPENAI_ORG_ID"]
+#-----------------------------------------------------------------------------------------------------------------------
+[[OPENAI]]
+is_enabled = true
+name = "gpt-4.1-nano"
+url = "https://openai.com"
+url_token = "https://platform.openai.com/api-keys"
+url_api = "https://api.openai.com/v1/chat/completions"
+description = "Fastest and cheapest GPT-4.1 model."
+is_free = false
+context = 1000000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.10
+cost_1m_output = 0.40
+env_required = ["OPENAI_TOKEN"]
+env_optional = ["OPENAI_ORG_ID"]
+#-----------------------------------------------------------------------------------------------------------------------
+[[OPENAI]]
+is_enabled = true
+name = "gpt-4o"
+url = "https://openai.com"
+url_token = "https://platform.openai.com/api-keys"
+url_api = "https://api.openai.com/v1/chat/completions"
+description = "Versatile flagship model. Accepts text and image inputs."
+is_free = false
+context = 128000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = true
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 2.50
+cost_1m_output = 10.00
+env_required = ["OPENAI_TOKEN"]
+env_optional = ["OPENAI_ORG_ID"]
+#-----------------------------------------------------------------------------------------------------------------------
+[[OPENAI]]
+is_enabled = true
+name = "gpt-4o-mini"
+url = "https://openai.com"
+url_token = "https://platform.openai.com/api-keys"
+url_api = "https://api.openai.com/v1/chat/completions"
+description = "Most cost-efficient small model with vision. 128K context."
+is_free = false
+context = 128000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = true
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.15
+cost_1m_output = 0.60
+env_required = ["OPENAI_TOKEN"]
+env_optional = ["OPENAI_ORG_ID"]#-----------------------------------------------------------------------------------------------------------------------
+[[OPENAI]]
+is_enabled = true
+name = "o3"
+url = "https://openai.com"
+url_token = "https://platform.openai.com/api-keys"
+url_api = "https://api.openai.com/v1/chat/completions"
+description = "Advanced reasoning model with extended thinking."
+is_free = false
+context = 128000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.40
+cost_1m_output = 1.60
+env_required = ["OPENAI_TOKEN"]
+env_optional = ["OPENAI_ORG_ID"]
+#-----------------------------------------------------------------------------------------------------------------------
+[[OPENAI]]
+is_enabled = true
+name = "o4-mini"
+url = "https://openai.com"
+url_token = "https://platform.openai.com/api-keys"
+url_api = "https://api.openai.com/v1/chat/completions"
+description = "Cost-efficient reasoning model."
+is_free = false
+context = 128000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 1.10
+cost_1m_output = 4.40
+env_required = ["OPENAI_TOKEN"]
+env_optional = ["OPENAI_ORG_ID"]
+#-----------------------------------------------------------------------------------------------------------------------
+[[OPENAI]]
+is_enabled = true
+name = "text-embedding-3-large"
+url = "https://openai.com"
+url_token = "https://platform.openai.com/api-keys"
+url_api = "https://api.openai.com/v1/embeddings"
+description = "Most capable embedding model."
+is_free = false
+context = 8191
+is_support_tools = false
+is_support_completion = false
+is_support_vision = false
+is_support_embedding = true
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "EMBEDDING"
+temperature = 0.0
+energy_w_h = 1
+cost_1m_input = 0.13
+cost_1m_output = 0.0
+env_required = ["OPENAI_TOKEN"]
+env_optional = ["OPENAI_ORG_ID"]
+#=======================================================================================================================
+# GEMINI (Google) - https://ai.google.dev
+#=======================================================================================================================
+[[GEMINI]]
+is_enabled = true
+name = "gemini-2.5-pro"
+url = "https://ai.google.dev"
+url_token = "https://aistudio.google.com/app/apikey"
+url_api = "https://generativelanguage.googleapis.com/v1beta/models"
+description = "State-of-the-art model for coding and complex reasoning. 1M context."
+is_free = false
+context = 1000000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 1.25
+cost_1m_output = 10.00
+env_required = ["GOOGLE_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[GEMINI]]
+is_enabled = true
+name = "gemini-2.5-flash"
+url = "https://ai.google.dev"
+url_token = "https://aistudio.google.com/app/apikey"
+url_api = "https://generativelanguage.googleapis.com/v1beta/models"
+description = "Balanced multimodal model with 1M context and hybrid reasoning."
+is_free = false
+context = 1000000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.15
+cost_1m_output = 0.60
+env_required = ["GOOGLE_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[GEMINI]]
+is_enabled = true
+name = "gemini-2.5-flash-lite"
+url = "https://ai.google.dev"
+url_token = "https://aistudio.google.com/app/apikey"
+url_api = "https://generativelanguage.googleapis.com/v1beta/models"
+description = "Most cost-effective model for high-throughput tasks."
+is_free = false
+context = 1000000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.10
+cost_1m_output = 0.40
+env_required = ["GOOGLE_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[GEMINI]]
+is_enabled = true
+name = "gemini-2.0-flash"
+url = "https://ai.google.dev"
+url_token = "https://aistudio.google.com/app/apikey"
+url_api = "https://generativelanguage.googleapis.com/v1beta/models"
+description = "Second generation workhorse model with 1M context."
+is_free = false
+context = 1000000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.10
+cost_1m_output = 0.40
+env_required = ["GOOGLE_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[GEMINI]]
+is_enabled = true
+name = "gemini-3-pro-preview"
+url = "https://ai.google.dev"
+url_token = "https://aistudio.google.com/app/apikey"
+url_api = "https://generativelanguage.googleapis.com/v1beta/models"
+description = "Google's most advanced model with deep reasoning."
+is_free = false
+context = 1000000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 2.00
+cost_1m_output = 12.00
+env_required = ["GOOGLE_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[GEMINI]]
+is_enabled = true
+name = "text-embedding-004"
+url = "https://ai.google.dev"
+url_token = "https://aistudio.google.com/app/apikey"
+url_api = "https://generativelanguage.googleapis.com/v1beta/models"
+description = "Latest embeddings model with higher rate limits."
+is_free = false
+context = 2048
+is_support_tools = false
+is_support_completion = false
+is_support_vision = false
+is_support_embedding = true
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "EMBEDDING"
+temperature = 0.0
+energy_w_h = 1
+cost_1m_input = 0.004
+cost_1m_output = 0.0
+env_required = ["GOOGLE_TOKEN"]
+env_optional = [""]
+#=======================================================================================================================
+# DEEPSEEK - https://www.deepseek.com
+#=======================================================================================================================
+[[DEEPSEEK]]
+is_enabled = true
+name = "deepseek-chat"
+url = "https://www.deepseek.com"
+url_token = "https://platform.deepseek.com/api_keys"
+url_api = "https://api.deepseek.com/v1/chat/completions"
+description = "DeepSeek-V3.2 Non-thinking mode for general tasks."
+is_free = false
+context = 128000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.28
+cost_1m_output = 0.42
+env_required = ["DEEPSEEK_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[DEEPSEEK]]
+is_enabled = true
+name = "deepseek-reasoner"
+url = "https://www.deepseek.com"
+url_token = "https://platform.deepseek.com/api_keys"
+url_api = "https://api.deepseek.com/v1/chat/completions"
+description = "DeepSeek-V3.2 Thinking mode for math, logic, and code."
+is_free = false
+context = 128000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.28
+cost_1m_output = 0.42
+env_required = ["DEEPSEEK_TOKEN"]
+env_optional = [""]
+#=======================================================================================================================
+# XAI (Grok) - https://x.ai
+#=======================================================================================================================
+[[XAI]]
+is_enabled = true
+name = "grok-4"
+url = "https://x.ai"
+url_token = "https://console.x.ai/team/default/api-keys"
+url_api = "https://api.x.ai/v1/chat/completions"
+description = "xAI's frontier model for advanced reasoning and tool use."
+is_free = false
+context = 256000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 3.00
+cost_1m_output = 15.00
+env_required = ["XAI_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[XAI]]
+is_enabled = true
+name = "grok-4.1-fast-reasoning"
+url = "https://x.ai"
+url_token = "https://console.x.ai/team/default/api-keys"
+url_api = "https://api.x.ai/v1/chat/completions"
+description = "Lightning-fast reasoning with 2M context. Best tool-calling."
+is_free = false
+context = 2000000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.20
+cost_1m_output = 0.50
+env_required = ["XAI_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[XAI]]
+is_enabled = true
+name = "grok-4.1-fast-non-reasoning"
+url = "https://x.ai"
+url_token = "https://console.x.ai/team/default/api-keys"
+url_api = "https://api.x.ai/v1/chat/completions"
+description = "Cost-optimized non-reasoning variant with 2M context."
+is_free = false
+context = 2000000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.20
+cost_1m_output = 0.50
+env_required = ["XAI_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[XAI]]
+is_enabled = true
+name = "grok-code-fast-1"
+url = "https://x.ai"
+url_token = "https://console.x.ai/team/default/api-keys"
+url_api = "https://api.x.ai/v1/chat/completions"
+description = "Lightning-fast model for agentic coding."
+is_free = false
+context = 2000000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.20
+cost_1m_output = 1.50
+env_required = ["XAI_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[XAI]]
+is_enabled = true
+name = "grok-3"
+url = "https://x.ai"
+url_token = "https://console.x.ai/team/default/api-keys"
+url_api = "https://api.x.ai/v1/chat/completions"
+description = "Previous generation model for continuity."
+is_free = false
+context = 131072
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 3.00
+cost_1m_output = 15.00
+env_required = ["XAI_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[XAI]]
+is_enabled = true
+name = "grok-2-vision"
+url = "https://x.ai"
+url_token = "https://console.x.ai/team/default/api-keys"
+url_api = "https://api.x.ai/v1/chat/completions"
+description = "Multimodal model with vision capabilities."
+is_free = false
+context = 32768
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 2.00
+cost_1m_output = 10.00
+env_required = ["XAI_TOKEN"]
+env_optional = [""]
+#=======================================================================================================================
+# COHERE - https://cohere.com
+#=======================================================================================================================
+[[COHERE]]
+is_enabled = true
+name = "command-a"
+url = "https://cohere.com"
+url_token = "https://dashboard.cohere.com/api-keys"
+url_api = "https://api.cohere.ai/v1/chat"
+description = "Most capable Cohere model for complex reasoning."
+is_free = false
+context = 128000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = true
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 2.50
+cost_1m_output = 10.00
+env_required = ["COHERE_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[COHERE]]
+is_enabled = true
+name = "command-r-plus"
+url = "https://cohere.com"
+url_token = "https://dashboard.cohere.com/api-keys"
+url_api = "https://api.cohere.ai/v1/chat"
+description = "Premium model for enterprise workloads."
+is_free = false
+context = 128000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = true
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 2.50
+cost_1m_output = 10.00
+env_required = ["COHERE_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[COHERE]]
+is_enabled = true
+name = "command-r"
+url = "https://cohere.com"
+url_token = "https://dashboard.cohere.com/api-keys"
+url_api = "https://api.cohere.ai/v1/chat"
+description = "Cost-effective model for RAG and tool use."
+is_free = false
+context = 128000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = true
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.15
+cost_1m_output = 0.60
+env_required = ["COHERE_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[COHERE]]
+is_enabled = true
+name = "command-r7b"
+url = "https://cohere.com"
+url_token = "https://dashboard.cohere.com/api-keys"
+url_api = "https://api.cohere.ai/v1/chat"
+description = "Most cost-effective Cohere model."
+is_free = false
+context = 128000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.0375
+cost_1m_output = 0.15
+env_required = ["COHERE_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[COHERE]]
+is_enabled = true
+name = "embed-v4"
+url = "https://cohere.com"
+url_token = "https://dashboard.cohere.com/api-keys"
+url_api = "https://api.cohere.ai/v1/embed"
+description = "Latest embedding model with multimodal support."
+is_free = false
+context = 512
+is_support_tools = false
+is_support_completion = false
+is_support_vision = false
+is_support_embedding = true
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "EMBEDDING"
+temperature = 0.0
+energy_w_h = 1
+cost_1m_input = 0.10
+cost_1m_output = 0.0
+env_required = ["COHERE_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[COHERE]]
+is_enabled = true
+name = "rerank-v3.5"
+url = "https://cohere.com"
+url_token = "https://dashboard.cohere.com/api-keys"
+url_api = "https://api.cohere.ai/v1/rerank"
+description = "Reranking model for search result relevance."
+is_free = false
+context = 4096
+is_support_tools = false
+is_support_completion = false
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.0
+energy_w_h = 1
+cost_1m_input = 2.00
+cost_1m_output = 0.0
+env_required = ["COHERE_TOKEN"]
+env_optional = [""]
+#=======================================================================================================================
+# MISTRAL - https://mistral.ai
+#=======================================================================================================================
+[[MISTRAL]]
+is_enabled = true
+name = "mistral-large-3-2512"
+url = "https://mistral.ai"
+url_token = "https://console.mistral.ai/api-keys"
+url_api = "https://api.mistral.ai/v1/chat/completions"
+description = "Latest flagship Mistral model."
+is_free = false
+context = 128000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.50
+cost_1m_output = 1.50
+env_required = ["MISTRAL_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[MISTRAL]]
+is_enabled = true
+name = "mistral-medium-3"
+url = "https://mistral.ai"
+url_token = "https://console.mistral.ai/api-keys"
+url_api = "https://api.mistral.ai/v1/chat/completions"
+description = "Price-performance hero. GPT-4 class at 8x cheaper."
+is_free = false
+context = 131072
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.40
+cost_1m_output = 2.00
+env_required = ["MISTRAL_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[MISTRAL]]
+is_enabled = true
+name = "mistral-small-3.1"
+url = "https://mistral.ai"
+url_token = "https://console.mistral.ai/api-keys"
+url_api = "https://api.mistral.ai/v1/chat/completions"
+description = "24B parameter model. Excellent speed and capability."
+is_free = false
+context = 128000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.03
+cost_1m_output = 0.11
+env_required = ["MISTRAL_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[MISTRAL]]
+is_enabled = true
+name = "codestral-2508"
+url = "https://mistral.ai"
+url_token = "https://console.mistral.ai/api-keys"
+url_api = "https://api.mistral.ai/v1/chat/completions"
+description = "Specialized for code generation. 80+ languages."
+is_free = false
+context = 32000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.2
+energy_w_h = 1
+cost_1m_input = 0.30
+cost_1m_output = 0.90
+env_required = ["MISTRAL_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[MISTRAL]]
+is_enabled = true
+name = "mistral-nemo"
+url = "https://mistral.ai"
+url_token = "https://console.mistral.ai/api-keys"
+url_api = "https://api.mistral.ai/v1/chat/completions"
+description = "Most affordable Mistral model."
+is_free = false
+context = 128000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.02
+cost_1m_output = 0.06
+env_required = ["MISTRAL_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[MISTRAL]]
+is_enabled = true
+name = "devstral-medium"
+url = "https://mistral.ai"
+url_token = "https://console.mistral.ai/api-keys"
+url_api = "https://api.mistral.ai/v1/chat/completions"
+description = "Programming agent model with 256K context."
+is_free = false
+context = 256000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.40
+cost_1m_output = 2.00
+env_required = ["MISTRAL_TOKEN"]
+env_optional = [""]
+#=======================================================================================================================
+# PERPLEXITY - https://www.perplexity.ai
+#=======================================================================================================================
+[[PERPLEXITY]]
+is_enabled = true
+name = "sonar"
+url = "https://www.perplexity.ai"
+url_token = "https://www.perplexity.ai/settings/api"
+url_api = "https://api.perplexity.ai/chat/completions"
+description = "Lightweight search model with citations."
+is_free = false
+context = 127000
+is_support_tools = false
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 1.00
+cost_1m_output = 1.00
+env_required = ["PERPLEXITY_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[PERPLEXITY]]
+is_enabled = true
+name = "sonar-pro"
+url = "https://www.perplexity.ai"
+url_token = "https://www.perplexity.ai/settings/api"
+url_api = "https://api.perplexity.ai/chat/completions"
+description = "Advanced search with 2x citations."
+is_free = false
+context = 128000
+is_support_tools = false
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 3.00
+cost_1m_output = 15.00
+env_required = ["PERPLEXITY_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[PERPLEXITY]]
+is_enabled = true
+name = "sonar-reasoning-pro"
+url = "https://www.perplexity.ai"
+url_token = "https://www.perplexity.ai/settings/api"
+url_api = "https://api.perplexity.ai/chat/completions"
+description = "Premium tier with chain-of-thought reasoning."
+is_free = false
+context = 128000
+is_support_tools = false
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 2.00
+cost_1m_output = 8.00
+env_required = ["PERPLEXITY_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[PERPLEXITY]]
+is_enabled = true
+name = "sonar-deep-research"
+url = "https://www.perplexity.ai"
+url_token = "https://www.perplexity.ai/settings/api"
+url_api = "https://api.perplexity.ai/chat/completions"
+description = "Deep research with multi-query search."
+is_free = false
+context = 128000
+is_support_tools = false
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 2.00
+cost_1m_output = 8.00
+env_required = ["PERPLEXITY_TOKEN"]
+env_optional = [""]
+#=======================================================================================================================
+# GROQ - https://groq.com
+#=======================================================================================================================
+[[GROQ]]
+is_enabled = true
+name = "llama-3.3-70b-versatile"
+url = "https://groq.com"
+url_token = "https://console.groq.com/keys"
+url_api = "https://api.groq.com/openai/v1/chat/completions"
+description = "Meta's Llama 3.3 70B on Groq LPU. Ultra-fast inference."
+is_free = false
+context = 128000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.59
+cost_1m_output = 0.79
+env_required = ["GROQ_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[GROQ]]
+is_enabled = true
+name = "llama-3.3-70b-specdec"
+url = "https://groq.com"
+url_token = "https://console.groq.com/keys"
+url_api = "https://api.groq.com/openai/v1/chat/completions"
+description = "Llama 3.3 with speculative decoding. 1660+ tokens/sec."
+is_free = false
+context = 8000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.59
+cost_1m_output = 0.99
+env_required = ["GROQ_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[GROQ]]
+is_enabled = true
+name = "llama-3.1-8b-instant"
+url = "https://groq.com"
+url_token = "https://console.groq.com/keys"
+url_api = "https://api.groq.com/openai/v1/chat/completions"
+description = "Fast 8B model with 128K context."
+is_free = false
+context = 128000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.05
+cost_1m_output = 0.08
+env_required = ["GROQ_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[GROQ]]
+is_enabled = true
+name = "llama-4-scout-17b"
+url = "https://groq.com"
+url_token = "https://console.groq.com/keys"
+url_api = "https://api.groq.com/openai/v1/chat/completions"
+description = "Meta's Llama 4 Scout. Multimodal."
+is_free = false
+context = 128000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.11
+cost_1m_output = 0.34
+env_required = ["GROQ_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[GROQ]]
+is_enabled = true
+name = "llama-guard-4-12b"
+url = "https://groq.com"
+url_token = "https://console.groq.com/keys"
+url_api = "https://api.groq.com/openai/v1/chat/completions"
+description = "Content moderation safety classifier."
+is_free = false
+context = 128000
+is_support_tools = false
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.0
+energy_w_h = 1
+cost_1m_input = 0.15
+cost_1m_output = 0.15
+env_required = ["GROQ_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[GROQ]]
+is_enabled = true
+name = "deepseek-r1-distill-llama-70b"
+url = "https://groq.com"
+url_token = "https://console.groq.com/keys"
+url_api = "https://api.groq.com/openai/v1/chat/completions"
+description = "DeepSeek R1 distilled on Groq's fast infrastructure."
+is_free = false
+context = 128000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.75
+cost_1m_output = 0.99
+env_required = ["GROQ_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[GROQ]]
+is_enabled = true
+name = "whisper-large-v3-turbo"
+url = "https://groq.com"
+url_token = "https://console.groq.com/keys"
+url_api = "https://api.groq.com/openai/v1/audio/transcriptions"
+description = "Fast speech-to-text transcription."
+is_free = false
+context = 448
+is_support_tools = false
+is_support_completion = false
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "AUDIO"
+output_type = "TEXT"
+temperature = 0.0
+energy_w_h = 1
+cost_1m_input = 0.04
+cost_1m_output = 0.0
+env_required = ["GROQ_TOKEN"]
+env_optional = [""]
+#=======================================================================================================================
+# HUGGINGFACE - https://huggingface.co
+#=======================================================================================================================
+[[HUGGINGFACE]]
+is_enabled = true
+name = "meta-llama/Llama-3.3-70B-Instruct"
+url = "https://huggingface.co"
+url_token = "https://huggingface.co/settings/tokens"
+url_api = "https://api-inference.huggingface.co/models"
+description = "Llama 3.3 70B via HuggingFace Inference API."
+is_free = false
+context = 128000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.0
+cost_1m_output = 0.0
+env_required = ["HF_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[HUGGINGFACE]]
+is_enabled = true
+name = "mistralai/Mistral-7B-Instruct-v0.3"
+url = "https://huggingface.co"
+url_token = "https://huggingface.co/settings/tokens"
+url_api = "https://api-inference.huggingface.co/models"
+description = "Mistral 7B Instruct via HuggingFace."
+is_free = true
+context = 32768
+is_support_tools = false
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.0
+cost_1m_output = 0.0
+env_required = ["HF_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[HUGGINGFACE]]
+is_enabled = true
+name = "deepseek-ai/DeepSeek-R1"
+url = "https://huggingface.co"
+url_token = "https://huggingface.co/settings/tokens"
+url_api = "https://api-inference.huggingface.co/models"
+description = "DeepSeek R1 via HuggingFace Inference Providers."
+is_free = false
+context = 64000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0.0
+cost_1m_output = 0.0
+env_required = ["HF_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[HUGGINGFACE]]
+is_enabled = true
+name = "BAAI/bge-large-en-v1.5"
+url = "https://huggingface.co"
+url_token = "https://huggingface.co/settings/tokens"
+url_api = "https://api-inference.huggingface.co/models"
+description = "High-quality English embedding model."
+is_free = true
+context = 512
+is_support_tools = false
+is_support_completion = false
+is_support_vision = false
+is_support_embedding = true
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "EMBEDDING"
+temperature = 0.0
+energy_w_h = 1
+cost_1m_input = 0.0
+cost_1m_output = 0.0
+env_required = ["HF_TOKEN"]
+env_optional = [""]
+#-----------------------------------------------------------------------------------------------------------------------
+[[HUGGINGFACE]]
+is_enabled = true
+name = "sentence-transformers/all-MiniLM-L6-v2"
+url = "https://huggingface.co"
+url_token = "https://huggingface.co/settings/tokens"
+url_api = "https://api-inference.huggingface.co/models"
+description = "Fast, lightweight embedding model."
+is_free = true
+context = 256
+is_support_tools = false
+is_support_completion = false
+is_support_vision = false
+is_support_embedding = true
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "EMBEDDING"
+temperature = 0.0
+energy_w_h = 1
+cost_1m_input = 0.0
+cost_1m_output = 0.0
+env_required = ["HF_TOKEN"]
+env_optional = [""]
+#=======================================================================================================================
+# OLLAMA (Local) - https://ollama.com
+#=======================================================================================================================
+[[OLLAMA]]
+is_enabled = true
+name = "llama3.3:70b"
+url = "https://ollama.com"
+url_token = ""
+url_api = "http://localhost:11434/api/chat"
+description = "Meta Llama 3.3 70B running locally."
+is_free = true
+context = 128000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0
+cost_1m_output = 0
+env_required = [""]
+env_optional = ["OLLAMA_HOST"]
+#-----------------------------------------------------------------------------------------------------------------------
+[[OLLAMA]]
+is_enabled = true
+name = "deepseek-r1:70b"
+url = "https://ollama.com"
+url_token = ""
+url_api = "http://localhost:11434/api/chat"
+description = "DeepSeek R1 70B with chain-of-thought locally."
+is_free = true
+context = 64000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0
+cost_1m_output = 0
+env_required = [""]
+env_optional = ["OLLAMA_HOST"]
+#-----------------------------------------------------------------------------------------------------------------------
+[[OLLAMA]]
+is_enabled = true
+name = "deepseek-r1:7b"
+url = "https://ollama.com"
+url_token = ""
+url_api = "http://localhost:11434/api/chat"
+description = "DeepSeek R1 7B for consumer hardware."
+is_free = true
+context = 64000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = false
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0
+cost_1m_output = 0
+env_required = [""]
+env_optional = ["OLLAMA_HOST"]
+#-----------------------------------------------------------------------------------------------------------------------
+[[OLLAMA]]
+is_enabled = true
+name = "llama3.2-vision:11b"
+url = "https://ollama.com"
+url_token = ""
+url_api = "http://localhost:11434/api/chat"
+description = "Llama 3.2 with vision locally."
+is_free = true
+context = 128000
+is_support_tools = true
+is_support_completion = true
+is_support_vision = true
+is_support_embedding = false
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "TEXT"
+temperature = 0.7
+energy_w_h = 1
+cost_1m_input = 0
+cost_1m_output = 0
+env_required = [""]
+env_optional = ["OLLAMA_HOST"]
+#-----------------------------------------------------------------------------------------------------------------------
+[[OLLAMA]]
+is_enabled = true
+name = "nomic-embed-text"
+url = "https://ollama.com"
+url_token = ""
+url_api = "http://localhost:11434/api/embeddings"
+description = "High-quality text embeddings locally."
+is_free = true
+context = 8192
+is_support_tools = false
+is_support_completion = false
+is_support_vision = false
+is_support_embedding = true
+is_evo_fine_tuning = false
+input_type = "TEXT"
+output_type = "EMBEDDING"
+temperature = 0.0
+energy_w_h = 1
+cost_1m_input = 0
+cost_1m_output = 0
+env_required = [""]
+env_optional = ["OLLAMA_HOST"]
+#=======================================================================================================================

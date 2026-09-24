@@ -7,7 +7,7 @@ use serde_json::Value;
 /// API primitives. Structured instructions and criteria are accepted as JSON.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(tag = "type", rename_all = "lowercase")]
-pub enum Question {
+pub enum EnumOpenjevQuestion {
     Choice {
         instructions: Value,
         criteria: BTreeMap<String, Value>,
@@ -24,7 +24,7 @@ pub enum Question {
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
-pub struct Request {
+pub struct EMOpenjevRequest {
     pub state: Value,
     pub model: String,
     pub questions: BTreeMap<String, Question>,
@@ -103,7 +103,7 @@ impl Request {
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(tag = "type", rename_all = "lowercase")]
-pub enum Answer {
+pub enum EnumOpenjevAnswer {
     Choice {
         choice: String,
         probabilities: BTreeMap<String, f64>,
@@ -121,17 +121,23 @@ pub enum Answer {
 }
 
 #[derive(Clone, Debug, Default, Serialize, Deserialize)]
-pub struct Usage {
+pub struct EMOpenjevUsage {
     pub input_tokens: u64,
     pub output_tokens: u64,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
-pub struct Evaluation {
+pub struct EMOpenjevEvaluation {
     pub model: String,
     pub answers: BTreeMap<String, Answer>,
     pub usage: Usage,
 }
+
+pub type Question = EnumOpenjevQuestion;
+pub type Request = EMOpenjevRequest;
+pub type Answer = EnumOpenjevAnswer;
+pub type Usage = EMOpenjevUsage;
+pub type Evaluation = EMOpenjevEvaluation;
 
 fn probability(value: f64) -> bool {
     value.is_finite() && (0.0..=1.0).contains(&value)

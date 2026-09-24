@@ -1,0 +1,5876 @@
+{
+  "complete": true,
+  "dataset": {
+    "cases": [
+      {
+        "expected": {
+          "department": {
+            "basis": "published_example",
+            "decision": "technical",
+            "published_value": null
+          },
+          "frustration": {
+            "basis": "published_example",
+            "decision": [
+              "1"
+            ],
+            "published_value": 1.0
+          },
+          "is_urgent": {
+            "basis": "published_example",
+            "decision": "yes",
+            "published_value": 1.0
+          }
+        },
+        "id": "docs_quickstart",
+        "local_supported": true,
+        "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+        "request": {
+          "model": "jev-1.13.0",
+          "questions": {
+            "department": {
+              "criteria": {
+                "billing": "Payment or subscription issues",
+                "sales": "Pricing or account questions",
+                "technical": "Bugs or integration problems"
+              },
+              "instructions": "Which team should handle this",
+              "type": "choice"
+            },
+            "frustration": {
+              "criteria": [
+                "Calm, just stating facts",
+                "Frustrated but civil",
+                "Very angry, strong language"
+              ],
+              "instructions": "How frustrated the customer appears",
+              "type": "score"
+            },
+            "is_urgent": {
+              "instructions": "The message conveys urgency or time-sensitivity",
+              "type": "noul"
+            }
+          },
+          "state": "Hi, I've been trying to connect my Stripe account for 3 days and the integration keeps failing. I'm losing sales. Please help ASAP."
+        },
+        "source_ids": [
+          "quickstart"
+        ]
+      },
+      {
+        "expected": {
+          "department": {
+            "basis": "published_example",
+            "decision": "returns",
+            "published_value": null
+          }
+        },
+        "id": "docs_choice_exchange",
+        "local_supported": true,
+        "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+        "request": {
+          "model": "jev-1.13.0",
+          "questions": {
+            "department": {
+              "criteria": {
+                "billing": "Charges, invoices, payment problems",
+                "returns": "Exchanges, wrong or damaged items",
+                "shipping": "Delivery status, delays, lost packages"
+              },
+              "instructions": "Which team should handle this?",
+              "type": "choice"
+            }
+          },
+          "state": "My running shoes arrived in the wrong size. Can I swap them for a size 10?"
+        },
+        "source_ids": [
+          "choice"
+        ]
+      },
+      {
+        "expected": {
+          "return_topic": {
+            "basis": "published_example",
+            "decision": "return_status",
+            "published_value": null
+          }
+        },
+        "id": "docs_choice_structured",
+        "local_supported": false,
+        "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+        "request": {
+          "model": "jev-1.13.0",
+          "questions": {
+            "return_topic": {
+              "criteria": {
+                "return_policy": {
+                  "examples": [
+                    "Can I return shoes I've worn once?",
+                    "How long do I have to return an order?"
+                  ],
+                  "not_for": "Progress of a return already sent",
+                  "what": "Whether and how an item can be returned"
+                },
+                "return_status": {
+                  "examples": [
+                    "Has my return arrived yet?",
+                    "When will my refund be paid?"
+                  ],
+                  "not_for": "Whether and how an item can be returned",
+                  "what": "Progress of a return already sent"
+                }
+              },
+              "instructions": {
+                "focus": "Classify the information the customer wants.",
+                "question": "Which returns topic is the customer asking about?"
+              },
+              "type": "choice"
+            }
+          },
+          "state": "I sent the shoes back a week ago. When do I get my money?"
+        },
+        "source_ids": [
+          "choice"
+        ]
+      },
+      {
+        "expected": {
+          "severity": {
+            "basis": "published_example",
+            "decision": [
+              "1"
+            ],
+            "published_value": 1.43
+          }
+        },
+        "id": "docs_score_severity",
+        "local_supported": true,
+        "notes": "Exact ScoreExplorer state, question and levels; source example id retained as question id; model pinned.",
+        "request": {
+          "model": "jev-1.13.0",
+          "questions": {
+            "severity": {
+              "criteria": [
+                "Cosmetic; no impact to functionality",
+                "Broken or degraded feature, but workaround exists",
+                "Blocking issue; no workaround exists"
+              ],
+              "instructions": "How severe is the reported issue?",
+              "type": "score"
+            }
+          },
+          "state": "The export button crashes the settings page in Safari. It works in Chrome, but a few of our customers only use Safari."
+        },
+        "source_ids": [
+          "score"
+        ]
+      },
+      {
+        "expected": {
+          "formality": {
+            "basis": "published_example",
+            "decision": [
+              "2"
+            ],
+            "published_value": 1.86
+          }
+        },
+        "id": "docs_score_formality",
+        "local_supported": true,
+        "notes": "Exact ScoreExplorer state, question and levels; source example id retained as question id; model pinned.",
+        "request": {
+          "model": "jev-1.13.0",
+          "questions": {
+            "formality": {
+              "criteria": [
+                "gym clothes",
+                "casual",
+                "business casual",
+                "formal",
+                "black tie"
+              ],
+              "instructions": "How formal is this outfit based on the description?",
+              "type": "score"
+            }
+          },
+          "state": "A navy blazer over a plain white T-shirt, dark jeans, and clean leather loafers. No tie."
+        },
+        "source_ids": [
+          "score"
+        ]
+      },
+      {
+        "expected": {
+          "relevance": {
+            "basis": "published_example",
+            "decision": [
+              "3"
+            ],
+            "published_value": 2.52
+          }
+        },
+        "id": "docs_score_relevance",
+        "local_supported": true,
+        "notes": "Exact ScoreExplorer state, question and levels; source example id retained as question id; model pinned.",
+        "request": {
+          "model": "jev-1.13.0",
+          "questions": {
+            "relevance": {
+              "criteria": [
+                "completely unrelated",
+                "adjacent field",
+                "some direct experience",
+                "deep, direct experience"
+              ],
+              "instructions": "How relevant is this candidate's experience to the job posting?",
+              "type": "score"
+            }
+          },
+          "state": "Job posting: Senior backend engineer building Python APIs and PostgreSQL services. Candidate: Three years building Django REST APIs with PostgreSQL, preceded by two years in frontend JavaScript. Has owned small services but has not led a backend team."
+        },
+        "source_ids": [
+          "score"
+        ]
+      },
+      {
+        "expected": {
+          "is_human_escalation": {
+            "basis": "published_example",
+            "decision": "yes",
+            "published_value": 0.99
+          },
+          "is_repeat_contact": {
+            "basis": "published_example",
+            "decision": "yes",
+            "published_value": 0.93
+          }
+        },
+        "id": "docs_noul_repeat_contact",
+        "local_supported": true,
+        "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+        "request": {
+          "model": "jev-1.13.0",
+          "questions": {
+            "is_human_escalation": {
+              "instructions": "Is the customer asking for a human agent?",
+              "type": "noul"
+            },
+            "is_repeat_contact": {
+              "criteria": {
+                "false": "No sign of any previous contact",
+                "true": "Mentions a prior attempt, ticket, or that they have asked before"
+              },
+              "instructions": "Has the customer contacted support about this before?",
+              "type": "noul"
+            }
+          },
+          "state": "I have asked three times now. Can I please just talk to a real person?"
+        },
+        "source_ids": [
+          "noul"
+        ]
+      },
+      {
+        "expected": {
+          "is_human_escalation": {
+            "basis": "published_example",
+            "decision": "no",
+            "published_value": 0.02
+          }
+        },
+        "id": "docs_noul_resolved",
+        "local_supported": true,
+        "notes": "Exact recorded state and question from the Noul table; comparison uses a declared 0.5 threshold, not the separate 0.9 routing example.",
+        "request": {
+          "model": "jev-1.13.0",
+          "questions": {
+            "is_human_escalation": {
+              "instructions": "Is the customer asking for a human agent?",
+              "type": "noul"
+            }
+          },
+          "state": "Thanks, that fixed it!"
+        },
+        "source_ids": [
+          "noul"
+        ]
+      },
+      {
+        "expected": {
+          "is_human_escalation": {
+            "basis": "published_example",
+            "decision": "no",
+            "published_value": 0.07
+          }
+        },
+        "id": "docs_noul_password",
+        "local_supported": true,
+        "notes": "Exact recorded state and question from the Noul table; comparison uses a declared 0.5 threshold, not the separate 0.9 routing example.",
+        "request": {
+          "model": "jev-1.13.0",
+          "questions": {
+            "is_human_escalation": {
+              "instructions": "Is the customer asking for a human agent?",
+              "type": "noul"
+            }
+          },
+          "state": "How do I reset my password?"
+        },
+        "source_ids": [
+          "noul"
+        ]
+      },
+      {
+        "expected": {
+          "is_human_escalation": {
+            "basis": "published_example",
+            "decision": "no",
+            "published_value": 0.26
+          }
+        },
+        "id": "docs_noul_urgent",
+        "local_supported": true,
+        "notes": "Exact recorded state and question from the Noul table; comparison uses a declared 0.5 threshold, not the separate 0.9 routing example.",
+        "request": {
+          "model": "jev-1.13.0",
+          "questions": {
+            "is_human_escalation": {
+              "instructions": "Is the customer asking for a human agent?",
+              "type": "noul"
+            }
+          },
+          "state": "I need this sorted today, whatever it takes."
+        },
+        "source_ids": [
+          "noul"
+        ]
+      },
+      {
+        "expected": {
+          "is_human_escalation": {
+            "basis": "published_example",
+            "decision": "no",
+            "published_value": 0.4
+          }
+        },
+        "id": "docs_noul_bot",
+        "local_supported": true,
+        "notes": "Exact recorded state and question from the Noul table; comparison uses a declared 0.5 threshold, not the separate 0.9 routing example.",
+        "request": {
+          "model": "jev-1.13.0",
+          "questions": {
+            "is_human_escalation": {
+              "instructions": "Is the customer asking for a human agent?",
+              "type": "noul"
+            }
+          },
+          "state": "Are you a bot?"
+        },
+        "source_ids": [
+          "noul"
+        ]
+      },
+      {
+        "expected": {
+          "is_human_escalation": {
+            "basis": "published_example",
+            "decision": "yes",
+            "published_value": 0.84
+          }
+        },
+        "id": "docs_noul_invoice",
+        "local_supported": true,
+        "notes": "Exact recorded state and question from the Noul table; comparison uses a declared 0.5 threshold, not the separate 0.9 routing example.",
+        "request": {
+          "model": "jev-1.13.0",
+          "questions": {
+            "is_human_escalation": {
+              "instructions": "Is the customer asking for a human agent?",
+              "type": "noul"
+            }
+          },
+          "state": "Is there any way to speak to someone about my invoice?"
+        },
+        "source_ids": [
+          "noul"
+        ]
+      },
+      {
+        "expected": {
+          "item_0": {
+            "basis": "independent_semantic_label",
+            "decision": "no",
+            "published_value": null
+          },
+          "item_1": {
+            "basis": "independent_semantic_label",
+            "decision": "yes",
+            "published_value": null
+          },
+          "item_2": {
+            "basis": "independent_semantic_label",
+            "decision": "no",
+            "published_value": null
+          },
+          "item_3": {
+            "basis": "independent_semantic_label",
+            "decision": "yes",
+            "published_value": null
+          },
+          "item_4": {
+            "basis": "independent_semantic_label",
+            "decision": "no",
+            "published_value": null
+          },
+          "item_5": {
+            "basis": "independent_semantic_label",
+            "decision": "no",
+            "published_value": null
+          },
+          "item_6": {
+            "basis": "independent_semantic_label",
+            "decision": "yes",
+            "published_value": null
+          },
+          "item_7": {
+            "basis": "independent_semantic_label",
+            "decision": "no",
+            "published_value": null
+          }
+        },
+        "id": "docs_fruit_indirection",
+        "local_supported": true,
+        "notes": "Exact upstream list and expanded loop questions. Fruit labels were assigned independently before execution; the page does not publish per-item answers.",
+        "request": {
+          "model": "jev-1.13.0",
+          "questions": {
+            "item_0": {
+              "instructions": "Is `items[0]` the name of a fruit?",
+              "type": "noul"
+            },
+            "item_1": {
+              "instructions": "Is `items[1]` the name of a fruit?",
+              "type": "noul"
+            },
+            "item_2": {
+              "instructions": "Is `items[2]` the name of a fruit?",
+              "type": "noul"
+            },
+            "item_3": {
+              "instructions": "Is `items[3]` the name of a fruit?",
+              "type": "noul"
+            },
+            "item_4": {
+              "instructions": "Is `items[4]` the name of a fruit?",
+              "type": "noul"
+            },
+            "item_5": {
+              "instructions": "Is `items[5]` the name of a fruit?",
+              "type": "noul"
+            },
+            "item_6": {
+              "instructions": "Is `items[6]` the name of a fruit?",
+              "type": "noul"
+            },
+            "item_7": {
+              "instructions": "Is `items[7]` the name of a fruit?",
+              "type": "noul"
+            }
+          },
+          "state": {
+            "items": [
+              "typesafe",
+              "apple",
+              "california",
+              "banana",
+              "likes",
+              "calibration",
+              "orange",
+              "vertex"
+            ]
+          }
+        },
+        "source_ids": [
+          "jaggedness"
+        ]
+      },
+      {
+        "expected": {
+          "refund_choice": {
+            "basis": "published_example",
+            "decision": "no",
+            "published_value": null
+          },
+          "refund_noul": {
+            "basis": "published_example",
+            "decision": "no",
+            "published_value": 0.22
+          }
+        },
+        "id": "docs_refund_cross_primitive",
+        "local_supported": true,
+        "notes": "Exact state and instruction from the structural-invariants example. Question IDs assigned here; yes/no Choice uses null descriptions because the page gives labels but not descriptions. No identity between the two probabilities is asserted.",
+        "request": {
+          "model": "jev-1.13.0",
+          "questions": {
+            "refund_choice": {
+              "criteria": {
+                "no": null,
+                "yes": null
+              },
+              "instructions": "Is the customer asking for a refund?",
+              "type": "choice"
+            },
+            "refund_noul": {
+              "instructions": "Is the customer asking for a refund?",
+              "type": "noul"
+            }
+          },
+          "state": "I'm not happy with the fit. What are my options here?"
+        },
+        "source_ids": [
+          "jaggedness"
+        ]
+      },
+      {
+        "expected": {
+          "not_refund": {
+            "basis": "published_example",
+            "decision": "no",
+            "published_value": 0.47
+          },
+          "refund": {
+            "basis": "published_example",
+            "decision": "yes",
+            "published_value": 0.72
+          }
+        },
+        "id": "docs_refund_negation",
+        "local_supported": true,
+        "notes": "Exact state and instructions from the structural-invariants example; source IDs retained; no complementarity assertion.",
+        "request": {
+          "model": "jev-1.13.0",
+          "questions": {
+            "not_refund": {
+              "instructions": "Is the customer asking for something other than a refund?",
+              "type": "noul"
+            },
+            "refund": {
+              "instructions": "Is the customer asking for a refund?",
+              "type": "noul"
+            }
+          },
+          "state": "I was charged twice for the same order. Can someone look into this?"
+        },
+        "source_ids": [
+          "jaggedness"
+        ]
+      },
+      {
+        "expected": {},
+        "id": "sdk_readme_billing",
+        "local_supported": true,
+        "notes": "Identical README examples deduplicated across the two official SDKs; neither README provides a numeric golden response.",
+        "request": {
+          "model": "jev-1.13.0",
+          "questions": {
+            "category": {
+              "criteria": {
+                "billing": null,
+                "other": null,
+                "technical": null
+              },
+              "instructions": "What is this ticket about?",
+              "type": "choice"
+            }
+          },
+          "state": {
+            "document": "I was charged twice. Please fix this ASAP."
+          }
+        },
+        "source_ids": [
+          "js_readme",
+          "py_readme"
+        ]
+      },
+      {
+        "expected": {},
+        "id": "sdk_js_demo",
+        "local_supported": true,
+        "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+        "request": {
+          "model": "jev-1.13.0",
+          "questions": {
+            "isBilling": {
+              "instructions": "Is this ticket about billing?",
+              "type": "noul"
+            },
+            "refundRisk": {
+              "criteria": [
+                "unlikely",
+                "possible",
+                "likely"
+              ],
+              "instructions": "How likely is the customer to demand a refund?",
+              "type": "score"
+            },
+            "sentiment": {
+              "criteria": {
+                "angry": null,
+                "calm": null,
+                "frustrated": null
+              },
+              "instructions": "What is the customer's tone?",
+              "type": "choice"
+            },
+            "urgency": {
+              "criteria": [
+                "can wait",
+                "this week",
+                "today",
+                "right now"
+              ],
+              "instructions": "How urgent is this ticket?",
+              "type": "score"
+            }
+          },
+          "state": {
+            "body": "Hi, I see two charges of $49 on my card for August. I only have one account. Please fix this ASAP, I'm pretty frustrated.",
+            "subject": "Charged twice this month"
+          }
+        },
+        "source_ids": [
+          "js_demo"
+        ]
+      },
+      {
+        "expected": {},
+        "id": "sdk_js_live",
+        "local_supported": true,
+        "notes": "Exact live integration payload. Upstream asserts schema/ranges, not semantic golden labels.",
+        "request": {
+          "model": "jev-1.13.0",
+          "questions": {
+            "isBilling": {
+              "instructions": "Is this ticket about billing?",
+              "type": "noul"
+            },
+            "sentiment": {
+              "criteria": {
+                "angry": null,
+                "calm": null,
+                "frustrated": null
+              },
+              "instructions": "What is the customer's tone?",
+              "type": "choice"
+            },
+            "urgency": {
+              "criteria": [
+                "can wait",
+                "this week",
+                "today"
+              ],
+              "instructions": "How urgent is this ticket?",
+              "type": "score"
+            }
+          },
+          "state": {
+            "body": "I see two charges of $49 on my card for August. I only have one account. Please fix this ASAP.",
+            "subject": "Charged twice this month"
+          }
+        },
+        "source_ids": [
+          "js_live"
+        ]
+      },
+      {
+        "expected": {},
+        "id": "sdk_js_rich",
+        "local_supported": false,
+        "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+        "request": {
+          "model": "jev-1.13.0",
+          "questions": {
+            "duplicate": {
+              "criteria": {
+                "true": {
+                  "examples": [
+                    "billed twice"
+                  ],
+                  "meaning": "the same amount charged more than once"
+                }
+              },
+              "instructions": "Is the customer reporting a duplicate charge?",
+              "type": "noul"
+            },
+            "tone": {
+              "criteria": {
+                "calm": {
+                  "examples": [
+                    "please look into this"
+                  ],
+                  "summary": "measured"
+                },
+                "upset": null
+              },
+              "instructions": "Tone?",
+              "type": "choice"
+            }
+          },
+          "state": {
+            "body": "I see two charges of $49 on my card for August. I only have one account. Please fix this ASAP.",
+            "subject": "Charged twice this month"
+          }
+        },
+        "source_ids": [
+          "js_live"
+        ]
+      },
+      {
+        "expected": {},
+        "id": "sdk_python_rich",
+        "local_supported": false,
+        "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+        "request": {
+          "model": "jev-1.13.0",
+          "questions": {
+            "billing": {
+              "criteria": {
+                "true": {
+                  "examples": [
+                    "charged twice"
+                  ],
+                  "meaning": "Payments or invoices"
+                }
+              },
+              "instructions": "Is this ticket about billing?",
+              "type": "noul"
+            },
+            "tone": {
+              "criteria": {
+                "angry": null,
+                "calm": null,
+                "frustrated": null
+              },
+              "instructions": "What is the customer's tone?",
+              "type": "choice"
+            },
+            "urgency": {
+              "criteria": [
+                "can wait",
+                "this week",
+                "today"
+              ],
+              "instructions": "How urgent is this ticket?",
+              "type": "score"
+            }
+          },
+          "state": {
+            "body": "I see two charges of $49. I only have one account. Please fix this ASAP.",
+            "subject": "Charged twice this month"
+          }
+        },
+        "source_ids": [
+          "py_live"
+        ]
+      },
+      {
+        "expected": {},
+        "id": "sdk_python_pydantic",
+        "local_supported": true,
+        "notes": "Exact state/questions from the Pydantic response-model integration test; only payload behavior is reproduced in Rust, not the Python response wrapper.",
+        "request": {
+          "model": "jev-1.13.0",
+          "questions": {
+            "billing": {
+              "instructions": "Is this ticket about billing?",
+              "type": "noul"
+            },
+            "tone": {
+              "criteria": {
+                "angry": null,
+                "calm": null,
+                "frustrated": null
+              },
+              "instructions": "What is the customer's tone?",
+              "type": "choice"
+            },
+            "urgency": {
+              "criteria": [
+                "can wait",
+                "this week",
+                "today"
+              ],
+              "instructions": "How urgent is this ticket?",
+              "type": "score"
+            }
+          },
+          "state": {
+            "body": "I see two charges of $49. Please fix this ASAP.",
+            "subject": "Charged twice this month"
+          }
+        },
+        "source_ids": [
+          "py_live"
+        ]
+      }
+    ],
+    "comparison_policy": {
+      "noul_equal_threshold": "uncertain",
+      "noul_threshold": 0.5,
+      "published_example": "Illustrative/recorded source output, not immutable ground truth or required current API output",
+      "score_decision": "set of maximum-probability levels; ties preserved",
+      "unlabeled_sdk_cases": "Measure backend agreement only; do not count as prediction accuracy"
+    },
+    "schema_version": 1,
+    "selection": "Official documentation examples and official SDK examples/live tests; frozen before model execution. This is a convenience sample, not a representative accuracy benchmark.",
+    "sources": {
+      "choice": {
+        "kind": "official_documentation",
+        "retrieved_on": "2026-09-21",
+        "revision": null,
+        "snapshot_sha256": "4c55085131f8f2d7ae1faefdec52b1c7b379d40657d701cd2c786021cfe9dac9",
+        "url": "https://docs.typesafe.ai/primitives/choice"
+      },
+      "jaggedness": {
+        "kind": "official_documentation",
+        "retrieved_on": "2026-09-21",
+        "revision": null,
+        "snapshot_sha256": "e69329bd32e91ac08f0bd2681ceb4aacc34923b9190e29c15c8f75d8e22950e2",
+        "url": "https://docs.typesafe.ai/model-jaggedness/jev-1.13"
+      },
+      "js_demo": {
+        "kind": "official_sdk_repository",
+        "retrieved_on": "2026-09-21",
+        "revision": "66880ccded6cb642dc1809620c2b108c33730214",
+        "snapshot_sha256": "e256cc736edc4486390c44c0f11846d2239db2af100007252a405ef932c53aeb",
+        "url": "https://github.com/typesafe-ai/typesafe-sdk-js/blob/66880ccded6cb642dc1809620c2b108c33730214/examples/demo.ts"
+      },
+      "js_live": {
+        "kind": "official_sdk_repository",
+        "retrieved_on": "2026-09-21",
+        "revision": "66880ccded6cb642dc1809620c2b108c33730214",
+        "snapshot_sha256": "d7ec91895f441ded4ae7db65fd48ee41f71a95cb693bada48b7814111859629c",
+        "url": "https://github.com/typesafe-ai/typesafe-sdk-js/blob/66880ccded6cb642dc1809620c2b108c33730214/test/integration/api.integration.ts"
+      },
+      "js_readme": {
+        "kind": "official_sdk_repository",
+        "retrieved_on": "2026-09-21",
+        "revision": "66880ccded6cb642dc1809620c2b108c33730214",
+        "snapshot_sha256": "ff2bc3e7069c96524f1caf187590ace7b310b0b41dfbfae57176b2c69a262859",
+        "url": "https://github.com/typesafe-ai/typesafe-sdk-js/blob/66880ccded6cb642dc1809620c2b108c33730214/README.md"
+      },
+      "noul": {
+        "kind": "official_documentation",
+        "retrieved_on": "2026-09-21",
+        "revision": null,
+        "snapshot_sha256": "aa7bff0d04bd42614e0e851a9ad4917ccc6287c882bc5dece7689b085ef789e6",
+        "url": "https://docs.typesafe.ai/primitives/noul"
+      },
+      "py_live": {
+        "kind": "official_sdk_repository",
+        "retrieved_on": "2026-09-21",
+        "revision": "2ce5c65f13646cab6e6f782328194c9d85f3300a",
+        "snapshot_sha256": "c04c5f940154e871e25591896fe5b04e90ea830fd8693f0a368cb883d81d4b61",
+        "url": "https://github.com/typesafe-ai/typesafe-sdk-python/blob/2ce5c65f13646cab6e6f782328194c9d85f3300a/tests/test_integration.py"
+      },
+      "py_readme": {
+        "kind": "official_sdk_repository",
+        "retrieved_on": "2026-09-21",
+        "revision": "2ce5c65f13646cab6e6f782328194c9d85f3300a",
+        "snapshot_sha256": "06aa97c3d7b31ea2eb0b43d3f2f687ad3e48e29802d539064331aaff8243adad",
+        "url": "https://github.com/typesafe-ai/typesafe-sdk-python/blob/2ce5c65f13646cab6e6f782328194c9d85f3300a/README.md"
+      },
+      "quickstart": {
+        "kind": "official_documentation",
+        "retrieved_on": "2026-09-21",
+        "revision": null,
+        "snapshot_sha256": "c30183944985b269c49939140272f9eec885895df346f19d76cf9b04e18073d2",
+        "url": "https://docs.typesafe.ai/introduction/quickstart"
+      },
+      "score": {
+        "kind": "official_documentation",
+        "retrieved_on": "2026-09-21",
+        "revision": null,
+        "snapshot_sha256": "5afe0db1d2d108c3bf35f73f5fddbfcd2b9ade2d3c6f553af8a02b2bfd005ae9",
+        "url": "https://docs.typesafe.ai/primitives/score"
+      }
+    }
+  },
+  "device": "metal",
+  "fixture_sha256": "88753d76281b49ed6002a3c163ab5c37fafcf2905b66700703bd5378be0f4412",
+  "method": "Two serial passes over each frozen request; alternate backend order; keep model resident and reuse HTTP client. No response cache, training or prompt tuning. Per-question agreement uses Choice labels, tied Score modes, and a 0.5 Noul threshold. Published example outputs are illustrative references, not ground truth. Eight fruit labels are independently assigned. SDK examples without semantic expectations count only toward backend agreement. Unsupported local inputs remain unchanged and are reported, not flattened or counted as prediction errors. Timing means use only successful matched pairs; repeated decisions are not counted as additional unique cases.",
+  "pairs": [
+    {
+      "case_id": "docs_quickstart",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": null,
+          "decision_agrees": false,
+          "exact_answer_agrees": false,
+          "local_decision": "billing",
+          "max_probability_delta": 0.6436044642607437,
+          "question_id": "department",
+          "remote_decision": "technical",
+          "total_variation_distance": 0.6436044642607437,
+          "type": "choice"
+        },
+        {
+          "absolute_scalar_delta": 0.01151110472759076,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": [
+            "1"
+          ],
+          "max_probability_delta": 0.1693278777693229,
+          "question_id": "frustration",
+          "remote_decision": [
+            "1"
+          ],
+          "total_variation_distance": 0.1693278777693229,
+          "type": "score"
+        },
+        {
+          "absolute_scalar_delta": 0.22933545504278685,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "yes",
+          "max_probability_delta": 0.22933545504278685,
+          "question_id": "is_urgent",
+          "remote_decision": "yes",
+          "total_variation_distance": 0.22933545504278685,
+          "type": "noul"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 111.161708,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "published_example",
+            "expected_decision": "technical",
+            "matches_reference_decision": false,
+            "observed_decision": "billing",
+            "published_value": null,
+            "question_id": "department"
+          },
+          {
+            "absolute_delta_from_published_value": 0.01151110472759076,
+            "basis": "published_example",
+            "expected_decision": [
+              "1"
+            ],
+            "matches_reference_decision": true,
+            "observed_decision": [
+              "1"
+            ],
+            "published_value": 1.0,
+            "question_id": "frustration"
+          },
+          {
+            "absolute_delta_from_published_value": 0.23933545504278686,
+            "basis": "published_example",
+            "expected_decision": "yes",
+            "matches_reference_decision": true,
+            "observed_decision": "yes",
+            "published_value": 1.0,
+            "question_id": "is_urgent"
+          }
+        ],
+        "response": {
+          "answers": {
+            "department": {
+              "choice": "billing",
+              "confidence": 0.03895156974087177,
+              "probabilities": {
+                "billing": 0.47382489542854106,
+                "sales": 0.24977956883220254,
+                "technical": 0.2763955357392563
+              },
+              "type": "choice"
+            },
+            "frustration": {
+              "confidence": 0.47952844589475996,
+              "legend": {
+                "0": "Calm, just stating facts",
+                "1": "Frustrated but civil",
+                "2": "Very angry, strong language"
+              },
+              "probabilities": {
+                "0": 0.09041949124845682,
+                "1": 0.8306721222306771,
+                "2": 0.07890838652086608
+              },
+              "score": 0.9884888952724092,
+              "type": "score"
+            },
+            "is_urgent": {
+              "noul": 0.7606645449572131,
+              "type": "noul"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 205,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": true,
+      "local_supported": true,
+      "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+      "remote": {
+        "elapsed_ms": 351.098458,
+        "first_byte_ms": 351,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "published_example",
+            "expected_decision": "technical",
+            "matches_reference_decision": true,
+            "observed_decision": "technical",
+            "published_value": null,
+            "question_id": "department"
+          },
+          {
+            "absolute_delta_from_published_value": 0.0,
+            "basis": "published_example",
+            "expected_decision": [
+              "1"
+            ],
+            "matches_reference_decision": true,
+            "observed_decision": [
+              "1"
+            ],
+            "published_value": 1.0,
+            "question_id": "frustration"
+          },
+          {
+            "absolute_delta_from_published_value": 0.010000000000000009,
+            "basis": "published_example",
+            "expected_decision": "yes",
+            "matches_reference_decision": true,
+            "observed_decision": "yes",
+            "published_value": 1.0,
+            "question_id": "is_urgent"
+          }
+        ],
+        "response": {
+          "answers": {
+            "department": {
+              "choice": "technical",
+              "confidence": 0.88,
+              "probabilities": {
+                "billing": 0.08,
+                "sales": 0.0,
+                "technical": 0.92
+              },
+              "type": "choice"
+            },
+            "frustration": {
+              "confidence": 1.0,
+              "legend": {
+                "0": "Calm, just stating facts",
+                "1": "Frustrated but civil",
+                "2": "Very angry, strong language"
+              },
+              "probabilities": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0
+              },
+              "score": 1.0,
+              "type": "score"
+            },
+            "is_urgent": {
+              "noul": 0.99,
+              "type": "noul"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 425,
+            "output_tokens": 73
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 0,
+      "source_ids": [
+        "quickstart"
+      ]
+    },
+    {
+      "case_id": "docs_choice_exchange",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": null,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "returns",
+          "max_probability_delta": 0.13602373215552854,
+          "question_id": "department",
+          "remote_decision": "returns",
+          "total_variation_distance": 0.1360237321555285,
+          "type": "choice"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 38.185209,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "published_example",
+            "expected_decision": "returns",
+            "matches_reference_decision": true,
+            "observed_decision": "returns",
+            "published_value": null,
+            "question_id": "department"
+          }
+        ],
+        "response": {
+          "answers": {
+            "department": {
+              "choice": "returns",
+              "confidence": 0.5837769386463969,
+              "probabilities": {
+                "billing": 0.021633224325675264,
+                "returns": 0.8639762678444715,
+                "shipping": 0.11439050782985315
+              },
+              "type": "choice"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 62,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": false,
+      "local_supported": true,
+      "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+      "remote": {
+        "elapsed_ms": 311.361208,
+        "first_byte_ms": 311,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "published_example",
+            "expected_decision": "returns",
+            "matches_reference_decision": true,
+            "observed_decision": "returns",
+            "published_value": null,
+            "question_id": "department"
+          }
+        ],
+        "response": {
+          "answers": {
+            "department": {
+              "choice": "returns",
+              "confidence": 1.0,
+              "probabilities": {
+                "billing": 0.0,
+                "returns": 1.0,
+                "shipping": 0.0
+              },
+              "type": "choice"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 357,
+            "output_tokens": 38
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 0,
+      "source_ids": [
+        "choice"
+      ]
+    },
+    {
+      "case_id": "docs_choice_structured",
+      "comparisons": [],
+      "local": {
+        "elapsed_ms": 0.003708,
+        "error": "The local Laya backend requires plain-text instructions and descriptions",
+        "status": "error"
+      },
+      "local_first": true,
+      "local_supported": false,
+      "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+      "remote": {
+        "elapsed_ms": 353.336416,
+        "first_byte_ms": 353,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "published_example",
+            "expected_decision": "return_status",
+            "matches_reference_decision": true,
+            "observed_decision": "return_status",
+            "published_value": null,
+            "question_id": "return_topic"
+          }
+        ],
+        "response": {
+          "answers": {
+            "return_topic": {
+              "choice": "return_status",
+              "confidence": 1.0,
+              "probabilities": {
+                "return_policy": 0.0,
+                "return_status": 1.0
+              },
+              "type": "choice"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 459,
+            "output_tokens": 35
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 0,
+      "source_ids": [
+        "choice"
+      ]
+    },
+    {
+      "case_id": "docs_score_severity",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.05378514967978765,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": [
+            "1"
+          ],
+          "max_probability_delta": 0.04725447675459532,
+          "question_id": "severity",
+          "remote_decision": [
+            "1"
+          ],
+          "total_variation_distance": 0.04725447675459535,
+          "type": "score"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 52.028917,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.0037851496797876028,
+            "basis": "published_example",
+            "expected_decision": [
+              "1"
+            ],
+            "matches_reference_decision": true,
+            "observed_decision": [
+              "1"
+            ],
+            "published_value": 1.43,
+            "question_id": "severity"
+          }
+        ],
+        "response": {
+          "answers": {
+            "severity": {
+              "confidence": 0.34488155135109944,
+              "legend": {
+                "0": "Cosmetic; no impact to functionality",
+                "1": "Broken or degraded feature, but workaround exists",
+                "2": "Blocking issue; no workaround exists"
+              },
+              "probabilities": {
+                "0": 0.00653067292519227,
+                "1": 0.5607238038294031,
+                "2": 0.43274552324540466
+              },
+              "score": 1.4262148503202123,
+              "type": "score"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 75,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": false,
+      "local_supported": true,
+      "notes": "Exact ScoreExplorer state, question and levels; source example id retained as question id; model pinned.",
+      "remote": {
+        "elapsed_ms": 295.330083,
+        "first_byte_ms": 295,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.050000000000000044,
+            "basis": "published_example",
+            "expected_decision": [
+              "1"
+            ],
+            "matches_reference_decision": true,
+            "observed_decision": [
+              "1"
+            ],
+            "published_value": 1.43,
+            "question_id": "severity"
+          }
+        ],
+        "response": {
+          "answers": {
+            "severity": {
+              "confidence": 0.28,
+              "legend": {
+                "0": "Cosmetic; no impact to functionality",
+                "1": "Broken or degraded feature, but workaround exists",
+                "2": "Blocking issue; no workaround exists"
+              },
+              "probabilities": {
+                "0": 0.0,
+                "1": 0.52,
+                "2": 0.48
+              },
+              "score": 1.48,
+              "type": "score"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 341,
+            "output_tokens": 17
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 0,
+      "source_ids": [
+        "score"
+      ]
+    },
+    {
+      "case_id": "docs_score_formality",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.22667233263972886,
+          "decision_agrees": false,
+          "exact_answer_agrees": false,
+          "local_decision": [
+            "1"
+          ],
+          "max_probability_delta": 0.5716588892304115,
+          "question_id": "formality",
+          "remote_decision": [
+            "2"
+          ],
+          "total_variation_distance": 0.5716588892304116,
+          "type": "score"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 40.729291,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.22667233263972886,
+            "basis": "published_example",
+            "expected_decision": [
+              "2"
+            ],
+            "matches_reference_decision": false,
+            "observed_decision": [
+              "1"
+            ],
+            "published_value": 1.86,
+            "question_id": "formality"
+          }
+        ],
+        "response": {
+          "answers": {
+            "formality": {
+              "confidence": 0.2666860648945534,
+              "legend": {
+                "0": "gym clothes",
+                "1": "casual",
+                "2": "business casual",
+                "3": "formal",
+                "4": "black tie"
+              },
+              "probabilities": {
+                "0": 0.026250028582437166,
+                "1": 0.5332901803365785,
+                "2": 0.2883411107695884,
+                "3": 0.08511945576106818,
+                "4": 0.06699922455032785
+              },
+              "score": 1.6333276673602712,
+              "type": "score"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 69,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": true,
+      "local_supported": true,
+      "notes": "Exact ScoreExplorer state, question and levels; source example id retained as question id; model pinned.",
+      "remote": {
+        "elapsed_ms": 443.72708300000005,
+        "first_byte_ms": 443,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.0,
+            "basis": "published_example",
+            "expected_decision": [
+              "2"
+            ],
+            "matches_reference_decision": true,
+            "observed_decision": [
+              "2"
+            ],
+            "published_value": 1.86,
+            "question_id": "formality"
+          }
+        ],
+        "response": {
+          "answers": {
+            "formality": {
+              "confidence": 0.88,
+              "legend": {
+                "0": "gym clothes",
+                "1": "casual",
+                "2": "business casual",
+                "3": "formal",
+                "4": "black tie"
+              },
+              "probabilities": {
+                "0": 0.0,
+                "1": 0.14,
+                "2": 0.86,
+                "3": 0.0,
+                "4": 0.0
+              },
+              "score": 1.86,
+              "type": "score"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 341,
+            "output_tokens": 18
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 0,
+      "source_ids": [
+        "score"
+      ]
+    },
+    {
+      "case_id": "docs_score_relevance",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.36797420182524965,
+          "decision_agrees": false,
+          "exact_answer_agrees": false,
+          "local_decision": [
+            "2"
+          ],
+          "max_probability_delta": 0.1779251039124526,
+          "question_id": "relevance",
+          "remote_decision": [
+            "3"
+          ],
+          "total_variation_distance": 0.17792510391245256,
+          "type": "score"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 59.538124999999994,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.3279742018252496,
+            "basis": "published_example",
+            "expected_decision": [
+              "3"
+            ],
+            "matches_reference_decision": false,
+            "observed_decision": [
+              "2"
+            ],
+            "published_value": 2.52,
+            "question_id": "relevance"
+          }
+        ],
+        "response": {
+          "answers": {
+            "relevance": {
+              "confidence": 0.21304459275338838,
+              "legend": {
+                "0": "completely unrelated",
+                "1": "adjacent field",
+                "2": "some direct experience",
+                "3": "deep, direct experience"
+              },
+              "probabilities": {
+                "0": 0.020831053407133523,
+                "1": 0.14838699109853024,
+                "2": 0.4487070594067888,
+                "3": 0.38207489608754747
+              },
+              "score": 2.1920257981747504,
+              "type": "score"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 96,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": false,
+      "local_supported": true,
+      "notes": "Exact ScoreExplorer state, question and levels; source example id retained as question id; model pinned.",
+      "remote": {
+        "elapsed_ms": 410.954042,
+        "first_byte_ms": 410,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.040000000000000036,
+            "basis": "published_example",
+            "expected_decision": [
+              "3"
+            ],
+            "matches_reference_decision": true,
+            "observed_decision": [
+              "3"
+            ],
+            "published_value": 2.52,
+            "question_id": "relevance"
+          }
+        ],
+        "response": {
+          "answers": {
+            "relevance": {
+              "confidence": 0.56,
+              "legend": {
+                "0": "completely unrelated",
+                "1": "adjacent field",
+                "2": "some direct experience",
+                "3": "deep, direct experience"
+              },
+              "probabilities": {
+                "0": 0.0,
+                "1": 0.0,
+                "2": 0.44,
+                "3": 0.56
+              },
+              "score": 2.56,
+              "type": "score"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 370,
+            "output_tokens": 19
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 0,
+      "source_ids": [
+        "score"
+      ]
+    },
+    {
+      "case_id": "docs_noul_repeat_contact",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.009990745055112882,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "yes",
+          "max_probability_delta": 0.009990745055112882,
+          "question_id": "is_human_escalation",
+          "remote_decision": "yes",
+          "total_variation_distance": 0.009990745055112882,
+          "type": "noul"
+        },
+        {
+          "absolute_scalar_delta": 0.49583457112933926,
+          "decision_agrees": false,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.49583457112933926,
+          "question_id": "is_repeat_contact",
+          "remote_decision": "yes",
+          "total_variation_distance": 0.49583457112933926,
+          "type": "noul"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 52.401917,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.009990745055112882,
+            "basis": "published_example",
+            "expected_decision": "yes",
+            "matches_reference_decision": true,
+            "observed_decision": "yes",
+            "published_value": 0.99,
+            "question_id": "is_human_escalation"
+          },
+          {
+            "absolute_delta_from_published_value": 0.48583457112933937,
+            "basis": "published_example",
+            "expected_decision": "yes",
+            "matches_reference_decision": false,
+            "observed_decision": "no",
+            "published_value": 0.93,
+            "question_id": "is_repeat_contact"
+          }
+        ],
+        "response": {
+          "answers": {
+            "is_human_escalation": {
+              "noul": 0.9999907450551129,
+              "type": "noul"
+            },
+            "is_repeat_contact": {
+              "noul": 0.4441654288706607,
+              "type": "noul"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 112,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": true,
+      "local_supported": true,
+      "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+      "remote": {
+        "elapsed_ms": 499.575416,
+        "first_byte_ms": 499,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.0,
+            "basis": "published_example",
+            "expected_decision": "yes",
+            "matches_reference_decision": true,
+            "observed_decision": "yes",
+            "published_value": 0.99,
+            "question_id": "is_human_escalation"
+          },
+          {
+            "absolute_delta_from_published_value": 0.009999999999999898,
+            "basis": "published_example",
+            "expected_decision": "yes",
+            "matches_reference_decision": true,
+            "observed_decision": "yes",
+            "published_value": 0.93,
+            "question_id": "is_repeat_contact"
+          }
+        ],
+        "response": {
+          "answers": {
+            "is_human_escalation": {
+              "noul": 0.99,
+              "type": "noul"
+            },
+            "is_repeat_contact": {
+              "noul": 0.94,
+              "type": "noul"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 344,
+            "output_tokens": 43
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 0,
+      "source_ids": [
+        "noul"
+      ]
+    },
+    {
+      "case_id": "docs_noul_resolved",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.019964665306246354,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.01996466530624641,
+          "question_id": "is_human_escalation",
+          "remote_decision": "no",
+          "total_variation_distance": 0.019964665306246382,
+          "type": "noul"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 37.737667,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.019964665306246354,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": 0.02,
+            "question_id": "is_human_escalation"
+          }
+        ],
+        "response": {
+          "answers": {
+            "is_human_escalation": {
+              "noul": 0.00003533469375364487,
+              "type": "noul"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 41,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": false,
+      "local_supported": true,
+      "notes": "Exact recorded state and question from the Noul table; comparison uses a declared 0.5 threshold, not the separate 0.9 routing example.",
+      "remote": {
+        "elapsed_ms": 303.796167,
+        "first_byte_ms": 303,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.0,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": 0.02,
+            "question_id": "is_human_escalation"
+          }
+        ],
+        "response": {
+          "answers": {
+            "is_human_escalation": {
+              "noul": 0.02,
+              "type": "noul"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 281,
+            "output_tokens": 25
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 0,
+      "source_ids": [
+        "noul"
+      ]
+    },
+    {
+      "case_id": "docs_noul_password",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.06618839751229287,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.06618839751229288,
+          "question_id": "is_human_escalation",
+          "remote_decision": "no",
+          "total_variation_distance": 0.06618839751229288,
+          "type": "noul"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 26.044375000000002,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.056188397512292876,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": 0.07,
+            "question_id": "is_human_escalation"
+          }
+        ],
+        "response": {
+          "answers": {
+            "is_human_escalation": {
+              "noul": 0.01381160248770713,
+              "type": "noul"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 42,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": true,
+      "local_supported": true,
+      "notes": "Exact recorded state and question from the Noul table; comparison uses a declared 0.5 threshold, not the separate 0.9 routing example.",
+      "remote": {
+        "elapsed_ms": 346.04204100000004,
+        "first_byte_ms": 345,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.009999999999999995,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": 0.07,
+            "question_id": "is_human_escalation"
+          }
+        ],
+        "response": {
+          "answers": {
+            "is_human_escalation": {
+              "noul": 0.08,
+              "type": "noul"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 282,
+            "output_tokens": 25
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 0,
+      "source_ids": [
+        "noul"
+      ]
+    },
+    {
+      "case_id": "docs_noul_urgent",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.12549018798525155,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.12549018798525158,
+          "question_id": "is_human_escalation",
+          "remote_decision": "no",
+          "total_variation_distance": 0.12549018798525158,
+          "type": "noul"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 35.833999999999996,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.12549018798525155,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": 0.26,
+            "question_id": "is_human_escalation"
+          }
+        ],
+        "response": {
+          "answers": {
+            "is_human_escalation": {
+              "noul": 0.13450981201474846,
+              "type": "noul"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 45,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": false,
+      "local_supported": true,
+      "notes": "Exact recorded state and question from the Noul table; comparison uses a declared 0.5 threshold, not the separate 0.9 routing example.",
+      "remote": {
+        "elapsed_ms": 297.80675,
+        "first_byte_ms": 297,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.0,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": 0.26,
+            "question_id": "is_human_escalation"
+          }
+        ],
+        "response": {
+          "answers": {
+            "is_human_escalation": {
+              "noul": 0.26,
+              "type": "noul"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 285,
+            "output_tokens": 25
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 0,
+      "source_ids": [
+        "noul"
+      ]
+    },
+    {
+      "case_id": "docs_noul_bot",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.46717673707939356,
+          "decision_agrees": false,
+          "exact_answer_agrees": false,
+          "local_decision": "yes",
+          "max_probability_delta": 0.46717673707939356,
+          "question_id": "is_human_escalation",
+          "remote_decision": "no",
+          "total_variation_distance": 0.46717673707939356,
+          "type": "noul"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 23.322875,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.43717673707939353,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": false,
+            "observed_decision": "yes",
+            "published_value": 0.4,
+            "question_id": "is_human_escalation"
+          }
+        ],
+        "response": {
+          "answers": {
+            "is_human_escalation": {
+              "noul": 0.8371767370793936,
+              "type": "noul"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 40,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": true,
+      "local_supported": true,
+      "notes": "Exact recorded state and question from the Noul table; comparison uses a declared 0.5 threshold, not the separate 0.9 routing example.",
+      "remote": {
+        "elapsed_ms": 310.041458,
+        "first_byte_ms": 310,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.030000000000000027,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": 0.4,
+            "question_id": "is_human_escalation"
+          }
+        ],
+        "response": {
+          "answers": {
+            "is_human_escalation": {
+              "noul": 0.37,
+              "type": "noul"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 280,
+            "output_tokens": 25
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 0,
+      "source_ids": [
+        "noul"
+      ]
+    },
+    {
+      "case_id": "docs_noul_invoice",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.15570313808246972,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "yes",
+          "max_probability_delta": 0.15570313808246972,
+          "question_id": "is_human_escalation",
+          "remote_decision": "yes",
+          "total_variation_distance": 0.15570313808246972,
+          "type": "noul"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 38.405458,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.1457031380824697,
+            "basis": "published_example",
+            "expected_decision": "yes",
+            "matches_reference_decision": true,
+            "observed_decision": "yes",
+            "published_value": 0.84,
+            "question_id": "is_human_escalation"
+          }
+        ],
+        "response": {
+          "answers": {
+            "is_human_escalation": {
+              "noul": 0.6942968619175303,
+              "type": "noul"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 47,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": false,
+      "local_supported": true,
+      "notes": "Exact recorded state and question from the Noul table; comparison uses a declared 0.5 threshold, not the separate 0.9 routing example.",
+      "remote": {
+        "elapsed_ms": 330.614667,
+        "first_byte_ms": 330,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.010000000000000009,
+            "basis": "published_example",
+            "expected_decision": "yes",
+            "matches_reference_decision": true,
+            "observed_decision": "yes",
+            "published_value": 0.84,
+            "question_id": "is_human_escalation"
+          }
+        ],
+        "response": {
+          "answers": {
+            "is_human_escalation": {
+              "noul": 0.85,
+              "type": "noul"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 287,
+            "output_tokens": 25
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 0,
+      "source_ids": [
+        "noul"
+      ]
+    },
+    {
+      "case_id": "docs_fruit_indirection",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.07989148743738053,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.07989148743738053,
+          "question_id": "item_0",
+          "remote_decision": "no",
+          "total_variation_distance": 0.07989148743738052,
+          "type": "noul"
+        },
+        {
+          "absolute_scalar_delta": 0.797909543640419,
+          "decision_agrees": false,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.797909543640419,
+          "question_id": "item_1",
+          "remote_decision": "yes",
+          "total_variation_distance": 0.797909543640419,
+          "type": "noul"
+        },
+        {
+          "absolute_scalar_delta": 0.1786692452714678,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.1786692452714678,
+          "question_id": "item_2",
+          "remote_decision": "no",
+          "total_variation_distance": 0.17866924527146777,
+          "type": "noul"
+        },
+        {
+          "absolute_scalar_delta": 0.6133266868077684,
+          "decision_agrees": false,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.6133266868077684,
+          "question_id": "item_3",
+          "remote_decision": "yes",
+          "total_variation_distance": 0.6133266868077684,
+          "type": "noul"
+        },
+        {
+          "absolute_scalar_delta": 0.266014572383618,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.26601457238361803,
+          "question_id": "item_4",
+          "remote_decision": "no",
+          "total_variation_distance": 0.26601457238361803,
+          "type": "noul"
+        },
+        {
+          "absolute_scalar_delta": 0.20505291397568995,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.20505291397568995,
+          "question_id": "item_5",
+          "remote_decision": "no",
+          "total_variation_distance": 0.20505291397568992,
+          "type": "noul"
+        },
+        {
+          "absolute_scalar_delta": 0.7943894541717452,
+          "decision_agrees": false,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.7943894541717452,
+          "question_id": "item_6",
+          "remote_decision": "yes",
+          "total_variation_distance": 0.7943894541717452,
+          "type": "noul"
+        },
+        {
+          "absolute_scalar_delta": 0.14083616381598682,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.14083616381598685,
+          "question_id": "item_7",
+          "remote_decision": "no",
+          "total_variation_distance": 0.14083616381598685,
+          "type": "noul"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 200.655666,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_0"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "yes",
+            "matches_reference_decision": false,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_1"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_2"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "yes",
+            "matches_reference_decision": false,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_3"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_4"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_5"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "yes",
+            "matches_reference_decision": false,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_6"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_7"
+          }
+        ],
+        "response": {
+          "answers": {
+            "item_0": {
+              "noul": 0.08989148743738053,
+              "type": "noul"
+            },
+            "item_1": {
+              "noul": 0.19209045635958102,
+              "type": "noul"
+            },
+            "item_2": {
+              "noul": 0.1986692452714678,
+              "type": "noul"
+            },
+            "item_3": {
+              "noul": 0.37667331319223163,
+              "type": "noul"
+            },
+            "item_4": {
+              "noul": 0.286014572383618,
+              "type": "noul"
+            },
+            "item_5": {
+              "noul": 0.22505291397568994,
+              "type": "noul"
+            },
+            "item_6": {
+              "noul": 0.19561054582825477,
+              "type": "noul"
+            },
+            "item_7": {
+              "noul": 0.15083616381598683,
+              "type": "noul"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 512,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": true,
+      "local_supported": true,
+      "notes": "Exact upstream list and expanded loop questions. Fruit labels were assigned independently before execution; the page does not publish per-item answers.",
+      "remote": {
+        "elapsed_ms": 499.86179200000004,
+        "first_byte_ms": 499,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_0"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "yes",
+            "matches_reference_decision": true,
+            "observed_decision": "yes",
+            "published_value": null,
+            "question_id": "item_1"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_2"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "yes",
+            "matches_reference_decision": true,
+            "observed_decision": "yes",
+            "published_value": null,
+            "question_id": "item_3"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_4"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_5"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "yes",
+            "matches_reference_decision": true,
+            "observed_decision": "yes",
+            "published_value": null,
+            "question_id": "item_6"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_7"
+          }
+        ],
+        "response": {
+          "answers": {
+            "item_0": {
+              "noul": 0.01,
+              "type": "noul"
+            },
+            "item_1": {
+              "noul": 0.99,
+              "type": "noul"
+            },
+            "item_2": {
+              "noul": 0.02,
+              "type": "noul"
+            },
+            "item_3": {
+              "noul": 0.99,
+              "type": "noul"
+            },
+            "item_4": {
+              "noul": 0.02,
+              "type": "noul"
+            },
+            "item_5": {
+              "noul": 0.02,
+              "type": "noul"
+            },
+            "item_6": {
+              "noul": 0.99,
+              "type": "noul"
+            },
+            "item_7": {
+              "noul": 0.01,
+              "type": "noul"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 462,
+            "output_tokens": 148
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 0,
+      "source_ids": [
+        "jaggedness"
+      ]
+    },
+    {
+      "case_id": "docs_refund_cross_primitive",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": null,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.18789354582611417,
+          "question_id": "refund_choice",
+          "remote_decision": "no",
+          "total_variation_distance": 0.18789354582611417,
+          "type": "choice"
+        },
+        {
+          "absolute_scalar_delta": 0.09260661416907748,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.09260661416907748,
+          "question_id": "refund_noul",
+          "remote_decision": "no",
+          "total_variation_distance": 0.09260661416907746,
+          "type": "noul"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 56.628667,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "refund_choice"
+          },
+          {
+            "absolute_delta_from_published_value": 0.09260661416907748,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": 0.22,
+            "question_id": "refund_noul"
+          }
+        ],
+        "response": {
+          "answers": {
+            "refund_choice": {
+              "choice": "no",
+              "confidence": 0.2823048709771191,
+              "probabilities": {
+                "no": 0.8021064541738858,
+                "yes": 0.19789354582611418
+              },
+              "type": "choice"
+            },
+            "refund_noul": {
+              "noul": 0.12739338583092252,
+              "type": "noul"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 81,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": false,
+      "local_supported": true,
+      "notes": "Exact state and instruction from the structural-invariants example. Question IDs assigned here; yes/no Choice uses null descriptions because the page gives labels but not descriptions. No identity between the two probabilities is asserted.",
+      "remote": {
+        "elapsed_ms": 310.662583,
+        "first_byte_ms": 310,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "refund_choice"
+          },
+          {
+            "absolute_delta_from_published_value": 0.0,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": 0.22,
+            "question_id": "refund_noul"
+          }
+        ],
+        "response": {
+          "answers": {
+            "refund_choice": {
+              "choice": "no",
+              "confidence": 0.99,
+              "probabilities": {
+                "no": 0.99,
+                "yes": 0.01
+              },
+              "type": "choice"
+            },
+            "refund_noul": {
+              "noul": 0.22,
+              "type": "noul"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 319,
+            "output_tokens": 51
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 0,
+      "source_ids": [
+        "jaggedness"
+      ]
+    },
+    {
+      "case_id": "docs_refund_negation",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.30881805199220985,
+          "decision_agrees": false,
+          "exact_answer_agrees": false,
+          "local_decision": "yes",
+          "max_probability_delta": 0.3088180519922099,
+          "question_id": "not_refund",
+          "remote_decision": "no",
+          "total_variation_distance": 0.3088180519922099,
+          "type": "noul"
+        },
+        {
+          "absolute_scalar_delta": 0.08017020292946198,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "yes",
+          "max_probability_delta": 0.08017020292946198,
+          "question_id": "refund",
+          "remote_decision": "yes",
+          "total_variation_distance": 0.08017020292946198,
+          "type": "noul"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 47.914834000000006,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.2788180519922099,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": false,
+            "observed_decision": "yes",
+            "published_value": 0.47,
+            "question_id": "not_refund"
+          },
+          {
+            "absolute_delta_from_published_value": 0.07017020292946197,
+            "basis": "published_example",
+            "expected_decision": "yes",
+            "matches_reference_decision": true,
+            "observed_decision": "yes",
+            "published_value": 0.72,
+            "question_id": "refund"
+          }
+        ],
+        "response": {
+          "answers": {
+            "not_refund": {
+              "noul": 0.7488180519922099,
+              "type": "noul"
+            },
+            "refund": {
+              "noul": 0.649829797070538,
+              "type": "noul"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 101,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": true,
+      "local_supported": true,
+      "notes": "Exact state and instructions from the structural-invariants example; source IDs retained; no complementarity assertion.",
+      "remote": {
+        "elapsed_ms": 305.91575,
+        "first_byte_ms": 305,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.02999999999999997,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": 0.47,
+            "question_id": "not_refund"
+          },
+          {
+            "absolute_delta_from_published_value": 0.010000000000000009,
+            "basis": "published_example",
+            "expected_decision": "yes",
+            "matches_reference_decision": true,
+            "observed_decision": "yes",
+            "published_value": 0.72,
+            "question_id": "refund"
+          }
+        ],
+        "response": {
+          "answers": {
+            "not_refund": {
+              "noul": 0.44,
+              "type": "noul"
+            },
+            "refund": {
+              "noul": 0.73,
+              "type": "noul"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 307,
+            "output_tokens": 38
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 0,
+      "source_ids": [
+        "jaggedness"
+      ]
+    },
+    {
+      "case_id": "sdk_readme_billing",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": null,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "billing",
+          "max_probability_delta": 0.02015601877430573,
+          "question_id": "category",
+          "remote_decision": "billing",
+          "total_variation_distance": 0.020156018774305735,
+          "type": "choice"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 34.481125,
+        "first_byte_ms": null,
+        "reference_checks": [],
+        "response": {
+          "answers": {
+            "category": {
+              "choice": "billing",
+              "confidence": 0.8988119588525972,
+              "probabilities": {
+                "billing": 0.9798439812256943,
+                "other": 0.0063014278526407445,
+                "technical": 0.013854590921664998
+              },
+              "type": "choice"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 34,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": false,
+      "local_supported": true,
+      "notes": "Identical README examples deduplicated across the two official SDKs; neither README provides a numeric golden response.",
+      "remote": {
+        "elapsed_ms": 359.210958,
+        "first_byte_ms": 359,
+        "reference_checks": [],
+        "response": {
+          "answers": {
+            "category": {
+              "choice": "billing",
+              "confidence": 1.0,
+              "probabilities": {
+                "billing": 1.0,
+                "other": 0.0,
+                "technical": 0.0
+              },
+              "type": "choice"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 310,
+            "output_tokens": 38
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 0,
+      "source_ids": [
+        "js_readme",
+        "py_readme"
+      ]
+    },
+    {
+      "case_id": "sdk_js_demo",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.09822431428830458,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "yes",
+          "max_probability_delta": 0.09822431428830458,
+          "question_id": "isBilling",
+          "remote_decision": "yes",
+          "total_variation_distance": 0.09822431428830458,
+          "type": "noul"
+        },
+        {
+          "absolute_scalar_delta": 0.32836433809472654,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": [
+            "2"
+          ],
+          "max_probability_delta": 0.3143346695047601,
+          "question_id": "refundRisk",
+          "remote_decision": [
+            "2"
+          ],
+          "total_variation_distance": 0.3143346695047601,
+          "type": "score"
+        },
+        {
+          "absolute_scalar_delta": null,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "frustrated",
+          "max_probability_delta": 0.20932527626456976,
+          "question_id": "sentiment",
+          "remote_decision": "frustrated",
+          "total_variation_distance": 0.20932527626456973,
+          "type": "choice"
+        },
+        {
+          "absolute_scalar_delta": 0.039188936755718995,
+          "decision_agrees": false,
+          "exact_answer_agrees": false,
+          "local_decision": [
+            "3"
+          ],
+          "max_probability_delta": 0.2827779249000478,
+          "question_id": "urgency",
+          "remote_decision": [
+            "2"
+          ],
+          "total_variation_distance": 0.2827779249000478,
+          "type": "score"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 123.596584,
+        "first_byte_ms": null,
+        "reference_checks": [],
+        "response": {
+          "answers": {
+            "isBilling": {
+              "noul": 0.8817756857116954,
+              "type": "noul"
+            },
+            "refundRisk": {
+              "confidence": 0.30287889612575236,
+              "legend": {
+                "0": "unlikely",
+                "1": "possible",
+                "2": "likely"
+              },
+              "probabilities": {
+                "0": 0.024029668589966597,
+                "1": 0.3803050009147936,
+                "2": 0.59566533049524
+              },
+              "score": 1.5716356619052734,
+              "type": "score"
+            },
+            "sentiment": {
+              "choice": "frustrated",
+              "confidence": 0.4916592865291255,
+              "probabilities": {
+                "angry": 0.19752076178071498,
+                "calm": 0.01180451448385472,
+                "frustrated": 0.7906747237354302
+              },
+              "type": "choice"
+            },
+            "urgency": {
+              "confidence": 0.2510895513384287,
+              "legend": {
+                "0": "can wait",
+                "1": "this week",
+                "2": "today",
+                "3": "right now"
+              },
+              "probabilities": {
+                "0": 0.007034238947962453,
+                "1": 0.14124313565022065,
+                "2": 0.4172220750999522,
+                "3": 0.4345005503018647
+              },
+              "score": 2.279188936755719,
+              "type": "score"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 296,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": true,
+      "local_supported": true,
+      "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+      "remote": {
+        "elapsed_ms": 495.841625,
+        "first_byte_ms": 495,
+        "reference_checks": [],
+        "response": {
+          "answers": {
+            "isBilling": {
+              "noul": 0.98,
+              "type": "noul"
+            },
+            "refundRisk": {
+              "confidence": 0.86,
+              "legend": {
+                "0": "unlikely",
+                "1": "possible",
+                "2": "likely"
+              },
+              "probabilities": {
+                "0": 0.01,
+                "1": 0.08,
+                "2": 0.91
+              },
+              "score": 1.9,
+              "type": "score"
+            },
+            "sentiment": {
+              "choice": "frustrated",
+              "confidence": 1.0,
+              "probabilities": {
+                "angry": 0.0,
+                "calm": 0.0,
+                "frustrated": 1.0
+              },
+              "type": "choice"
+            },
+            "urgency": {
+              "confidence": 0.7,
+              "legend": {
+                "0": "can wait",
+                "1": "this week",
+                "2": "today",
+                "3": "right now"
+              },
+              "probabilities": {
+                "0": 0.0,
+                "1": 0.03,
+                "2": 0.7,
+                "3": 0.27
+              },
+              "score": 2.24,
+              "type": "score"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 449,
+            "output_tokens": 95
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 0,
+      "source_ids": [
+        "js_demo"
+      ]
+    },
+    {
+      "case_id": "sdk_js_live",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.14252146832580737,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "yes",
+          "max_probability_delta": 0.14252146832580737,
+          "question_id": "isBilling",
+          "remote_decision": "yes",
+          "total_variation_distance": 0.14252146832580737,
+          "type": "noul"
+        },
+        {
+          "absolute_scalar_delta": null,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "frustrated",
+          "max_probability_delta": 0.2676043129847936,
+          "question_id": "sentiment",
+          "remote_decision": "frustrated",
+          "total_variation_distance": 0.2676043129847936,
+          "type": "choice"
+        },
+        {
+          "absolute_scalar_delta": 0.19881926293797347,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": [
+            "2"
+          ],
+          "max_probability_delta": 0.173367461780926,
+          "question_id": "urgency",
+          "remote_decision": [
+            "2"
+          ],
+          "total_variation_distance": 0.173367461780926,
+          "type": "score"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 101.551291,
+        "first_byte_ms": null,
+        "reference_checks": [],
+        "response": {
+          "answers": {
+            "isBilling": {
+              "noul": 0.8374785316741926,
+              "type": "noul"
+            },
+            "sentiment": {
+              "choice": "frustrated",
+              "confidence": 0.2486676002722895,
+              "probabilities": {
+                "angry": 0.3587479553026119,
+                "calm": 0.048856357682181745,
+                "frustrated": 0.5923956870152064
+              },
+              "type": "choice"
+            },
+            "urgency": {
+              "confidence": 0.3890190081549504,
+              "legend": {
+                "0": "can wait",
+                "1": "this week",
+                "2": "today"
+              },
+              "probabilities": {
+                "0": 0.025451801157047472,
+                "1": 0.2479156606238785,
+                "2": 0.726632538219074
+              },
+              "score": 1.7011807370620264,
+              "type": "score"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 193,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": false,
+      "local_supported": true,
+      "notes": "Exact live integration payload. Upstream asserts schema/ranges, not semantic golden labels.",
+      "remote": {
+        "elapsed_ms": 406.31629200000003,
+        "first_byte_ms": 406,
+        "reference_checks": [],
+        "response": {
+          "answers": {
+            "isBilling": {
+              "noul": 0.98,
+              "type": "noul"
+            },
+            "sentiment": {
+              "choice": "frustrated",
+              "confidence": 0.79,
+              "probabilities": {
+                "angry": 0.13,
+                "calm": 0.01,
+                "frustrated": 0.86
+              },
+              "type": "choice"
+            },
+            "urgency": {
+              "confidence": 0.85,
+              "legend": {
+                "0": "can wait",
+                "1": "this week",
+                "2": "today"
+              },
+              "probabilities": {
+                "0": 0.0,
+                "1": 0.1,
+                "2": 0.9
+              },
+              "score": 1.9,
+              "type": "score"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 394,
+            "output_tokens": 79
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 0,
+      "source_ids": [
+        "js_live"
+      ]
+    },
+    {
+      "case_id": "sdk_js_rich",
+      "comparisons": [],
+      "local": {
+        "elapsed_ms": 0.004542,
+        "error": "The local Laya backend requires plain-text instructions and descriptions",
+        "status": "error"
+      },
+      "local_first": true,
+      "local_supported": false,
+      "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+      "remote": {
+        "elapsed_ms": 378.157083,
+        "first_byte_ms": 378,
+        "reference_checks": [],
+        "response": {
+          "answers": {
+            "duplicate": {
+              "noul": 0.98,
+              "type": "noul"
+            },
+            "tone": {
+              "choice": "upset",
+              "confidence": 0.99,
+              "probabilities": {
+                "calm": 0.01,
+                "upset": 0.99
+              },
+              "type": "choice"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 413,
+            "output_tokens": 50
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 0,
+      "source_ids": [
+        "js_live"
+      ]
+    },
+    {
+      "case_id": "sdk_python_rich",
+      "comparisons": [],
+      "local": {
+        "elapsed_ms": 0.011083,
+        "error": "The local Laya backend requires plain-text instructions and descriptions",
+        "status": "error"
+      },
+      "local_first": false,
+      "local_supported": false,
+      "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+      "remote": {
+        "elapsed_ms": 301.958709,
+        "first_byte_ms": 301,
+        "reference_checks": [],
+        "response": {
+          "answers": {
+            "billing": {
+              "noul": 0.99,
+              "type": "noul"
+            },
+            "tone": {
+              "choice": "frustrated",
+              "confidence": 0.83,
+              "probabilities": {
+                "angry": 0.11,
+                "calm": 0.0,
+                "frustrated": 0.89
+              },
+              "type": "choice"
+            },
+            "urgency": {
+              "confidence": 0.85,
+              "legend": {
+                "0": "can wait",
+                "1": "this week",
+                "2": "today"
+              },
+              "probabilities": {
+                "0": 0.0,
+                "1": 0.09,
+                "2": 0.91
+              },
+              "score": 1.9,
+              "type": "score"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 420,
+            "output_tokens": 75
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 0,
+      "source_ids": [
+        "py_live"
+      ]
+    },
+    {
+      "case_id": "sdk_python_pydantic",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.05691776775735846,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "yes",
+          "max_probability_delta": 0.05691776775735846,
+          "question_id": "billing",
+          "remote_decision": "yes",
+          "total_variation_distance": 0.05691776775735846,
+          "type": "noul"
+        },
+        {
+          "absolute_scalar_delta": null,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "frustrated",
+          "max_probability_delta": 0.3020944509601483,
+          "question_id": "tone",
+          "remote_decision": "frustrated",
+          "total_variation_distance": 0.3020944509601483,
+          "type": "choice"
+        },
+        {
+          "absolute_scalar_delta": 0.39994377806663217,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": [
+            "2"
+          ],
+          "max_probability_delta": 0.3649294499370168,
+          "question_id": "urgency",
+          "remote_decision": [
+            "2"
+          ],
+          "total_variation_distance": 0.3649294499370168,
+          "type": "score"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 85.008917,
+        "first_byte_ms": null,
+        "reference_checks": [],
+        "response": {
+          "answers": {
+            "billing": {
+              "noul": 0.9230822322426415,
+              "type": "noul"
+            },
+            "tone": {
+              "choice": "frustrated",
+              "confidence": 0.2641433814113645,
+              "probabilities": {
+                "angry": 0.4184099798704134,
+                "calm": 0.033684471089735,
+                "frustrated": 0.5479055490398517
+              },
+              "type": "choice"
+            },
+            "urgency": {
+              "confidence": 0.26595007938305515,
+              "legend": {
+                "0": "can wait",
+                "1": "this week",
+                "2": "today"
+              },
+              "probabilities": {
+                "0": 0.03501432812961559,
+                "1": 0.3999151218074012,
+                "2": 0.5650705500629832
+              },
+              "score": 1.5300562219333678,
+              "type": "score"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 160,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": true,
+      "local_supported": true,
+      "notes": "Exact state/questions from the Pydantic response-model integration test; only payload behavior is reproduced in Rust, not the Python response wrapper.",
+      "remote": {
+        "elapsed_ms": 283.508542,
+        "first_byte_ms": 283,
+        "reference_checks": [],
+        "response": {
+          "answers": {
+            "billing": {
+              "noul": 0.98,
+              "type": "noul"
+            },
+            "tone": {
+              "choice": "frustrated",
+              "confidence": 0.77,
+              "probabilities": {
+                "angry": 0.14,
+                "calm": 0.01,
+                "frustrated": 0.85
+              },
+              "type": "choice"
+            },
+            "urgency": {
+              "confidence": 0.9,
+              "legend": {
+                "0": "can wait",
+                "1": "this week",
+                "2": "today"
+              },
+              "probabilities": {
+                "0": 0.0,
+                "1": 0.07,
+                "2": 0.93
+              },
+              "score": 1.93,
+              "type": "score"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 383,
+            "output_tokens": 75
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 0,
+      "source_ids": [
+        "py_live"
+      ]
+    },
+    {
+      "case_id": "docs_quickstart",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": null,
+          "decision_agrees": false,
+          "exact_answer_agrees": false,
+          "local_decision": "billing",
+          "max_probability_delta": 0.6136044642607437,
+          "question_id": "department",
+          "remote_decision": "technical",
+          "total_variation_distance": 0.6136044642607437,
+          "type": "choice"
+        },
+        {
+          "absolute_scalar_delta": 0.01151110472759076,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": [
+            "1"
+          ],
+          "max_probability_delta": 0.1693278777693229,
+          "question_id": "frustration",
+          "remote_decision": [
+            "1"
+          ],
+          "total_variation_distance": 0.1693278777693229,
+          "type": "score"
+        },
+        {
+          "absolute_scalar_delta": 0.22933545504278685,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "yes",
+          "max_probability_delta": 0.22933545504278685,
+          "question_id": "is_urgent",
+          "remote_decision": "yes",
+          "total_variation_distance": 0.22933545504278685,
+          "type": "noul"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 104.07037500000001,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "published_example",
+            "expected_decision": "technical",
+            "matches_reference_decision": false,
+            "observed_decision": "billing",
+            "published_value": null,
+            "question_id": "department"
+          },
+          {
+            "absolute_delta_from_published_value": 0.01151110472759076,
+            "basis": "published_example",
+            "expected_decision": [
+              "1"
+            ],
+            "matches_reference_decision": true,
+            "observed_decision": [
+              "1"
+            ],
+            "published_value": 1.0,
+            "question_id": "frustration"
+          },
+          {
+            "absolute_delta_from_published_value": 0.23933545504278686,
+            "basis": "published_example",
+            "expected_decision": "yes",
+            "matches_reference_decision": true,
+            "observed_decision": "yes",
+            "published_value": 1.0,
+            "question_id": "is_urgent"
+          }
+        ],
+        "response": {
+          "answers": {
+            "department": {
+              "choice": "billing",
+              "confidence": 0.03895156974087177,
+              "probabilities": {
+                "billing": 0.47382489542854106,
+                "sales": 0.24977956883220254,
+                "technical": 0.2763955357392563
+              },
+              "type": "choice"
+            },
+            "frustration": {
+              "confidence": 0.47952844589475996,
+              "legend": {
+                "0": "Calm, just stating facts",
+                "1": "Frustrated but civil",
+                "2": "Very angry, strong language"
+              },
+              "probabilities": {
+                "0": 0.09041949124845682,
+                "1": 0.8306721222306771,
+                "2": 0.07890838652086608
+              },
+              "score": 0.9884888952724092,
+              "type": "score"
+            },
+            "is_urgent": {
+              "noul": 0.7606645449572131,
+              "type": "noul"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 205,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": false,
+      "local_supported": true,
+      "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+      "remote": {
+        "elapsed_ms": 286.659333,
+        "first_byte_ms": 286,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "published_example",
+            "expected_decision": "technical",
+            "matches_reference_decision": true,
+            "observed_decision": "technical",
+            "published_value": null,
+            "question_id": "department"
+          },
+          {
+            "absolute_delta_from_published_value": 0.0,
+            "basis": "published_example",
+            "expected_decision": [
+              "1"
+            ],
+            "matches_reference_decision": true,
+            "observed_decision": [
+              "1"
+            ],
+            "published_value": 1.0,
+            "question_id": "frustration"
+          },
+          {
+            "absolute_delta_from_published_value": 0.010000000000000009,
+            "basis": "published_example",
+            "expected_decision": "yes",
+            "matches_reference_decision": true,
+            "observed_decision": "yes",
+            "published_value": 1.0,
+            "question_id": "is_urgent"
+          }
+        ],
+        "response": {
+          "answers": {
+            "department": {
+              "choice": "technical",
+              "confidence": 0.83,
+              "probabilities": {
+                "billing": 0.11,
+                "sales": 0.0,
+                "technical": 0.89
+              },
+              "type": "choice"
+            },
+            "frustration": {
+              "confidence": 1.0,
+              "legend": {
+                "0": "Calm, just stating facts",
+                "1": "Frustrated but civil",
+                "2": "Very angry, strong language"
+              },
+              "probabilities": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0
+              },
+              "score": 1.0,
+              "type": "score"
+            },
+            "is_urgent": {
+              "noul": 0.99,
+              "type": "noul"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 425,
+            "output_tokens": 73
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 1,
+      "source_ids": [
+        "quickstart"
+      ]
+    },
+    {
+      "case_id": "docs_choice_exchange",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": null,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "returns",
+          "max_probability_delta": 0.13602373215552854,
+          "question_id": "department",
+          "remote_decision": "returns",
+          "total_variation_distance": 0.1360237321555285,
+          "type": "choice"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 28.61675,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "published_example",
+            "expected_decision": "returns",
+            "matches_reference_decision": true,
+            "observed_decision": "returns",
+            "published_value": null,
+            "question_id": "department"
+          }
+        ],
+        "response": {
+          "answers": {
+            "department": {
+              "choice": "returns",
+              "confidence": 0.5837769386463969,
+              "probabilities": {
+                "billing": 0.021633224325675264,
+                "returns": 0.8639762678444715,
+                "shipping": 0.11439050782985315
+              },
+              "type": "choice"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 62,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": true,
+      "local_supported": true,
+      "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+      "remote": {
+        "elapsed_ms": 359.21049999999997,
+        "first_byte_ms": 359,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "published_example",
+            "expected_decision": "returns",
+            "matches_reference_decision": true,
+            "observed_decision": "returns",
+            "published_value": null,
+            "question_id": "department"
+          }
+        ],
+        "response": {
+          "answers": {
+            "department": {
+              "choice": "returns",
+              "confidence": 1.0,
+              "probabilities": {
+                "billing": 0.0,
+                "returns": 1.0,
+                "shipping": 0.0
+              },
+              "type": "choice"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 357,
+            "output_tokens": 38
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 1,
+      "source_ids": [
+        "choice"
+      ]
+    },
+    {
+      "case_id": "docs_choice_structured",
+      "comparisons": [],
+      "local": {
+        "elapsed_ms": 0.0049169999999999995,
+        "error": "The local Laya backend requires plain-text instructions and descriptions",
+        "status": "error"
+      },
+      "local_first": false,
+      "local_supported": false,
+      "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+      "remote": {
+        "elapsed_ms": 310.86291700000004,
+        "first_byte_ms": 310,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "published_example",
+            "expected_decision": "return_status",
+            "matches_reference_decision": true,
+            "observed_decision": "return_status",
+            "published_value": null,
+            "question_id": "return_topic"
+          }
+        ],
+        "response": {
+          "answers": {
+            "return_topic": {
+              "choice": "return_status",
+              "confidence": 1.0,
+              "probabilities": {
+                "return_policy": 0.0,
+                "return_status": 1.0
+              },
+              "type": "choice"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 459,
+            "output_tokens": 35
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 1,
+      "source_ids": [
+        "choice"
+      ]
+    },
+    {
+      "case_id": "docs_score_severity",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.0037851496797876028,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": [
+            "1"
+          ],
+          "max_probability_delta": 0.009276196170596829,
+          "question_id": "severity",
+          "remote_decision": [
+            "1"
+          ],
+          "total_variation_distance": 0.009276196170596884,
+          "type": "score"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 51.890583,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.0037851496797876028,
+            "basis": "published_example",
+            "expected_decision": [
+              "1"
+            ],
+            "matches_reference_decision": true,
+            "observed_decision": [
+              "1"
+            ],
+            "published_value": 1.43,
+            "question_id": "severity"
+          }
+        ],
+        "response": {
+          "answers": {
+            "severity": {
+              "confidence": 0.34488155135109944,
+              "legend": {
+                "0": "Cosmetic; no impact to functionality",
+                "1": "Broken or degraded feature, but workaround exists",
+                "2": "Blocking issue; no workaround exists"
+              },
+              "probabilities": {
+                "0": 0.00653067292519227,
+                "1": 0.5607238038294031,
+                "2": 0.43274552324540466
+              },
+              "score": 1.4262148503202123,
+              "type": "score"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 75,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": true,
+      "local_supported": true,
+      "notes": "Exact ScoreExplorer state, question and levels; source example id retained as question id; model pinned.",
+      "remote": {
+        "elapsed_ms": 368.61391599999996,
+        "first_byte_ms": 368,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.0,
+            "basis": "published_example",
+            "expected_decision": [
+              "1"
+            ],
+            "matches_reference_decision": true,
+            "observed_decision": [
+              "1"
+            ],
+            "published_value": 1.43,
+            "question_id": "severity"
+          }
+        ],
+        "response": {
+          "answers": {
+            "severity": {
+              "confidence": 0.35,
+              "legend": {
+                "0": "Cosmetic; no impact to functionality",
+                "1": "Broken or degraded feature, but workaround exists",
+                "2": "Blocking issue; no workaround exists"
+              },
+              "probabilities": {
+                "0": 0.0,
+                "1": 0.57,
+                "2": 0.43
+              },
+              "score": 1.43,
+              "type": "score"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 341,
+            "output_tokens": 17
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 1,
+      "source_ids": [
+        "score"
+      ]
+    },
+    {
+      "case_id": "docs_score_formality",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.24667233263972865,
+          "decision_agrees": false,
+          "exact_answer_agrees": false,
+          "local_decision": [
+            "1"
+          ],
+          "max_probability_delta": 0.5916588892304115,
+          "question_id": "formality",
+          "remote_decision": [
+            "2"
+          ],
+          "total_variation_distance": 0.5916588892304117,
+          "type": "score"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 51.183292,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.22667233263972886,
+            "basis": "published_example",
+            "expected_decision": [
+              "2"
+            ],
+            "matches_reference_decision": false,
+            "observed_decision": [
+              "1"
+            ],
+            "published_value": 1.86,
+            "question_id": "formality"
+          }
+        ],
+        "response": {
+          "answers": {
+            "formality": {
+              "confidence": 0.2666860648945534,
+              "legend": {
+                "0": "gym clothes",
+                "1": "casual",
+                "2": "business casual",
+                "3": "formal",
+                "4": "black tie"
+              },
+              "probabilities": {
+                "0": 0.026250028582437166,
+                "1": 0.5332901803365785,
+                "2": 0.2883411107695884,
+                "3": 0.08511945576106818,
+                "4": 0.06699922455032785
+              },
+              "score": 1.6333276673602712,
+              "type": "score"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 69,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": false,
+      "local_supported": true,
+      "notes": "Exact ScoreExplorer state, question and levels; source example id retained as question id; model pinned.",
+      "remote": {
+        "elapsed_ms": 311.324834,
+        "first_byte_ms": 311,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.019999999999999796,
+            "basis": "published_example",
+            "expected_decision": [
+              "2"
+            ],
+            "matches_reference_decision": true,
+            "observed_decision": [
+              "2"
+            ],
+            "published_value": 1.86,
+            "question_id": "formality"
+          }
+        ],
+        "response": {
+          "answers": {
+            "formality": {
+              "confidence": 0.9,
+              "legend": {
+                "0": "gym clothes",
+                "1": "casual",
+                "2": "business casual",
+                "3": "formal",
+                "4": "black tie"
+              },
+              "probabilities": {
+                "0": 0.0,
+                "1": 0.12,
+                "2": 0.88,
+                "3": 0.0,
+                "4": 0.0
+              },
+              "score": 1.88,
+              "type": "score"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 341,
+            "output_tokens": 18
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 1,
+      "source_ids": [
+        "score"
+      ]
+    },
+    {
+      "case_id": "docs_score_relevance",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.3379742018252494,
+          "decision_agrees": false,
+          "exact_answer_agrees": false,
+          "local_decision": [
+            "2"
+          ],
+          "max_probability_delta": 0.14838699109853024,
+          "question_id": "relevance",
+          "remote_decision": [
+            "3"
+          ],
+          "total_variation_distance": 0.16921804450566375,
+          "type": "score"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 44.433833,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.3279742018252496,
+            "basis": "published_example",
+            "expected_decision": [
+              "3"
+            ],
+            "matches_reference_decision": false,
+            "observed_decision": [
+              "2"
+            ],
+            "published_value": 2.52,
+            "question_id": "relevance"
+          }
+        ],
+        "response": {
+          "answers": {
+            "relevance": {
+              "confidence": 0.21304459275338838,
+              "legend": {
+                "0": "completely unrelated",
+                "1": "adjacent field",
+                "2": "some direct experience",
+                "3": "deep, direct experience"
+              },
+              "probabilities": {
+                "0": 0.020831053407133523,
+                "1": 0.14838699109853024,
+                "2": 0.4487070594067888,
+                "3": 0.38207489608754747
+              },
+              "score": 2.1920257981747504,
+              "type": "score"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 96,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": true,
+      "local_supported": true,
+      "notes": "Exact ScoreExplorer state, question and levels; source example id retained as question id; model pinned.",
+      "remote": {
+        "elapsed_ms": 294.782333,
+        "first_byte_ms": 294,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.009999999999999787,
+            "basis": "published_example",
+            "expected_decision": [
+              "3"
+            ],
+            "matches_reference_decision": true,
+            "observed_decision": [
+              "3"
+            ],
+            "published_value": 2.52,
+            "question_id": "relevance"
+          }
+        ],
+        "response": {
+          "answers": {
+            "relevance": {
+              "confidence": 0.53,
+              "legend": {
+                "0": "completely unrelated",
+                "1": "adjacent field",
+                "2": "some direct experience",
+                "3": "deep, direct experience"
+              },
+              "probabilities": {
+                "0": 0.0,
+                "1": 0.0,
+                "2": 0.47,
+                "3": 0.53
+              },
+              "score": 2.53,
+              "type": "score"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 370,
+            "output_tokens": 19
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 1,
+      "source_ids": [
+        "score"
+      ]
+    },
+    {
+      "case_id": "docs_noul_repeat_contact",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.009990745055112882,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "yes",
+          "max_probability_delta": 0.009990745055112882,
+          "question_id": "is_human_escalation",
+          "remote_decision": "yes",
+          "total_variation_distance": 0.009990745055112882,
+          "type": "noul"
+        },
+        {
+          "absolute_scalar_delta": 0.49583457112933926,
+          "decision_agrees": false,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.49583457112933926,
+          "question_id": "is_repeat_contact",
+          "remote_decision": "yes",
+          "total_variation_distance": 0.49583457112933926,
+          "type": "noul"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 59.561333,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.009990745055112882,
+            "basis": "published_example",
+            "expected_decision": "yes",
+            "matches_reference_decision": true,
+            "observed_decision": "yes",
+            "published_value": 0.99,
+            "question_id": "is_human_escalation"
+          },
+          {
+            "absolute_delta_from_published_value": 0.48583457112933937,
+            "basis": "published_example",
+            "expected_decision": "yes",
+            "matches_reference_decision": false,
+            "observed_decision": "no",
+            "published_value": 0.93,
+            "question_id": "is_repeat_contact"
+          }
+        ],
+        "response": {
+          "answers": {
+            "is_human_escalation": {
+              "noul": 0.9999907450551129,
+              "type": "noul"
+            },
+            "is_repeat_contact": {
+              "noul": 0.4441654288706607,
+              "type": "noul"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 112,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": false,
+      "local_supported": true,
+      "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+      "remote": {
+        "elapsed_ms": 340.19937500000003,
+        "first_byte_ms": 340,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.0,
+            "basis": "published_example",
+            "expected_decision": "yes",
+            "matches_reference_decision": true,
+            "observed_decision": "yes",
+            "published_value": 0.99,
+            "question_id": "is_human_escalation"
+          },
+          {
+            "absolute_delta_from_published_value": 0.009999999999999898,
+            "basis": "published_example",
+            "expected_decision": "yes",
+            "matches_reference_decision": true,
+            "observed_decision": "yes",
+            "published_value": 0.93,
+            "question_id": "is_repeat_contact"
+          }
+        ],
+        "response": {
+          "answers": {
+            "is_human_escalation": {
+              "noul": 0.99,
+              "type": "noul"
+            },
+            "is_repeat_contact": {
+              "noul": 0.94,
+              "type": "noul"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 344,
+            "output_tokens": 43
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 1,
+      "source_ids": [
+        "noul"
+      ]
+    },
+    {
+      "case_id": "docs_noul_resolved",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.029964665306246353,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.02996466530624642,
+          "question_id": "is_human_escalation",
+          "remote_decision": "no",
+          "total_variation_distance": 0.029964665306246384,
+          "type": "noul"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 25.080834,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.019964665306246354,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": 0.02,
+            "question_id": "is_human_escalation"
+          }
+        ],
+        "response": {
+          "answers": {
+            "is_human_escalation": {
+              "noul": 0.00003533469375364487,
+              "type": "noul"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 41,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": true,
+      "local_supported": true,
+      "notes": "Exact recorded state and question from the Noul table; comparison uses a declared 0.5 threshold, not the separate 0.9 routing example.",
+      "remote": {
+        "elapsed_ms": 329.830167,
+        "first_byte_ms": 329,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.009999999999999998,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": 0.02,
+            "question_id": "is_human_escalation"
+          }
+        ],
+        "response": {
+          "answers": {
+            "is_human_escalation": {
+              "noul": 0.03,
+              "type": "noul"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 281,
+            "output_tokens": 25
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 1,
+      "source_ids": [
+        "noul"
+      ]
+    },
+    {
+      "case_id": "docs_noul_password",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.056188397512292876,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.05618839751229299,
+          "question_id": "is_human_escalation",
+          "remote_decision": "no",
+          "total_variation_distance": 0.05618839751229293,
+          "type": "noul"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 36.662417000000005,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.056188397512292876,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": 0.07,
+            "question_id": "is_human_escalation"
+          }
+        ],
+        "response": {
+          "answers": {
+            "is_human_escalation": {
+              "noul": 0.01381160248770713,
+              "type": "noul"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 42,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": false,
+      "local_supported": true,
+      "notes": "Exact recorded state and question from the Noul table; comparison uses a declared 0.5 threshold, not the separate 0.9 routing example.",
+      "remote": {
+        "elapsed_ms": 309.679625,
+        "first_byte_ms": 309,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.0,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": 0.07,
+            "question_id": "is_human_escalation"
+          }
+        ],
+        "response": {
+          "answers": {
+            "is_human_escalation": {
+              "noul": 0.07,
+              "type": "noul"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 282,
+            "output_tokens": 25
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 1,
+      "source_ids": [
+        "noul"
+      ]
+    },
+    {
+      "case_id": "docs_noul_urgent",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.13549018798525156,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.1354901879852516,
+          "question_id": "is_human_escalation",
+          "remote_decision": "no",
+          "total_variation_distance": 0.1354901879852516,
+          "type": "noul"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 25.767042,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.12549018798525155,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": 0.26,
+            "question_id": "is_human_escalation"
+          }
+        ],
+        "response": {
+          "answers": {
+            "is_human_escalation": {
+              "noul": 0.13450981201474846,
+              "type": "noul"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 45,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": true,
+      "local_supported": true,
+      "notes": "Exact recorded state and question from the Noul table; comparison uses a declared 0.5 threshold, not the separate 0.9 routing example.",
+      "remote": {
+        "elapsed_ms": 389.613583,
+        "first_byte_ms": 389,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.010000000000000009,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": 0.26,
+            "question_id": "is_human_escalation"
+          }
+        ],
+        "response": {
+          "answers": {
+            "is_human_escalation": {
+              "noul": 0.27,
+              "type": "noul"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 285,
+            "output_tokens": 25
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 1,
+      "source_ids": [
+        "noul"
+      ]
+    },
+    {
+      "case_id": "docs_noul_bot",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.47717673707939356,
+          "decision_agrees": false,
+          "exact_answer_agrees": false,
+          "local_decision": "yes",
+          "max_probability_delta": 0.47717673707939356,
+          "question_id": "is_human_escalation",
+          "remote_decision": "no",
+          "total_variation_distance": 0.47717673707939356,
+          "type": "noul"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 35.09475,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.43717673707939353,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": false,
+            "observed_decision": "yes",
+            "published_value": 0.4,
+            "question_id": "is_human_escalation"
+          }
+        ],
+        "response": {
+          "answers": {
+            "is_human_escalation": {
+              "noul": 0.8371767370793936,
+              "type": "noul"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 40,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": false,
+      "local_supported": true,
+      "notes": "Exact recorded state and question from the Noul table; comparison uses a declared 0.5 threshold, not the separate 0.9 routing example.",
+      "remote": {
+        "elapsed_ms": 363.306875,
+        "first_byte_ms": 363,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.040000000000000036,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": 0.4,
+            "question_id": "is_human_escalation"
+          }
+        ],
+        "response": {
+          "answers": {
+            "is_human_escalation": {
+              "noul": 0.36,
+              "type": "noul"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 280,
+            "output_tokens": 25
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 1,
+      "source_ids": [
+        "noul"
+      ]
+    },
+    {
+      "case_id": "docs_noul_invoice",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.1457031380824697,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "yes",
+          "max_probability_delta": 0.1457031380824697,
+          "question_id": "is_human_escalation",
+          "remote_decision": "yes",
+          "total_variation_distance": 0.1457031380824697,
+          "type": "noul"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 26.093833,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.1457031380824697,
+            "basis": "published_example",
+            "expected_decision": "yes",
+            "matches_reference_decision": true,
+            "observed_decision": "yes",
+            "published_value": 0.84,
+            "question_id": "is_human_escalation"
+          }
+        ],
+        "response": {
+          "answers": {
+            "is_human_escalation": {
+              "noul": 0.6942968619175303,
+              "type": "noul"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 47,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": true,
+      "local_supported": true,
+      "notes": "Exact recorded state and question from the Noul table; comparison uses a declared 0.5 threshold, not the separate 0.9 routing example.",
+      "remote": {
+        "elapsed_ms": 277.715209,
+        "first_byte_ms": 277,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.0,
+            "basis": "published_example",
+            "expected_decision": "yes",
+            "matches_reference_decision": true,
+            "observed_decision": "yes",
+            "published_value": 0.84,
+            "question_id": "is_human_escalation"
+          }
+        ],
+        "response": {
+          "answers": {
+            "is_human_escalation": {
+              "noul": 0.84,
+              "type": "noul"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 287,
+            "output_tokens": 25
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 1,
+      "source_ids": [
+        "noul"
+      ]
+    },
+    {
+      "case_id": "docs_fruit_indirection",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.07989148743738053,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.07989148743738053,
+          "question_id": "item_0",
+          "remote_decision": "no",
+          "total_variation_distance": 0.07989148743738052,
+          "type": "noul"
+        },
+        {
+          "absolute_scalar_delta": 0.797909543640419,
+          "decision_agrees": false,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.797909543640419,
+          "question_id": "item_1",
+          "remote_decision": "yes",
+          "total_variation_distance": 0.797909543640419,
+          "type": "noul"
+        },
+        {
+          "absolute_scalar_delta": 0.18866924527146778,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.18866924527146778,
+          "question_id": "item_2",
+          "remote_decision": "no",
+          "total_variation_distance": 0.18866924527146778,
+          "type": "noul"
+        },
+        {
+          "absolute_scalar_delta": 0.6133266868077684,
+          "decision_agrees": false,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.6133266868077684,
+          "question_id": "item_3",
+          "remote_decision": "yes",
+          "total_variation_distance": 0.6133266868077684,
+          "type": "noul"
+        },
+        {
+          "absolute_scalar_delta": 0.266014572383618,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.26601457238361803,
+          "question_id": "item_4",
+          "remote_decision": "no",
+          "total_variation_distance": 0.26601457238361803,
+          "type": "noul"
+        },
+        {
+          "absolute_scalar_delta": 0.20505291397568995,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.20505291397568995,
+          "question_id": "item_5",
+          "remote_decision": "no",
+          "total_variation_distance": 0.20505291397568992,
+          "type": "noul"
+        },
+        {
+          "absolute_scalar_delta": 0.7843894541717452,
+          "decision_agrees": false,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.7843894541717452,
+          "question_id": "item_6",
+          "remote_decision": "yes",
+          "total_variation_distance": 0.7843894541717452,
+          "type": "noul"
+        },
+        {
+          "absolute_scalar_delta": 0.14083616381598682,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.14083616381598685,
+          "question_id": "item_7",
+          "remote_decision": "no",
+          "total_variation_distance": 0.14083616381598685,
+          "type": "noul"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 207.195709,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_0"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "yes",
+            "matches_reference_decision": false,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_1"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_2"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "yes",
+            "matches_reference_decision": false,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_3"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_4"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_5"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "yes",
+            "matches_reference_decision": false,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_6"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_7"
+          }
+        ],
+        "response": {
+          "answers": {
+            "item_0": {
+              "noul": 0.08989148743738053,
+              "type": "noul"
+            },
+            "item_1": {
+              "noul": 0.19209045635958102,
+              "type": "noul"
+            },
+            "item_2": {
+              "noul": 0.1986692452714678,
+              "type": "noul"
+            },
+            "item_3": {
+              "noul": 0.37667331319223163,
+              "type": "noul"
+            },
+            "item_4": {
+              "noul": 0.286014572383618,
+              "type": "noul"
+            },
+            "item_5": {
+              "noul": 0.22505291397568994,
+              "type": "noul"
+            },
+            "item_6": {
+              "noul": 0.19561054582825477,
+              "type": "noul"
+            },
+            "item_7": {
+              "noul": 0.15083616381598683,
+              "type": "noul"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 512,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": false,
+      "local_supported": true,
+      "notes": "Exact upstream list and expanded loop questions. Fruit labels were assigned independently before execution; the page does not publish per-item answers.",
+      "remote": {
+        "elapsed_ms": 306.663417,
+        "first_byte_ms": 306,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_0"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "yes",
+            "matches_reference_decision": true,
+            "observed_decision": "yes",
+            "published_value": null,
+            "question_id": "item_1"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_2"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "yes",
+            "matches_reference_decision": true,
+            "observed_decision": "yes",
+            "published_value": null,
+            "question_id": "item_3"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_4"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_5"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "yes",
+            "matches_reference_decision": true,
+            "observed_decision": "yes",
+            "published_value": null,
+            "question_id": "item_6"
+          },
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "independent_semantic_label",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "item_7"
+          }
+        ],
+        "response": {
+          "answers": {
+            "item_0": {
+              "noul": 0.01,
+              "type": "noul"
+            },
+            "item_1": {
+              "noul": 0.99,
+              "type": "noul"
+            },
+            "item_2": {
+              "noul": 0.01,
+              "type": "noul"
+            },
+            "item_3": {
+              "noul": 0.99,
+              "type": "noul"
+            },
+            "item_4": {
+              "noul": 0.02,
+              "type": "noul"
+            },
+            "item_5": {
+              "noul": 0.02,
+              "type": "noul"
+            },
+            "item_6": {
+              "noul": 0.98,
+              "type": "noul"
+            },
+            "item_7": {
+              "noul": 0.01,
+              "type": "noul"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 462,
+            "output_tokens": 148
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 1,
+      "source_ids": [
+        "jaggedness"
+      ]
+    },
+    {
+      "case_id": "docs_refund_cross_primitive",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": null,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.18789354582611417,
+          "question_id": "refund_choice",
+          "remote_decision": "no",
+          "total_variation_distance": 0.18789354582611417,
+          "type": "choice"
+        },
+        {
+          "absolute_scalar_delta": 0.09260661416907748,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "no",
+          "max_probability_delta": 0.09260661416907748,
+          "question_id": "refund_noul",
+          "remote_decision": "no",
+          "total_variation_distance": 0.09260661416907746,
+          "type": "noul"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 44.091166,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "refund_choice"
+          },
+          {
+            "absolute_delta_from_published_value": 0.09260661416907748,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": 0.22,
+            "question_id": "refund_noul"
+          }
+        ],
+        "response": {
+          "answers": {
+            "refund_choice": {
+              "choice": "no",
+              "confidence": 0.2823048709771191,
+              "probabilities": {
+                "no": 0.8021064541738858,
+                "yes": 0.19789354582611418
+              },
+              "type": "choice"
+            },
+            "refund_noul": {
+              "noul": 0.12739338583092252,
+              "type": "noul"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 81,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": true,
+      "local_supported": true,
+      "notes": "Exact state and instruction from the structural-invariants example. Question IDs assigned here; yes/no Choice uses null descriptions because the page gives labels but not descriptions. No identity between the two probabilities is asserted.",
+      "remote": {
+        "elapsed_ms": 322.94120799999996,
+        "first_byte_ms": 322,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": null,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": null,
+            "question_id": "refund_choice"
+          },
+          {
+            "absolute_delta_from_published_value": 0.0,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": 0.22,
+            "question_id": "refund_noul"
+          }
+        ],
+        "response": {
+          "answers": {
+            "refund_choice": {
+              "choice": "no",
+              "confidence": 0.99,
+              "probabilities": {
+                "no": 0.99,
+                "yes": 0.01
+              },
+              "type": "choice"
+            },
+            "refund_noul": {
+              "noul": 0.22,
+              "type": "noul"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 319,
+            "output_tokens": 51
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 1,
+      "source_ids": [
+        "jaggedness"
+      ]
+    },
+    {
+      "case_id": "docs_refund_negation",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.2788180519922099,
+          "decision_agrees": false,
+          "exact_answer_agrees": false,
+          "local_decision": "yes",
+          "max_probability_delta": 0.2788180519922099,
+          "question_id": "not_refund",
+          "remote_decision": "no",
+          "total_variation_distance": 0.2788180519922099,
+          "type": "noul"
+        },
+        {
+          "absolute_scalar_delta": 0.05017020292946195,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "yes",
+          "max_probability_delta": 0.05017020292946195,
+          "question_id": "refund",
+          "remote_decision": "yes",
+          "total_variation_distance": 0.05017020292946195,
+          "type": "noul"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 58.948665999999996,
+        "first_byte_ms": null,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.2788180519922099,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": false,
+            "observed_decision": "yes",
+            "published_value": 0.47,
+            "question_id": "not_refund"
+          },
+          {
+            "absolute_delta_from_published_value": 0.07017020292946197,
+            "basis": "published_example",
+            "expected_decision": "yes",
+            "matches_reference_decision": true,
+            "observed_decision": "yes",
+            "published_value": 0.72,
+            "question_id": "refund"
+          }
+        ],
+        "response": {
+          "answers": {
+            "not_refund": {
+              "noul": 0.7488180519922099,
+              "type": "noul"
+            },
+            "refund": {
+              "noul": 0.649829797070538,
+              "type": "noul"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 101,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": false,
+      "local_supported": true,
+      "notes": "Exact state and instructions from the structural-invariants example; source IDs retained; no complementarity assertion.",
+      "remote": {
+        "elapsed_ms": 258.765625,
+        "first_byte_ms": 258,
+        "reference_checks": [
+          {
+            "absolute_delta_from_published_value": 0.0,
+            "basis": "published_example",
+            "expected_decision": "no",
+            "matches_reference_decision": true,
+            "observed_decision": "no",
+            "published_value": 0.47,
+            "question_id": "not_refund"
+          },
+          {
+            "absolute_delta_from_published_value": 0.020000000000000018,
+            "basis": "published_example",
+            "expected_decision": "yes",
+            "matches_reference_decision": true,
+            "observed_decision": "yes",
+            "published_value": 0.72,
+            "question_id": "refund"
+          }
+        ],
+        "response": {
+          "answers": {
+            "not_refund": {
+              "noul": 0.47,
+              "type": "noul"
+            },
+            "refund": {
+              "noul": 0.7,
+              "type": "noul"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 307,
+            "output_tokens": 38
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 1,
+      "source_ids": [
+        "jaggedness"
+      ]
+    },
+    {
+      "case_id": "sdk_readme_billing",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": null,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "billing",
+          "max_probability_delta": 0.02015601877430573,
+          "question_id": "category",
+          "remote_decision": "billing",
+          "total_variation_distance": 0.020156018774305735,
+          "type": "choice"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 23.864791,
+        "first_byte_ms": null,
+        "reference_checks": [],
+        "response": {
+          "answers": {
+            "category": {
+              "choice": "billing",
+              "confidence": 0.8988119588525972,
+              "probabilities": {
+                "billing": 0.9798439812256943,
+                "other": 0.0063014278526407445,
+                "technical": 0.013854590921664998
+              },
+              "type": "choice"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 34,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": true,
+      "local_supported": true,
+      "notes": "Identical README examples deduplicated across the two official SDKs; neither README provides a numeric golden response.",
+      "remote": {
+        "elapsed_ms": 382.709041,
+        "first_byte_ms": 382,
+        "reference_checks": [],
+        "response": {
+          "answers": {
+            "category": {
+              "choice": "billing",
+              "confidence": 1.0,
+              "probabilities": {
+                "billing": 1.0,
+                "other": 0.0,
+                "technical": 0.0
+              },
+              "type": "choice"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 310,
+            "output_tokens": 38
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 1,
+      "source_ids": [
+        "js_readme",
+        "py_readme"
+      ]
+    },
+    {
+      "case_id": "sdk_js_demo",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.09822431428830458,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "yes",
+          "max_probability_delta": 0.09822431428830458,
+          "question_id": "isBilling",
+          "remote_decision": "yes",
+          "total_variation_distance": 0.09822431428830458,
+          "type": "noul"
+        },
+        {
+          "absolute_scalar_delta": 0.33836433809472655,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": [
+            "2"
+          ],
+          "max_probability_delta": 0.3243346695047601,
+          "question_id": "refundRisk",
+          "remote_decision": [
+            "2"
+          ],
+          "total_variation_distance": 0.3243346695047601,
+          "type": "score"
+        },
+        {
+          "absolute_scalar_delta": null,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "frustrated",
+          "max_probability_delta": 0.20932527626456976,
+          "question_id": "sentiment",
+          "remote_decision": "frustrated",
+          "total_variation_distance": 0.20932527626456973,
+          "type": "choice"
+        },
+        {
+          "absolute_scalar_delta": 0.08918893675571926,
+          "decision_agrees": false,
+          "exact_answer_agrees": false,
+          "local_decision": [
+            "3"
+          ],
+          "max_probability_delta": 0.2927779249000478,
+          "question_id": "urgency",
+          "remote_decision": [
+            "2"
+          ],
+          "total_variation_distance": 0.2927779249000478,
+          "type": "score"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 134.799667,
+        "first_byte_ms": null,
+        "reference_checks": [],
+        "response": {
+          "answers": {
+            "isBilling": {
+              "noul": 0.8817756857116954,
+              "type": "noul"
+            },
+            "refundRisk": {
+              "confidence": 0.30287889612575236,
+              "legend": {
+                "0": "unlikely",
+                "1": "possible",
+                "2": "likely"
+              },
+              "probabilities": {
+                "0": 0.024029668589966597,
+                "1": 0.3803050009147936,
+                "2": 0.59566533049524
+              },
+              "score": 1.5716356619052734,
+              "type": "score"
+            },
+            "sentiment": {
+              "choice": "frustrated",
+              "confidence": 0.4916592865291255,
+              "probabilities": {
+                "angry": 0.19752076178071498,
+                "calm": 0.01180451448385472,
+                "frustrated": 0.7906747237354302
+              },
+              "type": "choice"
+            },
+            "urgency": {
+              "confidence": 0.2510895513384287,
+              "legend": {
+                "0": "can wait",
+                "1": "this week",
+                "2": "today",
+                "3": "right now"
+              },
+              "probabilities": {
+                "0": 0.007034238947962453,
+                "1": 0.14124313565022065,
+                "2": 0.4172220750999522,
+                "3": 0.4345005503018647
+              },
+              "score": 2.279188936755719,
+              "type": "score"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 296,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": false,
+      "local_supported": true,
+      "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+      "remote": {
+        "elapsed_ms": 269.081958,
+        "first_byte_ms": 269,
+        "reference_checks": [],
+        "response": {
+          "answers": {
+            "isBilling": {
+              "noul": 0.98,
+              "type": "noul"
+            },
+            "refundRisk": {
+              "confidence": 0.87,
+              "legend": {
+                "0": "unlikely",
+                "1": "possible",
+                "2": "likely"
+              },
+              "probabilities": {
+                "0": 0.01,
+                "1": 0.07,
+                "2": 0.92
+              },
+              "score": 1.91,
+              "type": "score"
+            },
+            "sentiment": {
+              "choice": "frustrated",
+              "confidence": 1.0,
+              "probabilities": {
+                "angry": 0.0,
+                "calm": 0.0,
+                "frustrated": 1.0
+              },
+              "type": "choice"
+            },
+            "urgency": {
+              "confidence": 0.72,
+              "legend": {
+                "0": "can wait",
+                "1": "this week",
+                "2": "today",
+                "3": "right now"
+              },
+              "probabilities": {
+                "0": 0.0,
+                "1": 0.05,
+                "2": 0.71,
+                "3": 0.24
+              },
+              "score": 2.19,
+              "type": "score"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 449,
+            "output_tokens": 95
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 1,
+      "source_ids": [
+        "js_demo"
+      ]
+    },
+    {
+      "case_id": "sdk_js_live",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.13252146832580736,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "yes",
+          "max_probability_delta": 0.13252146832580736,
+          "question_id": "isBilling",
+          "remote_decision": "yes",
+          "total_variation_distance": 0.13252146832580736,
+          "type": "noul"
+        },
+        {
+          "absolute_scalar_delta": null,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "frustrated",
+          "max_probability_delta": 0.2776043129847936,
+          "question_id": "sentiment",
+          "remote_decision": "frustrated",
+          "total_variation_distance": 0.2776043129847936,
+          "type": "choice"
+        },
+        {
+          "absolute_scalar_delta": 0.18881926293797346,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": [
+            "2"
+          ],
+          "max_probability_delta": 0.173367461780926,
+          "question_id": "urgency",
+          "remote_decision": [
+            "2"
+          ],
+          "total_variation_distance": 0.173367461780926,
+          "type": "score"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 91.449083,
+        "first_byte_ms": null,
+        "reference_checks": [],
+        "response": {
+          "answers": {
+            "isBilling": {
+              "noul": 0.8374785316741926,
+              "type": "noul"
+            },
+            "sentiment": {
+              "choice": "frustrated",
+              "confidence": 0.2486676002722895,
+              "probabilities": {
+                "angry": 0.3587479553026119,
+                "calm": 0.048856357682181745,
+                "frustrated": 0.5923956870152064
+              },
+              "type": "choice"
+            },
+            "urgency": {
+              "confidence": 0.3890190081549504,
+              "legend": {
+                "0": "can wait",
+                "1": "this week",
+                "2": "today"
+              },
+              "probabilities": {
+                "0": 0.025451801157047472,
+                "1": 0.2479156606238785,
+                "2": 0.726632538219074
+              },
+              "score": 1.7011807370620264,
+              "type": "score"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 193,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": true,
+      "local_supported": true,
+      "notes": "Exact live integration payload. Upstream asserts schema/ranges, not semantic golden labels.",
+      "remote": {
+        "elapsed_ms": 292.95675,
+        "first_byte_ms": 292,
+        "reference_checks": [],
+        "response": {
+          "answers": {
+            "isBilling": {
+              "noul": 0.97,
+              "type": "noul"
+            },
+            "sentiment": {
+              "choice": "frustrated",
+              "confidence": 0.8,
+              "probabilities": {
+                "angry": 0.13,
+                "calm": 0.0,
+                "frustrated": 0.87
+              },
+              "type": "choice"
+            },
+            "urgency": {
+              "confidence": 0.84,
+              "legend": {
+                "0": "can wait",
+                "1": "this week",
+                "2": "today"
+              },
+              "probabilities": {
+                "0": 0.0,
+                "1": 0.1,
+                "2": 0.9
+              },
+              "score": 1.89,
+              "type": "score"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 394,
+            "output_tokens": 79
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 1,
+      "source_ids": [
+        "js_live"
+      ]
+    },
+    {
+      "case_id": "sdk_js_rich",
+      "comparisons": [],
+      "local": {
+        "elapsed_ms": 0.010750000000000001,
+        "error": "The local Laya backend requires plain-text instructions and descriptions",
+        "status": "error"
+      },
+      "local_first": false,
+      "local_supported": false,
+      "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+      "remote": {
+        "elapsed_ms": 305.754833,
+        "first_byte_ms": 305,
+        "reference_checks": [],
+        "response": {
+          "answers": {
+            "duplicate": {
+              "noul": 0.98,
+              "type": "noul"
+            },
+            "tone": {
+              "choice": "upset",
+              "confidence": 0.99,
+              "probabilities": {
+                "calm": 0.01,
+                "upset": 0.99
+              },
+              "type": "choice"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 413,
+            "output_tokens": 50
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 1,
+      "source_ids": [
+        "js_live"
+      ]
+    },
+    {
+      "case_id": "sdk_python_rich",
+      "comparisons": [],
+      "local": {
+        "elapsed_ms": 0.005334,
+        "error": "The local Laya backend requires plain-text instructions and descriptions",
+        "status": "error"
+      },
+      "local_first": true,
+      "local_supported": false,
+      "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+      "remote": {
+        "elapsed_ms": 433.666375,
+        "first_byte_ms": 433,
+        "reference_checks": [],
+        "response": {
+          "answers": {
+            "billing": {
+              "noul": 0.99,
+              "type": "noul"
+            },
+            "tone": {
+              "choice": "frustrated",
+              "confidence": 0.77,
+              "probabilities": {
+                "angry": 0.15,
+                "calm": 0.0,
+                "frustrated": 0.85
+              },
+              "type": "choice"
+            },
+            "urgency": {
+              "confidence": 0.91,
+              "legend": {
+                "0": "can wait",
+                "1": "this week",
+                "2": "today"
+              },
+              "probabilities": {
+                "0": 0.0,
+                "1": 0.06,
+                "2": 0.94
+              },
+              "score": 1.94,
+              "type": "score"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 420,
+            "output_tokens": 75
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 1,
+      "source_ids": [
+        "py_live"
+      ]
+    },
+    {
+      "case_id": "sdk_python_pydantic",
+      "comparisons": [
+        {
+          "absolute_scalar_delta": 0.05691776775735846,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "yes",
+          "max_probability_delta": 0.05691776775735846,
+          "question_id": "billing",
+          "remote_decision": "yes",
+          "total_variation_distance": 0.05691776775735846,
+          "type": "noul"
+        },
+        {
+          "absolute_scalar_delta": null,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": "frustrated",
+          "max_probability_delta": 0.3120944509601483,
+          "question_id": "tone",
+          "remote_decision": "frustrated",
+          "total_variation_distance": 0.3120944509601483,
+          "type": "choice"
+        },
+        {
+          "absolute_scalar_delta": 0.38994377806663216,
+          "decision_agrees": true,
+          "exact_answer_agrees": false,
+          "local_decision": [
+            "2"
+          ],
+          "max_probability_delta": 0.3549294499370168,
+          "question_id": "urgency",
+          "remote_decision": [
+            "2"
+          ],
+          "total_variation_distance": 0.3549294499370168,
+          "type": "score"
+        }
+      ],
+      "local": {
+        "elapsed_ms": 82.346542,
+        "first_byte_ms": null,
+        "reference_checks": [],
+        "response": {
+          "answers": {
+            "billing": {
+              "noul": 0.9230822322426415,
+              "type": "noul"
+            },
+            "tone": {
+              "choice": "frustrated",
+              "confidence": 0.2641433814113645,
+              "probabilities": {
+                "angry": 0.4184099798704134,
+                "calm": 0.033684471089735,
+                "frustrated": 0.5479055490398517
+              },
+              "type": "choice"
+            },
+            "urgency": {
+              "confidence": 0.26595007938305515,
+              "legend": {
+                "0": "can wait",
+                "1": "this week",
+                "2": "today"
+              },
+              "probabilities": {
+                "0": 0.03501432812961559,
+                "1": 0.3999151218074012,
+                "2": 0.5650705500629832
+              },
+              "score": 1.5300562219333678,
+              "type": "score"
+            }
+          },
+          "model": "local-laya/laya",
+          "usage": {
+            "input_tokens": 160,
+            "output_tokens": 0
+          }
+        },
+        "status": "ok"
+      },
+      "local_first": false,
+      "local_supported": true,
+      "notes": "Exact state/questions from the Pydantic response-model integration test; only payload behavior is reproduced in Rust, not the Python response wrapper.",
+      "remote": {
+        "elapsed_ms": 285.95579100000003,
+        "first_byte_ms": 285,
+        "reference_checks": [],
+        "response": {
+          "answers": {
+            "billing": {
+              "noul": 0.98,
+              "type": "noul"
+            },
+            "tone": {
+              "choice": "frustrated",
+              "confidence": 0.79,
+              "probabilities": {
+                "angry": 0.13,
+                "calm": 0.01,
+                "frustrated": 0.86
+              },
+              "type": "choice"
+            },
+            "urgency": {
+              "confidence": 0.88,
+              "legend": {
+                "0": "can wait",
+                "1": "this week",
+                "2": "today"
+              },
+              "probabilities": {
+                "0": 0.0,
+                "1": 0.08,
+                "2": 0.92
+              },
+              "score": 1.92,
+              "type": "score"
+            }
+          },
+          "model": "jev-1.13.0",
+          "usage": {
+            "input_tokens": 383,
+            "output_tokens": 75
+          }
+        },
+        "status": "ok"
+      },
+      "repeat": 1,
+      "source_ids": [
+        "py_live"
+      ]
+    }
+  ],
+  "remote_warmup_ms_excluded": 747.7529579999999,
+  "summary": {
+    "decision_count_columns": [
+      "compared",
+      "same_decision",
+      "exact_answer"
+    ],
+    "decision_counts_first_repeat_only": {
+      "choice": [
+        7,
+        6,
+        0
+      ],
+      "noul": [
+        22,
+        16,
+        0
+      ],
+      "score": [
+        8,
+        5,
+        0
+      ]
+    },
+    "latency_common_successful_pairs": {
+      "local": {
+        "max_ms": 207.195709,
+        "mean_ms": 63.78825811111111,
+        "median_ms": 49.549063000000004,
+        "min_ms": 23.322875,
+        "n": 36
+      },
+      "remote": {
+        "max_ms": 499.86179200000004,
+        "mean_ms": 341.99095708333334,
+        "median_ms": 317.151208,
+        "min_ms": 258.765625,
+        "n": 36
+      },
+      "remote_to_local_mean_ratio": 5.361346542613347
+    },
+    "local_unavailable_cases": [
+      "docs_choice_structured",
+      "sdk_js_rich",
+      "sdk_python_rich"
+    ],
+    "reference_count_columns": [
+      "available_labels",
+      "matching_decisions"
+    ],
+    "reference_counts_first_repeat_only": {
+      "local": {
+        "independent_semantic_label": [
+          8,
+          5
+        ],
+        "published_example": [
+          18,
+          12
+        ]
+      },
+      "remote": {
+        "independent_semantic_label": [
+          8,
+          8
+        ],
+        "published_example": [
+          19,
+          19
+        ]
+      }
+    },
+    "unexpected_failures": []
+  },
+  "unix_timestamp": 1790003730
+}

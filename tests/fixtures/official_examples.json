@@ -1,0 +1,897 @@
+{
+  "schema_version": 1,
+  "selection": "Official documentation examples and official SDK examples/live tests; frozen before model execution. This is a convenience sample, not a representative accuracy benchmark.",
+  "comparison_policy": {
+    "noul_threshold": 0.5,
+    "noul_equal_threshold": "uncertain",
+    "score_decision": "set of maximum-probability levels; ties preserved",
+    "published_example": "Illustrative/recorded source output, not immutable ground truth or required current API output",
+    "unlabeled_sdk_cases": "Measure backend agreement only; do not count as prediction accuracy"
+  },
+  "sources": {
+    "quickstart": {
+      "url": "https://docs.typesafe.ai/introduction/quickstart",
+      "kind": "official_documentation",
+      "revision": null,
+      "retrieved_on": "2026-09-21",
+      "snapshot_sha256": "c30183944985b269c49939140272f9eec885895df346f19d76cf9b04e18073d2"
+    },
+    "choice": {
+      "url": "https://docs.typesafe.ai/primitives/choice",
+      "kind": "official_documentation",
+      "revision": null,
+      "retrieved_on": "2026-09-21",
+      "snapshot_sha256": "4c55085131f8f2d7ae1faefdec52b1c7b379d40657d701cd2c786021cfe9dac9"
+    },
+    "score": {
+      "url": "https://docs.typesafe.ai/primitives/score",
+      "kind": "official_documentation",
+      "revision": null,
+      "retrieved_on": "2026-09-21",
+      "snapshot_sha256": "5afe0db1d2d108c3bf35f73f5fddbfcd2b9ade2d3c6f553af8a02b2bfd005ae9"
+    },
+    "noul": {
+      "url": "https://docs.typesafe.ai/primitives/noul",
+      "kind": "official_documentation",
+      "revision": null,
+      "retrieved_on": "2026-09-21",
+      "snapshot_sha256": "aa7bff0d04bd42614e0e851a9ad4917ccc6287c882bc5dece7689b085ef789e6"
+    },
+    "jaggedness": {
+      "url": "https://docs.typesafe.ai/model-jaggedness/jev-1.13",
+      "kind": "official_documentation",
+      "revision": null,
+      "retrieved_on": "2026-09-21",
+      "snapshot_sha256": "e69329bd32e91ac08f0bd2681ceb4aacc34923b9190e29c15c8f75d8e22950e2"
+    },
+    "js_demo": {
+      "url": "https://github.com/typesafe-ai/typesafe-sdk-js/blob/66880ccded6cb642dc1809620c2b108c33730214/examples/demo.ts",
+      "kind": "official_sdk_repository",
+      "revision": "66880ccded6cb642dc1809620c2b108c33730214",
+      "retrieved_on": "2026-09-21",
+      "snapshot_sha256": "e256cc736edc4486390c44c0f11846d2239db2af100007252a405ef932c53aeb"
+    },
+    "js_live": {
+      "url": "https://github.com/typesafe-ai/typesafe-sdk-js/blob/66880ccded6cb642dc1809620c2b108c33730214/test/integration/api.integration.ts",
+      "kind": "official_sdk_repository",
+      "revision": "66880ccded6cb642dc1809620c2b108c33730214",
+      "retrieved_on": "2026-09-21",
+      "snapshot_sha256": "d7ec91895f441ded4ae7db65fd48ee41f71a95cb693bada48b7814111859629c"
+    },
+    "py_live": {
+      "url": "https://github.com/typesafe-ai/typesafe-sdk-python/blob/2ce5c65f13646cab6e6f782328194c9d85f3300a/tests/test_integration.py",
+      "kind": "official_sdk_repository",
+      "revision": "2ce5c65f13646cab6e6f782328194c9d85f3300a",
+      "retrieved_on": "2026-09-21",
+      "snapshot_sha256": "c04c5f940154e871e25591896fe5b04e90ea830fd8693f0a368cb883d81d4b61"
+    },
+    "js_readme": {
+      "url": "https://github.com/typesafe-ai/typesafe-sdk-js/blob/66880ccded6cb642dc1809620c2b108c33730214/README.md",
+      "kind": "official_sdk_repository",
+      "revision": "66880ccded6cb642dc1809620c2b108c33730214",
+      "retrieved_on": "2026-09-21",
+      "snapshot_sha256": "ff2bc3e7069c96524f1caf187590ace7b310b0b41dfbfae57176b2c69a262859"
+    },
+    "py_readme": {
+      "url": "https://github.com/typesafe-ai/typesafe-sdk-python/blob/2ce5c65f13646cab6e6f782328194c9d85f3300a/README.md",
+      "kind": "official_sdk_repository",
+      "revision": "2ce5c65f13646cab6e6f782328194c9d85f3300a",
+      "retrieved_on": "2026-09-21",
+      "snapshot_sha256": "06aa97c3d7b31ea2eb0b43d3f2f687ad3e48e29802d539064331aaff8243adad"
+    }
+  },
+  "cases": [
+    {
+      "id": "docs_quickstart",
+      "source_ids": [
+        "quickstart"
+      ],
+      "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+      "local_supported": true,
+      "request": {
+        "state": "Hi, I've been trying to connect my Stripe account for 3 days and the integration keeps failing. I'm losing sales. Please help ASAP.",
+        "questions": {
+          "department": {
+            "type": "choice",
+            "instructions": "Which team should handle this",
+            "criteria": {
+              "billing": "Payment or subscription issues",
+              "technical": "Bugs or integration problems",
+              "sales": "Pricing or account questions"
+            }
+          },
+          "frustration": {
+            "type": "score",
+            "instructions": "How frustrated the customer appears",
+            "criteria": [
+              "Calm, just stating facts",
+              "Frustrated but civil",
+              "Very angry, strong language"
+            ]
+          },
+          "is_urgent": {
+            "type": "noul",
+            "instructions": "The message conveys urgency or time-sensitivity"
+          }
+        },
+        "model": "jev-1.13.0"
+      },
+      "expected": {
+        "department": {
+          "decision": "technical",
+          "basis": "published_example",
+          "published_value": null
+        },
+        "frustration": {
+          "decision": [
+            "1"
+          ],
+          "basis": "published_example",
+          "published_value": 1.0
+        },
+        "is_urgent": {
+          "decision": "yes",
+          "basis": "published_example",
+          "published_value": 1.0
+        }
+      }
+    },
+    {
+      "id": "docs_choice_exchange",
+      "source_ids": [
+        "choice"
+      ],
+      "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+      "local_supported": true,
+      "request": {
+        "state": "My running shoes arrived in the wrong size. Can I swap them for a size 10?",
+        "questions": {
+          "department": {
+            "type": "choice",
+            "instructions": "Which team should handle this?",
+            "criteria": {
+              "returns": "Exchanges, wrong or damaged items",
+              "shipping": "Delivery status, delays, lost packages",
+              "billing": "Charges, invoices, payment problems"
+            }
+          }
+        },
+        "model": "jev-1.13.0"
+      },
+      "expected": {
+        "department": {
+          "decision": "returns",
+          "basis": "published_example",
+          "published_value": null
+        }
+      }
+    },
+    {
+      "id": "docs_choice_structured",
+      "source_ids": [
+        "choice"
+      ],
+      "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+      "local_supported": false,
+      "request": {
+        "state": "I sent the shoes back a week ago. When do I get my money?",
+        "questions": {
+          "return_topic": {
+            "type": "choice",
+            "instructions": {
+              "question": "Which returns topic is the customer asking about?",
+              "focus": "Classify the information the customer wants."
+            },
+            "criteria": {
+              "return_policy": {
+                "what": "Whether and how an item can be returned",
+                "not_for": "Progress of a return already sent",
+                "examples": [
+                  "Can I return shoes I've worn once?",
+                  "How long do I have to return an order?"
+                ]
+              },
+              "return_status": {
+                "what": "Progress of a return already sent",
+                "not_for": "Whether and how an item can be returned",
+                "examples": [
+                  "Has my return arrived yet?",
+                  "When will my refund be paid?"
+                ]
+              }
+            }
+          }
+        },
+        "model": "jev-1.13.0"
+      },
+      "expected": {
+        "return_topic": {
+          "decision": "return_status",
+          "basis": "published_example",
+          "published_value": null
+        }
+      }
+    },
+    {
+      "id": "docs_score_severity",
+      "source_ids": [
+        "score"
+      ],
+      "notes": "Exact ScoreExplorer state, question and levels; source example id retained as question id; model pinned.",
+      "local_supported": true,
+      "request": {
+        "state": "The export button crashes the settings page in Safari. It works in Chrome, but a few of our customers only use Safari.",
+        "questions": {
+          "severity": {
+            "type": "score",
+            "instructions": "How severe is the reported issue?",
+            "criteria": [
+              "Cosmetic; no impact to functionality",
+              "Broken or degraded feature, but workaround exists",
+              "Blocking issue; no workaround exists"
+            ]
+          }
+        },
+        "model": "jev-1.13.0"
+      },
+      "expected": {
+        "severity": {
+          "decision": [
+            "1"
+          ],
+          "basis": "published_example",
+          "published_value": 1.43
+        }
+      }
+    },
+    {
+      "id": "docs_score_formality",
+      "source_ids": [
+        "score"
+      ],
+      "notes": "Exact ScoreExplorer state, question and levels; source example id retained as question id; model pinned.",
+      "local_supported": true,
+      "request": {
+        "state": "A navy blazer over a plain white T-shirt, dark jeans, and clean leather loafers. No tie.",
+        "questions": {
+          "formality": {
+            "type": "score",
+            "instructions": "How formal is this outfit based on the description?",
+            "criteria": [
+              "gym clothes",
+              "casual",
+              "business casual",
+              "formal",
+              "black tie"
+            ]
+          }
+        },
+        "model": "jev-1.13.0"
+      },
+      "expected": {
+        "formality": {
+          "decision": [
+            "2"
+          ],
+          "basis": "published_example",
+          "published_value": 1.86
+        }
+      }
+    },
+    {
+      "id": "docs_score_relevance",
+      "source_ids": [
+        "score"
+      ],
+      "notes": "Exact ScoreExplorer state, question and levels; source example id retained as question id; model pinned.",
+      "local_supported": true,
+      "request": {
+        "state": "Job posting: Senior backend engineer building Python APIs and PostgreSQL services. Candidate: Three years building Django REST APIs with PostgreSQL, preceded by two years in frontend JavaScript. Has owned small services but has not led a backend team.",
+        "questions": {
+          "relevance": {
+            "type": "score",
+            "instructions": "How relevant is this candidate's experience to the job posting?",
+            "criteria": [
+              "completely unrelated",
+              "adjacent field",
+              "some direct experience",
+              "deep, direct experience"
+            ]
+          }
+        },
+        "model": "jev-1.13.0"
+      },
+      "expected": {
+        "relevance": {
+          "decision": [
+            "3"
+          ],
+          "basis": "published_example",
+          "published_value": 2.52
+        }
+      }
+    },
+    {
+      "id": "docs_noul_repeat_contact",
+      "source_ids": [
+        "noul"
+      ],
+      "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+      "local_supported": true,
+      "request": {
+        "state": "I have asked three times now. Can I please just talk to a real person?",
+        "questions": {
+          "is_human_escalation": {
+            "type": "noul",
+            "instructions": "Is the customer asking for a human agent?"
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "instructions": "Has the customer contacted support about this before?",
+            "criteria": {
+              "true": "Mentions a prior attempt, ticket, or that they have asked before",
+              "false": "No sign of any previous contact"
+            }
+          }
+        },
+        "model": "jev-1.13.0"
+      },
+      "expected": {
+        "is_human_escalation": {
+          "decision": "yes",
+          "basis": "published_example",
+          "published_value": 0.99
+        },
+        "is_repeat_contact": {
+          "decision": "yes",
+          "basis": "published_example",
+          "published_value": 0.93
+        }
+      }
+    },
+    {
+      "id": "docs_noul_resolved",
+      "source_ids": [
+        "noul"
+      ],
+      "notes": "Exact recorded state and question from the Noul table; comparison uses a declared 0.5 threshold, not the separate 0.9 routing example.",
+      "local_supported": true,
+      "request": {
+        "state": "Thanks, that fixed it!",
+        "questions": {
+          "is_human_escalation": {
+            "type": "noul",
+            "instructions": "Is the customer asking for a human agent?"
+          }
+        },
+        "model": "jev-1.13.0"
+      },
+      "expected": {
+        "is_human_escalation": {
+          "decision": "no",
+          "basis": "published_example",
+          "published_value": 0.02
+        }
+      }
+    },
+    {
+      "id": "docs_noul_password",
+      "source_ids": [
+        "noul"
+      ],
+      "notes": "Exact recorded state and question from the Noul table; comparison uses a declared 0.5 threshold, not the separate 0.9 routing example.",
+      "local_supported": true,
+      "request": {
+        "state": "How do I reset my password?",
+        "questions": {
+          "is_human_escalation": {
+            "type": "noul",
+            "instructions": "Is the customer asking for a human agent?"
+          }
+        },
+        "model": "jev-1.13.0"
+      },
+      "expected": {
+        "is_human_escalation": {
+          "decision": "no",
+          "basis": "published_example",
+          "published_value": 0.07
+        }
+      }
+    },
+    {
+      "id": "docs_noul_urgent",
+      "source_ids": [
+        "noul"
+      ],
+      "notes": "Exact recorded state and question from the Noul table; comparison uses a declared 0.5 threshold, not the separate 0.9 routing example.",
+      "local_supported": true,
+      "request": {
+        "state": "I need this sorted today, whatever it takes.",
+        "questions": {
+          "is_human_escalation": {
+            "type": "noul",
+            "instructions": "Is the customer asking for a human agent?"
+          }
+        },
+        "model": "jev-1.13.0"
+      },
+      "expected": {
+        "is_human_escalation": {
+          "decision": "no",
+          "basis": "published_example",
+          "published_value": 0.26
+        }
+      }
+    },
+    {
+      "id": "docs_noul_bot",
+      "source_ids": [
+        "noul"
+      ],
+      "notes": "Exact recorded state and question from the Noul table; comparison uses a declared 0.5 threshold, not the separate 0.9 routing example.",
+      "local_supported": true,
+      "request": {
+        "state": "Are you a bot?",
+        "questions": {
+          "is_human_escalation": {
+            "type": "noul",
+            "instructions": "Is the customer asking for a human agent?"
+          }
+        },
+        "model": "jev-1.13.0"
+      },
+      "expected": {
+        "is_human_escalation": {
+          "decision": "no",
+          "basis": "published_example",
+          "published_value": 0.4
+        }
+      }
+    },
+    {
+      "id": "docs_noul_invoice",
+      "source_ids": [
+        "noul"
+      ],
+      "notes": "Exact recorded state and question from the Noul table; comparison uses a declared 0.5 threshold, not the separate 0.9 routing example.",
+      "local_supported": true,
+      "request": {
+        "state": "Is there any way to speak to someone about my invoice?",
+        "questions": {
+          "is_human_escalation": {
+            "type": "noul",
+            "instructions": "Is the customer asking for a human agent?"
+          }
+        },
+        "model": "jev-1.13.0"
+      },
+      "expected": {
+        "is_human_escalation": {
+          "decision": "yes",
+          "basis": "published_example",
+          "published_value": 0.84
+        }
+      }
+    },
+    {
+      "id": "docs_fruit_indirection",
+      "source_ids": [
+        "jaggedness"
+      ],
+      "notes": "Exact upstream list and expanded loop questions. Fruit labels were assigned independently before execution; the page does not publish per-item answers.",
+      "local_supported": true,
+      "request": {
+        "state": {
+          "items": [
+            "typesafe",
+            "apple",
+            "california",
+            "banana",
+            "likes",
+            "calibration",
+            "orange",
+            "vertex"
+          ]
+        },
+        "questions": {
+          "item_0": {
+            "type": "noul",
+            "instructions": "Is `items[0]` the name of a fruit?"
+          },
+          "item_1": {
+            "type": "noul",
+            "instructions": "Is `items[1]` the name of a fruit?"
+          },
+          "item_2": {
+            "type": "noul",
+            "instructions": "Is `items[2]` the name of a fruit?"
+          },
+          "item_3": {
+            "type": "noul",
+            "instructions": "Is `items[3]` the name of a fruit?"
+          },
+          "item_4": {
+            "type": "noul",
+            "instructions": "Is `items[4]` the name of a fruit?"
+          },
+          "item_5": {
+            "type": "noul",
+            "instructions": "Is `items[5]` the name of a fruit?"
+          },
+          "item_6": {
+            "type": "noul",
+            "instructions": "Is `items[6]` the name of a fruit?"
+          },
+          "item_7": {
+            "type": "noul",
+            "instructions": "Is `items[7]` the name of a fruit?"
+          }
+        },
+        "model": "jev-1.13.0"
+      },
+      "expected": {
+        "item_0": {
+          "decision": "no",
+          "basis": "independent_semantic_label",
+          "published_value": null
+        },
+        "item_1": {
+          "decision": "yes",
+          "basis": "independent_semantic_label",
+          "published_value": null
+        },
+        "item_2": {
+          "decision": "no",
+          "basis": "independent_semantic_label",
+          "published_value": null
+        },
+        "item_3": {
+          "decision": "yes",
+          "basis": "independent_semantic_label",
+          "published_value": null
+        },
+        "item_4": {
+          "decision": "no",
+          "basis": "independent_semantic_label",
+          "published_value": null
+        },
+        "item_5": {
+          "decision": "no",
+          "basis": "independent_semantic_label",
+          "published_value": null
+        },
+        "item_6": {
+          "decision": "yes",
+          "basis": "independent_semantic_label",
+          "published_value": null
+        },
+        "item_7": {
+          "decision": "no",
+          "basis": "independent_semantic_label",
+          "published_value": null
+        }
+      }
+    },
+    {
+      "id": "docs_refund_cross_primitive",
+      "source_ids": [
+        "jaggedness"
+      ],
+      "notes": "Exact state and instruction from the structural-invariants example. Question IDs assigned here; yes/no Choice uses null descriptions because the page gives labels but not descriptions. No identity between the two probabilities is asserted.",
+      "local_supported": true,
+      "request": {
+        "state": "I'm not happy with the fit. What are my options here?",
+        "questions": {
+          "refund_noul": {
+            "type": "noul",
+            "instructions": "Is the customer asking for a refund?"
+          },
+          "refund_choice": {
+            "type": "choice",
+            "instructions": "Is the customer asking for a refund?",
+            "criteria": {
+              "yes": null,
+              "no": null
+            }
+          }
+        },
+        "model": "jev-1.13.0"
+      },
+      "expected": {
+        "refund_noul": {
+          "decision": "no",
+          "basis": "published_example",
+          "published_value": 0.22
+        },
+        "refund_choice": {
+          "decision": "no",
+          "basis": "published_example",
+          "published_value": null
+        }
+      }
+    },
+    {
+      "id": "docs_refund_negation",
+      "source_ids": [
+        "jaggedness"
+      ],
+      "notes": "Exact state and instructions from the structural-invariants example; source IDs retained; no complementarity assertion.",
+      "local_supported": true,
+      "request": {
+        "state": "I was charged twice for the same order. Can someone look into this?",
+        "questions": {
+          "refund": {
+            "type": "noul",
+            "instructions": "Is the customer asking for a refund?"
+          },
+          "not_refund": {
+            "type": "noul",
+            "instructions": "Is the customer asking for something other than a refund?"
+          }
+        },
+        "model": "jev-1.13.0"
+      },
+      "expected": {
+        "refund": {
+          "decision": "yes",
+          "basis": "published_example",
+          "published_value": 0.72
+        },
+        "not_refund": {
+          "decision": "no",
+          "basis": "published_example",
+          "published_value": 0.47
+        }
+      }
+    },
+    {
+      "id": "sdk_readme_billing",
+      "source_ids": [
+        "js_readme",
+        "py_readme"
+      ],
+      "notes": "Identical README examples deduplicated across the two official SDKs; neither README provides a numeric golden response.",
+      "local_supported": true,
+      "request": {
+        "state": {
+          "document": "I was charged twice. Please fix this ASAP."
+        },
+        "questions": {
+          "category": {
+            "type": "choice",
+            "instructions": "What is this ticket about?",
+            "criteria": {
+              "billing": null,
+              "technical": null,
+              "other": null
+            }
+          }
+        },
+        "model": "jev-1.13.0"
+      },
+      "expected": {}
+    },
+    {
+      "id": "sdk_js_demo",
+      "source_ids": [
+        "js_demo"
+      ],
+      "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+      "local_supported": true,
+      "request": {
+        "state": {
+          "subject": "Charged twice this month",
+          "body": "Hi, I see two charges of $49 on my card for August. I only have one account. Please fix this ASAP, I'm pretty frustrated."
+        },
+        "questions": {
+          "isBilling": {
+            "type": "noul",
+            "instructions": "Is this ticket about billing?"
+          },
+          "sentiment": {
+            "type": "choice",
+            "instructions": "What is the customer's tone?",
+            "criteria": {
+              "calm": null,
+              "frustrated": null,
+              "angry": null
+            }
+          },
+          "urgency": {
+            "type": "score",
+            "instructions": "How urgent is this ticket?",
+            "criteria": [
+              "can wait",
+              "this week",
+              "today",
+              "right now"
+            ]
+          },
+          "refundRisk": {
+            "type": "score",
+            "instructions": "How likely is the customer to demand a refund?",
+            "criteria": [
+              "unlikely",
+              "possible",
+              "likely"
+            ]
+          }
+        },
+        "model": "jev-1.13.0"
+      },
+      "expected": {}
+    },
+    {
+      "id": "sdk_js_live",
+      "source_ids": [
+        "js_live"
+      ],
+      "notes": "Exact live integration payload. Upstream asserts schema/ranges, not semantic golden labels.",
+      "local_supported": true,
+      "request": {
+        "state": {
+          "subject": "Charged twice this month",
+          "body": "I see two charges of $49 on my card for August. I only have one account. Please fix this ASAP."
+        },
+        "questions": {
+          "isBilling": {
+            "type": "noul",
+            "instructions": "Is this ticket about billing?"
+          },
+          "sentiment": {
+            "type": "choice",
+            "instructions": "What is the customer's tone?",
+            "criteria": {
+              "calm": null,
+              "frustrated": null,
+              "angry": null
+            }
+          },
+          "urgency": {
+            "type": "score",
+            "instructions": "How urgent is this ticket?",
+            "criteria": [
+              "can wait",
+              "this week",
+              "today"
+            ]
+          }
+        },
+        "model": "jev-1.13.0"
+      },
+      "expected": {}
+    },
+    {
+      "id": "sdk_js_rich",
+      "source_ids": [
+        "js_live"
+      ],
+      "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+      "local_supported": false,
+      "request": {
+        "state": {
+          "subject": "Charged twice this month",
+          "body": "I see two charges of $49 on my card for August. I only have one account. Please fix this ASAP."
+        },
+        "questions": {
+          "duplicate": {
+            "type": "noul",
+            "instructions": "Is the customer reporting a duplicate charge?",
+            "criteria": {
+              "true": {
+                "meaning": "the same amount charged more than once",
+                "examples": [
+                  "billed twice"
+                ]
+              }
+            }
+          },
+          "tone": {
+            "type": "choice",
+            "instructions": "Tone?",
+            "criteria": {
+              "calm": {
+                "summary": "measured",
+                "examples": [
+                  "please look into this"
+                ]
+              },
+              "upset": null
+            }
+          }
+        },
+        "model": "jev-1.13.0"
+      },
+      "expected": {}
+    },
+    {
+      "id": "sdk_python_rich",
+      "source_ids": [
+        "py_live"
+      ],
+      "notes": "Exact source state/questions; the model selector is pinned to jev-1.13.0.",
+      "local_supported": false,
+      "request": {
+        "state": {
+          "subject": "Charged twice this month",
+          "body": "I see two charges of $49. I only have one account. Please fix this ASAP."
+        },
+        "questions": {
+          "billing": {
+            "type": "noul",
+            "instructions": "Is this ticket about billing?",
+            "criteria": {
+              "true": {
+                "meaning": "Payments or invoices",
+                "examples": [
+                  "charged twice"
+                ]
+              }
+            }
+          },
+          "tone": {
+            "type": "choice",
+            "instructions": "What is the customer's tone?",
+            "criteria": {
+              "calm": null,
+              "frustrated": null,
+              "angry": null
+            }
+          },
+          "urgency": {
+            "type": "score",
+            "instructions": "How urgent is this ticket?",
+            "criteria": [
+              "can wait",
+              "this week",
+              "today"
+            ]
+          }
+        },
+        "model": "jev-1.13.0"
+      },
+      "expected": {}
+    },
+    {
+      "id": "sdk_python_pydantic",
+      "source_ids": [
+        "py_live"
+      ],
+      "notes": "Exact state/questions from the Pydantic response-model integration test; only payload behavior is reproduced in Rust, not the Python response wrapper.",
+      "local_supported": true,
+      "request": {
+        "state": {
+          "subject": "Charged twice this month",
+          "body": "I see two charges of $49. Please fix this ASAP."
+        },
+        "questions": {
+          "billing": {
+            "type": "noul",
+            "instructions": "Is this ticket about billing?"
+          },
+          "tone": {
+            "type": "choice",
+            "instructions": "What is the customer's tone?",
+            "criteria": {
+              "calm": null,
+              "frustrated": null,
+              "angry": null
+            }
+          },
+          "urgency": {
+            "type": "score",
+            "instructions": "How urgent is this ticket?",
+            "criteria": [
+              "can wait",
+              "this week",
+              "today"
+            ]
+          }
+        },
+        "model": "jev-1.13.0"
+      },
+      "expected": {}
+    }
+  ]
+}

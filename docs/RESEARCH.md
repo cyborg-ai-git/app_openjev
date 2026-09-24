@@ -58,7 +58,7 @@ The Rust forward path is:
 
 The ModernBERT details follow its published architecture and Candle's reference implementation. The independent MLX implementation helped cross-check decision-head details. Our tests compare the custom encoder with Candle on synthetic tensors and compare full native CPU/Metal results on real weights. They do not establish complete PyTorch equivalence because no independent upstream golden tensor fixtures were imported or generated. [ModernBERT paper](https://arxiv.org/abs/2412.13663), [Candle](https://github.com/huggingface/candle), [MLX reference](https://github.com/mizorewww/laya-mlx).
 
-The optional upstream act/escalate head is not exposed. No automatic checkpoint router, batch scheduler, quantization, training loop, or shared-prefix cache is implemented. Prompt ordering and strict overflow rejection differ from some upstream convenience behavior and can affect predictions. Raising a configuration limit alone does not establish model quality at a longer context.
+The optional upstream act/escalate head is not exposed. No automatic checkpoint router, quantization, training loop, or shared-prefix cache is implemented. The Metal runtime batches up to four independent short questions with masked padding; CPU/CUDA and longer inputs remain sequential. Prompt ordering and strict overflow rejection differ from some upstream convenience behavior and can affect predictions. Raising a configuration limit alone does not establish model quality at a longer context.
 
 ## Rust, CPU, CUDA, and Metal
 
@@ -76,7 +76,7 @@ The delivered crate reproduces an operational typed-decision interface and runs 
 
 For an independently trained alternative, an engineering plan would require labeled or distribution-valued training examples across each primitive, explicit held-out splits, a trainable backbone/head, objective and optimizer implementation, task-specific calibration, robustness evaluation, and versioned deployment. Laya publishes an RLCD-style training approach, but this crate implements inference, not that training pipeline. [Laya training source](https://github.com/NandhaKishorM/laya).
 
-A proper scoring objective encourages honest probability reporting under its assumptions; it does not prove empirical calibration under optimization error or distribution shift. Evaluate accuracy together with Brier score, negative log likelihood, ECE, and action-specific error costs. `src/metrics.rs` and the Rust metrics example provide the first four measurements for user-supplied labels. Thresholds must be chosen using representative validation data; a confidence number alone cannot establish reliability.
+A proper scoring objective encourages honest probability reporting under its assumptions; it does not prove empirical calibration under optimization error or distribution shift. Evaluate accuracy together with Brier score, negative log likelihood, ECE, and action-specific error costs. `src/utility/u_openjev_metrics.rs` and the Rust metrics example provide the first four measurements for user-supplied labels. Thresholds must be chosen using representative validation data; a confidence number alone cannot establish reliability.
 
 ## Reproducible evidence
 

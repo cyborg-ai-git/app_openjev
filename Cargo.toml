@@ -14,6 +14,10 @@ name = "openjev"
 name = "openjev"
 path = "src/main.rs"
 
+[[bin]]
+name = "openjev-model"
+path = "src/bin/openjev_model.rs"
+
 [dependencies]
 anyhow = "1"
 clap = { version = "4.6", features = ["derive", "env"] }
@@ -25,6 +29,12 @@ reqwest = { version = "0.12", default-features = false, features = ["json", "rus
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 sha2 = "0.10"
+zeroize = "1"
+log = "0.4"
+toml = "0.8"
+evo_framework = { git = "https://github.com/cyborg-ai-git/evo_framework.git" }
+evo_core_entity = { git = "https://github.com/cyborg-ai-git/evo_core_entity.git" }
+evo_core_env = { git = "https://github.com/cyborg-ai-git/evo_core_env.git" }
 tokio = { version = "1", features = ["macros", "rt-multi-thread", "time"] }
 candle-core = { version = "0.9", optional = true }
 candle-nn = { version = "0.9", optional = true }
@@ -44,11 +54,21 @@ criterion = "0.8"
 tempfile = "3"
 
 [[bench]]
-name = "decision"
+name = "bench_openjev_decision"
 harness = false
 
 [[bench]]
-name = "local_inference"
+name = "bench_openjev_local_inference"
+harness = false
+required-features = ["local"]
+
+[[bench]]
+name = "bench_openjev_remote_comparison"
+harness = false
+required-features = ["local"]
+
+[[bench]]
+name = "bench_openjev_official_examples"
 harness = false
 required-features = ["local"]
 

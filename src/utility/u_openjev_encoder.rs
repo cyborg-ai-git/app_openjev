@@ -6,6 +6,11 @@ use candle_nn::{
 };
 use candle_transformers::models::modernbert::Config;
 
+// Finite masks avoid inf - inf in tiled softmax and all-masked padding queries.
+// Two combined masks remain representable in FP16. For normalized checkpoint
+// activations, masked probabilities underflow to zero in both FP16 and FP32.
+pub const MASK_BIAS: f32 = -10_000.0;
+
 pub fn attention(q: &Tensor, k: &Tensor, v: &Tensor, mask: Option<&Tensor>) -> Result<Tensor> {
     let width = q.dim(3)?;
     let scale = 1.0 / (width as f64).sqrt();
@@ -89,15 +94,24 @@ impl Layer {
             Some(norm) => norm.forward(x)?,
             None => x.clone(),
         };
-        let projections = self.qkv.forward(&normed)?.chunk(3, 2)?;
-        let reshape = |v: &Tensor| {
-            v.reshape((batch, length, self.heads, hidden / self.heads))?
+        // Reshape before slicing: reshaping each strided Q/K/V slice would copy it.
+        let projections = self.qkv.forward(&normed)?.reshape((
+            batch,
+            length,
+            3,
+            self.heads,
+            hidden / self.heads,
+        ))?;
+        let projection = |index| {
+            projections
+                .narrow(2, index, 1)?
+                .squeeze(2)?
                 .transpose(1, 2)?
                 .contiguous()
         };
-        let q = rope.apply(&reshape(&projections[0])?)?;
-        let k = rope.apply(&reshape(&projections[1])?)?;
-        let v = reshape(&projections[2])?;
+        let q = rope.apply(&projection(0)?)?;
+        let k = rope.apply(&projection(1)?)?;
+        let v = projection(2)?;
         let attended = attention(&q, &k, &v, mask)?
             .transpose(1, 2)?
             .contiguous()?
@@ -132,7 +146,7 @@ impl Encoder {
                     if i.abs_diff(j) <= cfg.local_attention / 2 {
                         0.0_f32
                     } else {
-                        f32::NEG_INFINITY
+                        MASK_BIAS
                     }
                 })
             })
@@ -172,13 +186,22 @@ impl Encoder {
     }
 
     pub fn forward(&self, ids: &Tensor) -> Result<Tensor> {
+        self.forward_masked(ids, None)
+    }
+
+    /// Right-padded batches use an additive key mask of shape (batch, 1, 1, length).
+    /// Each row retains its own rotary positions and never attends to another row.
+    pub fn forward_masked(&self, ids: &Tensor, padding: Option<&Tensor>) -> Result<Tensor> {
         let length = ids.dim(1)?;
-        let mask = self
+        let mut mask = self
             .local_mask
             .narrow(0, 0, length)?
             .narrow(1, 0, length)?
             .contiguous()?
             .reshape((1, 1, length, length))?;
+        if let Some(padding) = padding {
+            mask = mask.broadcast_add(padding)?;
+        }
         let mut x = self
             .embedding_norm
             .forward(&self.embeddings.forward(ids)?)?;
@@ -190,7 +213,7 @@ impl Encoder {
                 } else {
                     &self.local_rope
                 },
-                if layer.global { None } else { Some(&mask) },
+                if layer.global { padding } else { Some(&mask) },
             )?;
         }
         self.final_norm.forward(&x)

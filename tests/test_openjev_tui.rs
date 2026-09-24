@@ -17,6 +17,9 @@ fn app() -> App {
 fn key(code: KeyCode) -> KeyEvent {
     KeyEvent::new(code, KeyModifiers::NONE)
 }
+fn control(letter: char) -> KeyEvent {
+    KeyEvent::new(KeyCode::Char(letter), KeyModifiers::CONTROL)
+}
 
 #[test]
 fn renders_all_modes_at_multiple_sizes_without_panics() {
@@ -26,6 +29,9 @@ fn renders_all_modes_at_multiple_sizes_without_panics() {
             app.selected = mode;
             let request = app.request().unwrap();
             app.last = Some(Completed {
+                backend: openjev::EnumOpenjevBackend::Demo,
+                ttft_ms: None,
+                first_byte_ms: None,
                 response: demo_response(&request),
                 request,
                 demo: true,
@@ -66,14 +72,70 @@ fn mode_switch_preserves_edits_and_help_blocks_input() {
     app.key(key(KeyCode::Char('X')));
     let original = app.forms[0].instruction.lines().to_vec();
     for _ in 0..3 {
-        app.key(key(KeyCode::F(2)));
+        app.key(control('t'));
     }
     assert_eq!(app.forms[0].instruction.lines(), original);
-    app.key(key(KeyCode::F(1)));
+    app.key(control('l'));
     app.key(key(KeyCode::Char('Y')));
     assert_eq!(app.forms[0].instruction.lines(), original);
     app.key(key(KeyCode::Esc));
     assert!(!app.help);
+}
+
+#[test]
+fn function_keys_do_not_trigger_actions_or_edit_text() {
+    let mut app = app();
+    let original = app.state.lines().to_vec();
+    for number in 1..=12 {
+        assert!(!app.key(key(KeyCode::F(number))));
+    }
+    assert!(!app.help && !app.raw && !app.json_state);
+    assert_eq!(app.selected, 0);
+    assert!(app.pending.is_none());
+    assert_eq!(app.state.lines(), original);
+}
+
+#[tokio::test]
+async fn control_shortcuts_evaluate_preview_export_and_preserve_typing() {
+    let mut app = app();
+    for letter in ['g', 't', 'b', 'p', 'o', 'l'] {
+        app.key(key(KeyCode::Char(letter)));
+    }
+    assert!(app.state.lines().join("\n").contains("gtbpol"));
+    assert!(!app.help && !app.raw && !app.json_state);
+    assert!(app.pending.is_none());
+
+    app.key(control('b'));
+    assert!(app.json_state);
+    app.key(control('b'));
+    app.scroll = 10;
+    app.key(control('p'));
+    assert!(app.raw);
+    assert_eq!(app.scroll, 0);
+
+    app.key(control('l'));
+    app.key(control('g'));
+    assert!(app.pending.is_none());
+    app.key(control('l'));
+    assert!(!app.help);
+
+    app.key(control('g'));
+    assert!(app.pending.is_some());
+    tokio::time::timeout(std::time::Duration::from_secs(3), async {
+        while app.pending.is_some() {
+            tokio::time::sleep(std::time::Duration::from_millis(10)).await;
+            app.collect().await;
+        }
+    })
+    .await
+    .unwrap();
+    assert!(app.last.is_some());
+    let temp = tempfile::tempdir().unwrap();
+    app.export_dir = temp.path().into();
+    app.key(control('o'));
+    assert!(!app.error);
+    assert_eq!(std::fs::read_dir(temp.path()).unwrap().count(), 1);
+    assert!(app.key(control('q')));
 }
 
 #[tokio::test]

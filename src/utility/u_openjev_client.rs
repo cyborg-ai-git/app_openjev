@@ -1,4 +1,4 @@
-use std::time::Duration;
+use std::time::{Duration, Instant};
 
 use anyhow::{Context, Result, bail, ensure};
 use reqwest::{
@@ -6,20 +6,21 @@ use reqwest::{
     header::{AUTHORIZATION, HeaderMap, HeaderValue, RETRY_AFTER},
 };
 
-use crate::{Evaluation, Request};
+use crate::{EMOpenjevHttpTiming, Evaluation, Request};
 
 /// Reusable asynchronous HTTP client. Secrets are neither logged nor debug-printed.
 #[derive(Clone)]
-pub struct Client {
+pub struct UOpenjevClient {
     http: reqwest::Client,
     endpoint: Url,
 }
+pub type Client = UOpenjevClient;
 
 impl Client {
     pub fn new(api_key: &str, base_url: &str, timeout: Duration) -> Result<Self> {
         ensure!(
             !api_key.trim().is_empty(),
-            "Set TYPESAFE_API_KEY or start with --demo"
+            "Configure TYPESAFE_TOKEN in config/.secrets/secret_env.toml or start with --demo"
         );
         ensure!(!timeout.is_zero(), "Timeout must be greater than zero");
         let base = Url::parse(base_url).context("Invalid TYPESAFE_BASE_URL")?;
@@ -57,6 +58,18 @@ impl Client {
     /// Retries only explicit rate-limit/overload replies (two retries maximum).
     /// Connection failures are not replayed: the server may already have billed them.
     pub async fn evaluate(&self, request: &Request) -> Result<Evaluation> {
+        self.evaluate_timed(request)
+            .await
+            .map(|(response, _)| response)
+    }
+
+    /// TTFB measures the first nonempty byte of the successful response body.
+    /// This API has no token stream, so it cannot expose a meaningful TTFT.
+    pub async fn evaluate_timed(
+        &self,
+        request: &Request,
+    ) -> Result<(Evaluation, EMOpenjevHttpTiming)> {
+        let start = Instant::now();
         request.validate()?;
         for attempt in 0..3_u32 {
             let mut response = self
@@ -102,11 +115,15 @@ impl Client {
                 "TypeSafe response exceeds the 8 MiB safety limit"
             );
             let mut body = Vec::new();
+            let mut first_byte_ms = None;
             while let Some(chunk) = response
                 .chunk()
                 .await
                 .map_err(|_| anyhow::anyhow!("TypeSafe response interrupted or timed out"))?
             {
+                if !chunk.is_empty() && first_byte_ms.is_none() {
+                    first_byte_ms = Some(start.elapsed().as_millis());
+                }
                 ensure!(
                     chunk.len() <= MAX_RESPONSE_BYTES.saturating_sub(body.len()),
                     "TypeSafe response exceeds the 8 MiB safety limit"
@@ -119,7 +136,13 @@ impl Client {
             evaluation
                 .validate_for(request)
                 .context("TypeSafe response does not match the request")?;
-            return Ok(evaluation);
+            return Ok((
+                evaluation,
+                EMOpenjevHttpTiming {
+                    first_byte_ms,
+                    total_ms: start.elapsed().as_millis(),
+                },
+            ));
         }
         unreachable!("all attempts return or retry")
     }
